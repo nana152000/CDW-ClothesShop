@@ -1,0 +1,29 @@
+//Loại
+INSERT INTO `categories` (`id`, `name`, `decriptions`) VALUES 
+(1, 'Áo', NULL), 
+(2, 'Quần', NULL), 
+(3, 'Chân váy', NULL), 
+(4, 'Đầm', NULL)
+
+//Màu
+INSERT INTO `colors` (`id`, `id_product`, `name_color`, `color_code`, `image`) VALUES 
+(1, '1', 'Đen', '#000000', 'DEN-1.jpg,\r\nDEN-2.jpg'), 
+(2, '1', 'Trắng', '#FFFFFF', 'TRANG-1.jpg,\r\nTRANG-2.jpg,\r\nTRANG-3.jpg'), 
+(3, '2', 'Cam', '#FF6600', 'CAM-1.jpg,\r\nCAM-2.jpg'), 
+(4, '2', 'Đen', '#000000', 'DEN-1'), 
+(5, '2', 'Hồng', '#FFCCFF', 'HONG-1.jpg'), 
+(6, '3', 'Xanh', '#33CCFF', 'JEAN-1.jpg,\r\nJEAN-2.jpg,\r\nJEAN-3.jpg,\r\nJEAN-4.jpg,\r\nJEAN-5.jpg'),
+(7, '4', 'Đen', '#000000', 'DEN-1.jpg,\r\nDEN-2.jpg'), 
+(8, '4', 'Trắng', '#FFFFFF', 'TRANG-1.jpg,\r\nTRANG-2.jpg'), 
+(9, '4', 'Nâu', '#996600', 'NAU-1.jpg,\r\nNAU-2.jpg'), 
+(10, '5', 'Trắng', '#FFFFFF', 'TRANG-1.jpg'), 
+(11, '5', 'Kem', '# FFFAFA', 'KEM-1.jpg,\r\nKEM-2.jpg'), 
+(12, '5', 'Xanh', '# 63B8FF', 'XANH-1.jpg,\r\nXANH-2.jpg')
+
+//Sản phẩm
+INSERT INTO `products` (`id`, `id_category`, `name`, `sizes`, `price`, `sale`, `featured_products`, `new_product`, `decriptions`, `date_created`, `date_update`) VALUES 
+(1, '1', 'ÁO THUN TAY NGẮN UNISEX IN CHỮ THE NEW ME', 'M,L,XL', '145', '0', '0', '0', '- Tên sản phẩm: Áo thun tay ngắn unisex in chữ The new me\r\n- Chất liệu: thun cotton 100%, co giãn 4 chiều, vải mềm, vải mịn, thoáng mát, không xù lông.\r\n- Cam kết hình ảnh áo thun do shop tự chụp 100%\r\n- Áo thun unisex phù hợp phối với nhiều sản phẩm: jeans, chân váy, quần short, váy 2 dây,... Áo phông unisex cân mọi phong cách từ dễ thương, dịu dàng, năng động, thể thao. Đường may từng chiếc áo chuẩn chỉnh, tỉ mỉ và chắc chắn.\r\n\r\nBảng số đo áo phông form rộng\r\n- Chiều dài áo 65cm - Ngực 55cm - Vai 45cm - Tay 17cm\r\n\r\nLưu ý 1 tí ạ: Số đo này mọi người tự ướm lên áo của chính mình đang mặc vừa để chọn size phù hợp, đừng nhân đôi lên nha khách nha ^^. Chênh lệch 1,2cm vẫn oke nè', '2022-06-09 09:37:22', '2022-06-09 09:37:22'), 
+(2, '1', 'ÁO TAY NGẮN CỔ VEST THÊU TRÁI THƠM', 'FREESIZE', '155', '0', '0', '0', 'Sản phẩm: Áo tay ngắn cổ vest thêu trái thơm\r\nChât liệu: Cotton bột\r\nSize: FREESIZE\r\nKích thước: Dài áo 56cm - Vai 37cm - Ngực 49cm - Dài tay 21,5cm - Rộng tay 17cm', '2022-06-09 09:48:18', '2022-06-09 09:48:18'), 
+(3, '2', 'QUẦN JEAN ỐNG RỘNG VẢI XƯỚC SỌC XANH S258', 'S, M, L', '335', '0', '0', '1', '- Tên sản phẩm: Quần jean ống rộng vải xước sọc xanh S258\r\n\r\n- Chất liệu: jean\r\n\r\n- Cam kết hình thật 100%\r\n\r\n- Size S - M - L\r\n\r\n- Màu: xanh', '2022-06-09 09:54:37', '2022-06-09 09:54:37'), 
+(4, '3', 'CHÂN VÁY NHUNG TĂM DÁNG XÒE LƯNG CAO 6329', 'S, M, L', '185', '0', '1', '0', 'Sản phẩm: Chân váy nhung tăm dáng xòe lưng cao 6329\r\nChất liệu: Nhung\r\nXuất xứ: Việt Nam\r\nSize: S, M, L\r\nBẢNG SIZE\r\nLưu ý 1 tí ạ: Số đo này mọi người tự ướm lên quần áo của chính mình đang mặc vừa để chọn size phù hợp chứ đừng nhân đôi lên nha. Chênh lệch 1,2cm vẫn oke nhé', '2022-06-09 09:59:35', '2022-06-09 09:59:35'), 
+(5, '4', 'ĐẦM TAY PHỒNG HỞ NGỰC CỘT NƠ', 'S, M', '275', '0', '1', '0', 'Sản phẩm: Đầm tay phồng hở ngực cột nơ \r\nMàu sắc: trắng - xanh - kem\r\n\r\nBẢNG SIZE: S, M\r\n\r\nLưu ý 1 tí ạ: Số đo này mọi người tự ướm lên quần áo của chính mình đang mặc vừa để chọn size phù hợp chứ đừng nhân đôi lên nha. Chênh lệch 1,2cm vẫn oke nhé', '2022-06-09 10:05:09', '2022-06-09 10:05:09')

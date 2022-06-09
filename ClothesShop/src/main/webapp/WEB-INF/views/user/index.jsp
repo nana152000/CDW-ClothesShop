@@ -1,75 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <title>Shop quần áo - Trang chủ</title>
 <body>
-<div class="slider-area">
+	<!-- slide -->
+	<div class="slider-area">
 		<div class="slider-active owl-carousel">
-			<div class="single-slider single-slider-book1 bg-img"
-				style="background-image: url(assets/user/img/slider/bia.jpg)">
-				<div class="container">
-					<div class="slider-animation slider-content-book fadeinup-animated">
-						<h1 class="animated">
-							<span>Knowledge</span> is
-						</h1>
-						<h2 class="animated">Power.</h2>
-						<p class="animated">Lorem Ipsum is simply dummy text of the
-							printing and typesetting industry.</p>
-						<a href="shop.html">More Books</a>
-					</div>
-				</div>
-			</div>
-			<div class="single-slider single-slider-book1 bg-img"
-				style="background-image: url(assets/user/img/slider/bia.jpg)">
-				<div class="container">
-					<div class="slider-animation slider-content-book fadeinup-animated">
-						<h1 class="animated">
-							<span>Knowledge</span> is
-						</h1>
-						<h2 class="animated">Power.</h2>
-						<p class="animated">Lorem Ipsum is simply dummy text of the
-							printing and typesetting industry.</p>
-						<a href="shop.html">More Books</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- banner area start -->
-	<div class="banner-area pt-120 pb-110">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6">
-					<div class="book-banner-wrapper mr-20">
-						<img src="assets/user/img/banner/bn13.jpg" alt="">
-						<div class="banner-book-style1">
-							<h3>
-								Big Sell For <br>December
-							</h3>
-							<h2>50% OFF</h2>
-							<a class="banner-book-style-btn" href="product-details.html">Buy
-								Now</a>
+			<c:forEach var="slide" items="${slides}" varStatus="index">
+				<div class="single-slider single-slider-book1 bg-img"
+					style="background-image: url(<c:url value="/assets/user/img/slider/${slide.image}"></c:url>)">
+					<div class="container">
+						<div
+							class="slider-animation slider-content-book fadeinup-animated">
+							<h1 class="animated">
+								<span>${slide.caption}</span>
+							</h1>
+							<p class="animated">${slide.content}</p>
+							<a href="shop.html">More Books</a>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-6">
-					<div class="book-banner-wrapper ml-20">
-						<img src="assets/user/img/banner/bn14.jpg" alt="">
-						<div class="banner-book-style2 text-center">
-							<h2>Learn More</h2>
-							<img src="assets/user/img/icon-img/2.png" alt="">
-							<p>Lorem Ipsum is simply dummy text of the printing and
-								typesetting industry.</p>
-							<a class="banner-book-style-btn" href="product-details.html">Buy
-								Now</a>
-						</div>
-					</div>
-				</div>
-			</div>
+			</c:forEach>
 		</div>
 	</div>
-	<!-- banner area end -->
 	<!-- best product area start -->
 	<div class="best-product-area pb-15">
+		<div style="height: 35px"></div>
 		<div class="pl-100 pr-100">
 			<div class="container-fluid">
 				<div class="section-title-3 text-center mb-40">
@@ -99,8 +55,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/1.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/1.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -126,8 +82,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/2.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/2.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -148,8 +104,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/3.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/3.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -170,8 +126,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/4.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/4.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -197,8 +153,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/5.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/5.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -224,8 +180,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/6.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/6.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -246,8 +202,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/7.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/7.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -273,8 +229,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/8.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/8.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -300,8 +256,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/9.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/9.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -322,8 +278,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/10.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/10.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -353,8 +309,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/10.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/10.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -380,8 +336,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/9.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/9.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -402,8 +358,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/8.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/8.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -424,8 +380,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/7.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/7.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -451,8 +407,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/6.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/6.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -478,8 +434,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/5.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/5.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -500,8 +456,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/4.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/4.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -527,8 +483,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/3.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/3.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -554,8 +510,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/2.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/2.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -576,8 +532,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/1.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/1.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -607,8 +563,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/5.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/5.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -634,8 +590,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/4.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/4.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -656,8 +612,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/3.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/3.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -678,8 +634,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/2.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/2.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -705,8 +661,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/1.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/1.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -732,8 +688,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/10.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/10.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -754,8 +710,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/9.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/9.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -781,8 +737,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/8.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/8.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -808,8 +764,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/7.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/7.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -830,8 +786,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/6.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/6.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -861,8 +817,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/3.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/3.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -888,8 +844,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/1.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/1.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -910,8 +866,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/2.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/2.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -932,8 +888,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/5.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/5.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -959,8 +915,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/4.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/4.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -986,8 +942,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/8.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/8.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -1008,8 +964,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/7.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/7.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -1035,8 +991,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/6.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/6.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -1062,8 +1018,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/10.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/10.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -1084,8 +1040,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/9.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/9.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -1115,8 +1071,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/10.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/10.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -1142,8 +1098,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/10.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/10.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -1164,8 +1120,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/9.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/9.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -1186,8 +1142,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/4.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/4.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -1213,8 +1169,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/8.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/8.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -1240,8 +1196,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/3.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/3.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -1262,8 +1218,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/7.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/7.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -1289,8 +1245,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/2.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/2.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -1316,8 +1272,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/6.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/6.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -1338,8 +1294,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/1.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/1.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -1369,8 +1325,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/1.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/1.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -1396,8 +1352,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/2.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/2.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -1418,8 +1374,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/3.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/3.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -1440,8 +1396,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/4.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/4.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -1467,8 +1423,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/5.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/5.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -1494,8 +1450,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/6.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/6.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -1516,8 +1472,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/7.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/7.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -1543,8 +1499,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/8.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/8.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -1570,8 +1526,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/9.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/9.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -1592,8 +1548,8 @@
 								<div class="custom-col-5 custom-col-style mb-95">
 									<div class="product-wrapper">
 										<div class="product-img-2">
-											<a href="#"> <img src="assets/user/img/product/book/10.png"
-												alt="">
+											<a href="#"> <img
+												src="assets/user/img/product/book/10.png" alt="">
 											</a>
 											<div class="product-action-2">
 												<a class="animate-left add-style-2" title="Add To Cart"
@@ -1760,7 +1716,8 @@
 	<!-- discount area start -->
 	<div class="discount-area pr-205 gray-bg-4 pt-115 pb-90">
 		<div class="discount-left text-center">
-			<img class="tilter" src="assets/user/img/product/book/book1.jpg" alt="">
+			<img class="tilter" src="assets/user/img/product/book/book1.jpg"
+				alt="">
 			<h4>Photo Realistic - 50% Discount</h4>
 			<a href="#">Buy Now</a>
 		</div>

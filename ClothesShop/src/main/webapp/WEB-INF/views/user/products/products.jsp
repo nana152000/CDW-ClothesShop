@@ -34,19 +34,7 @@
                                     </form>
                                 </div>
                             </div>
-                            <div class="sidebar-widget mb-40">
-                                <h3 class="sidebar-title">Filter by Price</h3>
-                                <div class="price_filter">
-                                    <div id="slider-range"></div>
-                                    <div class="price_slider_amount">
-                                        <div class="label-input">
-                                            <label>price : </label>
-                                            <input type="text" id="amount" name="price"  placeholder="Add Your Price" />
-                                        </div>
-                                        <button type="button">Filter</button> 
-                                    </div>
-                                </div>
-                            </div>
+                        
                             <div class="sidebar-widget mb-45">
                                 <h3 class="sidebar-title">Categories</h3>
                                 <div class="sidebar-categories">
@@ -84,18 +72,7 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="sidebar-widget mb-40">
-                                <h3 class="sidebar-title">tag</h3>
-                                <div class="product-tags">
-                                    <ul>
-                                        <li><a href="#">Clothing</a></li>
-                                        <li><a href="#">Bag</a></li>
-                                        <li><a href="#">Women</a></li>
-                                        <li><a href="#">Tie</a></li>
-                                        <li><a href="#">Women</a></li>
-                                    </ul>
-                                </div>
-                            </div>
+                           
                             <div class="sidebar-widget mb-50">
                                 <h3 class="sidebar-title">Top rated products</h3>
                                 <div class="sidebar-top-rated-all">
