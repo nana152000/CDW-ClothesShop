@@ -1,3 +1,11 @@
+//menus
+INSERT INTO `menus` (`id`, `name`, `url`) VALUES 
+(1, 'Trang chủ', NULL), 
+(2, 'Sản phẩm', NULL), 
+(3, 'Giới thiệu', NULL), 
+(4, 'Blog', NULL), 
+(5, 'Liên hệ', NULL)
+
 //Loại
 INSERT INTO `categories` (`id`, `name`, `decriptions`) VALUES 
 (1, 'Áo', NULL), 

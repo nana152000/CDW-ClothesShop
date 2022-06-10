@@ -36,23 +36,22 @@
                             </div>
                         
                             <div class="sidebar-widget mb-45">
-                                <h3 class="sidebar-title">Categories</h3>
+                                <h3 class="sidebar-title">Sản phẩmi</h3>
                                 <div class="sidebar-categories">
                                     <ul>
-                                        <li><a href="#">Accessories <span>4</span></a></li>
-                                        <li><a href="#">Book <span>9</span></a></li>
-                                        <li><a href="#">Clothing <span>5</span> </a></li>
-                                        <li><a href="#">Homelife <span>3</span></a></li>
-                                        <li><a href="#">Kids & Baby <span>4</span></a></li>
+                                        <li><a href="#">Áo <span>4</span></a></li>
+                                        <li><a href="#">Quần <span>9</span></a></li>
+                                        <li><a href="#">Chân váy <span>5</span> </a></li>
+                                        <li><a href="#">Đầm <span>3</span></a></li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="sidebar-widget sidebar-overflow mb-45">
-                                <h3 class="sidebar-title">color</h3>
+                                <h3 class="sidebar-title">Màu</h3>
                                 <div class="product-color">
                                     <ul>
                                         <li class="red">b</li>
-                                        <li class="pink">p</li>
+                                        <li class="white">p</li>
                                         <li class="blue">b</li>
                                         <li class="sky">b</li>
                                         <li class="green">y</li>
@@ -60,18 +59,7 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="sidebar-widget mb-40">
-                                <h3 class="sidebar-title">size</h3>
-                                <div class="product-size">
-                                    <ul>
-                                        <li><a href="#">xl</a></li>
-                                        <li><a href="#">m</a></li>
-                                        <li><a href="#">l</a></li>
-                                        <li><a href="#">ml</a></li>
-                                        <li><a href="#">lm</a></li>
-                                    </ul>
-                                </div>
-                            </div>
+                       
                            
                             <div class="sidebar-widget mb-50">
                                 <h3 class="sidebar-title">Top rated products</h3>

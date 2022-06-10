@@ -1,24 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <header class="res-header-sm">
 	<div class="header-bottom clearfix">
 		<div class="container">
 			<div class="header-bottom-wrapper">
 				<div class="logo-2 ptb-40">
 					<a href="index.html"> <img class="img-logo"
-						src="<c:url value="/assets/user/img/logo/logo.png"></c:url>" alt="">
+						src="<c:url value="/assets/user/img/logo/logo.png"></c:url>"
+						alt="">
 					</a>
 				</div>
 				<div class="menu-style-2 book-menu menu-hover">
 					<nav>
 						<ul>
-							<li><a href="index.html">home</a></li>
+							<c:forEach var="menu" items="${menus}">
+								<li><c:if test="${index.first}">
+										<a class="active" href="index.html">${menu.name}</a>
+									</c:if> <c:if test="${not index.first}">
+										<a href="index.html">${menu.name}</a>
+									</c:if></li>
+							</c:forEach>
 
-							<li><a href="about-us.html">about us</a></li>
-
-							<li><a href="shop.html">shop</a></li>
-							<li><a href="blog.html">blog</a></li>
-							<li><a href="contact.html">contact</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -36,7 +39,9 @@
 						<ul class="cart-dropdown">
 							<li class="single-product-cart">
 								<div class="cart-img">
-									<a href="#"><img src="<c:url value="/assets/user/img/cart/1.jpg"></c:url>" alt=""></a>
+									<a href="#"><img
+										src="<c:url value="/assets/user/img/cart/1.jpg"></c:url>"
+										alt=""></a>
 								</div>
 								<div class="cart-title">
 									<h5>
@@ -53,7 +58,9 @@
 							</li>
 							<li class="single-product-cart">
 								<div class="cart-img">
-									<a href="#"><img src="<c:url value="/assets/user/img/cart/2.jpg"></c:url>" alt=""></a>
+									<a href="#"><img
+										src="<c:url value="/assets/user/img/cart/2.jpg"></c:url>"
+										alt=""></a>
 								</div>
 								<div class="cart-title">
 									<h5>
@@ -70,7 +77,9 @@
 							</li>
 							<li class="single-product-cart">
 								<div class="cart-img">
-									<a href="#"><img src="<c:url value="/assets/user/img/cart/3.jpg"></c:url>" alt=""></a>
+									<a href="#"><img
+										src="<c:url value="/assets/user/img/cart/3.jpg"></c:url>"
+										alt=""></a>
 								</div>
 								<div class="cart-title">
 									<h5>

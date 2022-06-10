@@ -11,11 +11,7 @@ import ClothesShop.Entity.User.MapperSlides;
 import ClothesShop.Entity.User.Slides;
 
 @Repository
-public class SlidesDAO {
-	// Biến chung nên có dấu _
-	// Biến trong method k có
-	@Autowired
-	public JdbcTemplate _jdbcTemplate;
+public class SlidesDAO extends BaseDAO{
 
 	public List<Slides> GetDataSlide() {
 		List<Slides> list = new ArrayList<Slides>();
