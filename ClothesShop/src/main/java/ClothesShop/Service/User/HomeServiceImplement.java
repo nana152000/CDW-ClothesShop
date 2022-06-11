@@ -7,7 +7,9 @@ import org.springframework.stereotype.Service;
 
 import ClothesShop.DAO.User.CategoriesDAO;
 import ClothesShop.DAO.User.MenusDAO;
+import ClothesShop.DAO.User.ProductsDAO;
 import ClothesShop.DAO.User.SlidesDAO;
+import ClothesShop.Dto.User.ProductsDto;
 import ClothesShop.Entity.User.Categories;
 import ClothesShop.Entity.User.Menus;
 import ClothesShop.Entity.User.Slides;
@@ -19,7 +21,9 @@ public class HomeServiceImplement implements IHomeService {
 	@Autowired
 	private CategoriesDAO categoriesDao;
 	@Autowired
-	private MenusDAO menusDAO;
+	private MenusDAO menusDao;
+	@Autowired
+	private ProductsDAO productsDao;
 
 	public List<Slides> GetDataSlide() {
 		return slidesDao.GetDataSlide();
@@ -30,7 +34,13 @@ public class HomeServiceImplement implements IHomeService {
 	}
 
 	public List<Menus> GetDataMenus() {
-		return menusDAO.GetDataMenus();
+		return menusDao.GetDataMenus();
+	}
+
+	public List<ProductsDto> GetDataProducts() {
+		List<ProductsDto> listProducts = productsDao.GetDataProducts();
+		listProducts.get(0).getId_color();
+		return listProducts;
 	}
 
 }
