@@ -50,10 +50,10 @@
 							</c:if>
 						</c:forEach>
 					</div>
-					<div class="tab-content">
-						<c:forEach var="category" items="${categories}" varStatus="index">
+					<c:forEach var="category" items="${categories}" varStatus="index">
+						<div class="tab-content">
 							<c:if test="${index.first}">
-								<div class="tab-pane active show fade" id="home1"
+								<div class="tab-pane active show fade" id="home${category.id}"
 									role="tabpanel">
 							</c:if>
 							<c:if test="${not index.first}">
@@ -65,8 +65,7 @@
 									<div class="custom-col-5 custom-col-style mb-95">
 										<div class="product-wrapper">
 											<div class="product-img-2">
-												<a href="#"> 
-												<c:forEach var="img"
+												<a href="#"> <c:forEach var="img"
 														items="${product.image}" varStatus="index">
 														<c:if test="${index.first}">
 															<img
@@ -97,11 +96,11 @@
 									</div>
 								</c:forEach>
 							</div>
-						</c:forEach>
-					</div>
+					</c:forEach>
 				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 	<!-- best product area end -->
 
@@ -122,7 +121,7 @@
 						<c:if test="${ products.size() > 0 }">
 							<ul class="thumbnails">
 								<c:forEach var="product" items="${ products }" varStatus="loop">
-									<c:if test="${ (loop.index + 1) < 4 && product.new_product }">
+									<c:if test="${ (loop.index + 1) < 4 }">
 										<li class="span4">
 											<div class="new-top-product">
 												<div class="new-top-wrapper mb-50">
