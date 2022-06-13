@@ -18,7 +18,7 @@
 								<li><c:if test="${index.first}">
 										<a class="active" href="index.html">${menu.name}</a>
 									</c:if> <c:if test="${not index.first}">
-										<a href="index.html">${menu.name}</a>
+										<a href='<c:url value="/san-pham"></c:url>'>${menu.name}</a>
 									</c:if></li>
 							</c:forEach>
 

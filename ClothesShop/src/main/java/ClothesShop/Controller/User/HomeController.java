@@ -22,9 +22,9 @@ public class HomeController extends BaseController{
 		return _mvShare;
 	}
 
-	@RequestMapping(value = "/product")
+	@RequestMapping(value = "/san-pham")
 	public ModelAndView Product() {
-		ModelAndView mv = new ModelAndView("user/product");
+		ModelAndView mv = new ModelAndView("user/products/products");
 		return mv;
 	}
 }
