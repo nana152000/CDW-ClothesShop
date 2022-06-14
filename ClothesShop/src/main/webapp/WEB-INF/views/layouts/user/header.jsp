@@ -15,11 +15,27 @@
 					<nav>
 						<ul>
 							<c:forEach var="menu" items="${menus}">
-								<li><c:if test="${index.first}">
-										<a class="active" href="index.html">${menu.name}</a>
-									</c:if> <c:if test="${not index.first}">
-										<a href='<c:url value="/san-pham"></c:url>'>${menu.name}</a>
-									</c:if></li>
+								<li><div class="dropdown_menu">
+										<c:if test="${index.first}">
+											<button class="dropbtn_menu">
+												<a class="active"
+													href="<c:url value="/${menu.url}"></c:url>">${menu.name}</a>
+											</button>
+										</c:if>
+										<c:if test="${not index.first}">
+											<button class="dropbtn_menu">
+												<a href='<c:url value="/${menu.url}"></c:url>'>${menu.name}</a>
+											</button>
+										</c:if>
+										<c:if test="${menu.id ==2}">
+											<div class="dropdown-content_menu">
+												<c:forEach var="category" items="${categories}">
+													<a href="<c:url value="/san-pham/${category.id}"></c:url>">${category.name}</a>
+												</c:forEach>
+											</div>
+
+										</c:if>
+									</div></li>
 							</c:forEach>
 
 						</ul>

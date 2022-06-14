@@ -33,6 +33,8 @@
 	href="<c:url value="/assets/user/css/style.css"></c:url>">
 <link rel="stylesheet"
 	href="<c:url value="/assets/user/css/responsive.css"></c:url>">
+	<link rel="stylesheet"
+	href="<c:url value="/assets/user/css/style-css.css"></c:url>">
 <script
 	src="<c:url value="/assets/user/js/vendor/modernizr-2.8.3.min.js"></c:url>"></script>
 </head>

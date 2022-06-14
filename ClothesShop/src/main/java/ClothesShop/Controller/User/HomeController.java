@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class HomeController extends BaseController{
+public class HomeController extends BaseController {
 
 	// ModelAndView 2 phan, view tra ve cac giao dien jsp
 	// model set duwx lieu truyen ve cho view
@@ -24,7 +24,9 @@ public class HomeController extends BaseController{
 
 	@RequestMapping(value = "/san-pham")
 	public ModelAndView Product() {
-		ModelAndView mv = new ModelAndView("user/products/products");
-		return mv;
+		_mvShare.addObject("categories", _homeService.GetDataCategories());
+		_mvShare.addObject("products", _homeService.GetDataProducts());
+		_mvShare.setViewName("user/products/products");
+		return _mvShare;
 	}
 }

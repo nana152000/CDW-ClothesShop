@@ -2,6 +2,7 @@ package ClothesShop.Entity.User;
 
 public class Categories {
 	private int id;
+	private int id_menu;
 	private String name;
 	private String decriptions;
 
@@ -15,6 +16,14 @@ public class Categories {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public int getId_menu() {
+		return id_menu;
+	}
+
+	public void setId_menu(int id_menu) {
+		this.id_menu = id_menu;
 	}
 
 	public String getName() {
