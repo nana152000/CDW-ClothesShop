@@ -1,7 +1,7 @@
 eclipse.preferences.version=1
 encoding//src/main/java/clothesShop/controller/user/BaseController.java=UTF-8
-encoding//src/main/java/clothesShop/dao/admin/impl/AbstractDAO.java=UTF-8
 encoding//src/main/java/clothesShop/dao/user/BaseDAO.java=UTF-8
 encoding//src/main/java/clothesShop/dao/user/ProductsDAO.java=UTF-8
 encoding//src/main/java/clothesShop/dao/user/SlidesDAO.java=UTF-8
+encoding//src/main/webapp/WEB-INF/views/admin/editSlides.jsp=UTF-8
 encoding//src/main/webapp/assets/user/css/style.css=UTF-8

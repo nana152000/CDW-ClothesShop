@@ -1,26 +1,41 @@
 package clothesShop.service.admin.impl;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import clothesShop.dao.admin.ISlidesDAO;
-import clothesShop.service.admin.ISlidesService;
-import clothesShop.model.SlidesModel;
+import clothesShop.entity.admin.Slide;
+import clothesShop.repository.SlidesRepository;
 
 @Service
-public class SlidesService implements ISlidesService {
+@Transactional
+public class SlidesService {
 	@Autowired
-	private ISlidesDAO slidesDao;
+	SlidesRepository repo;
 
-	public List<SlidesModel> findAll() {
-		return slidesDao.findAll();
+	public void save(Slide slide) {
+		repo.save(slide);
+
 	}
 
-	@Override
-	public Long insert(String sql) {
-		return slidesDao.insert(sql);
+	public List<Slide> listAll() {
+		return (List<Slide>) repo.findAll();
+	}
+
+	public Slide get(Long id) {
+		return repo.findById(id).get();
+	}
+
+	public void delete(Long id) {
+		repo.deleteById(id);
+
+	}
+
+	public List<Slide> search(String keyword) {
+		return repo.search(keyword);
 	}
 
 }

@@ -18,10 +18,7 @@ public class Slide {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@Column(name = "image")
 	private String image;
-	@Column(name = "caption")
 	private String caption;
-	@Column(name = "content")
 	private String content;
 }
