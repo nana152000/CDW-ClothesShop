@@ -1,6 +1,5 @@
-package clothesShop.entity.admin;
+package clothesShop.entity;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,6 +17,7 @@ public class Slide {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	private String image;
 	private String caption;
 	private String content;
