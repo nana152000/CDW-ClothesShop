@@ -15,14 +15,16 @@ import clothesShop.repository.ProductRepository;
 public class ProductService {
 	@Autowired
 	ProductRepository productRepository;
-	
+
 	public List<Product> listAll() {
 		return (List<Product>) productRepository.findAll();
 	}
+
 	public void save(Product product) {
 		productRepository.save(product);
 
 	}
+
 	public Product get(Long id) {
 		return productRepository.findById(id).get();
 	}

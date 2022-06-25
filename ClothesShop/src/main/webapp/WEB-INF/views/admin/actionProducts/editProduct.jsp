@@ -11,24 +11,51 @@
 <body>
 	<div align="center">
 		<h2>Chỉnh sửa</h2>
-		<form:form action="save" method="post" modelAttribute="slide">
+		<form:form action="save" method="post" modelAttribute="product">
 			<table border="0" cellpadding="5">
 				<tr>
 					<td>ID:</td>
-					<td>${slide.id}<form:hidden path="id" />
+					<td>${product.id}<form:hidden path="id" />
 					</td>
 				</tr>
 				<tr>
-					<td>Image:</td>
-					<td><form:input path="image" /></td>
+					<td>Loại sản phẩm:</td>
+					<td><form:select path="category.id" items="${listCategoryId}">
+						</form:select></td>
 				</tr>
 				<tr>
-					<td>Caption:</td>
-					<td><form:input path="caption" /></td>
+					<td>Tên:</td>
+					<td><form:input path="name" /></td>
 				</tr>
 				<tr>
-					<td>Content:</td>
-					<td><form:input path="content" /></td>
+					<td>Kích cỡ:</td>
+					<td><form:input path="sizes" /></td>
+				</tr>
+				<tr>
+					<td>Giá:</td>
+					<td><form:input path="price" /></td>
+				</tr>
+				<tr>
+					<td>Khuyến mãi:</td>
+					<td><form:input path="sale" /></td>
+				</tr>
+				<tr>
+					<td>Sản phẩm nổi bật:</td>
+					<td><form:select path="featured_products">
+							<form:option value="0">Không nổi bật</form:option>
+							<form:option value="1">Nổi bật</form:option>
+						</form:select></td>
+				</tr>
+				<tr>
+					<td>Sản phẩm mới:</td>
+					<td><form:select path="new_product">
+							<form:option value="0">Sản phẩm cũ</form:option>
+							<form:option value="1">Sản phẩm mới</form:option>
+						</form:select></td>
+				</tr>
+				<tr>
+					<td>Mô tả:</td>
+					<td><form:input path="decriptions" /></td>
 				</tr>
 				<tr>
 					<td colspan="2"><input type="submit" value="Save"></td>

@@ -25,7 +25,7 @@ public class Color {
 	private String color_code;
 	private String image;
 	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="id_product", nullable=false) 
     private Product product;
 }

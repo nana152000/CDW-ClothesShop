@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<title>Admin - Trang chủ</title>
+<title>Admin - Trang chủ - sản phẩm</title>
 <body>
 	<div class="container-fluid">
 		<!-- DataTables Example -->
@@ -10,7 +10,7 @@
 			<div class="card-header">
 				<i class="fas fa-table"></i> Sản phẩm
 				<button type="button" class="btn btn-outline-dark add-btn">
-					<a href="<c:url value="/quan-tri/new" />"> <i class="fa-solid fa-circle-plus"></i>&nbsp;Thêm
+					<a href="<c:url value="/quan-tri/san-pham/new" />"> <i class="fa-solid fa-circle-plus"></i>&nbsp;Thêm
 					</a>
 				</button>
 			</div>
@@ -36,7 +36,7 @@
 							<c:forEach var="item" items="${listProduct}">
 								<tr>
 									<td>${item.id}</td>
-									<td>${item.id_category.name}</td>
+									<td>${item.category.name}</td>
 									<td>${item.name}</td>
 									<td>${item.sizes}</td>
 									<td>${item.price}</td>
@@ -44,9 +44,9 @@
 									<td>${item.featured_products}</td>
 									<td>${item.new_product}</td>
 									<td>${item.decriptions}</td>
-									<td><a href="delete?id=${item.id}"><i
+									<td><a href="<c:url value="san-pham/delete?id=${item.id}" />"><i
 											class="fa-solid fa-trash"></i></a>&emsp; <a
-										href="quan-tri/edit?id=${item.id}"><i
+										href="<c:url value="quan-tri/san-pham/edit?id=${item.id}" />"><i
 											class="fa-solid fa-pen-to-square"></i></a></td>
 								</tr>
 							</c:forEach>
