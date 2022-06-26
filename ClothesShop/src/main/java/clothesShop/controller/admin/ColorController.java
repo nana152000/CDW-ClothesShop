@@ -13,11 +13,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 import clothesShop.entity.Color;
 import clothesShop.service.ColorService;
+import clothesShop.service.ProductService;
 
 @Controller
 public class ColorController {
 	@Autowired
 	private ColorService colorService;
+	@Autowired
+	private ProductService productService;
 	
 	@RequestMapping("/quan-tri/mau-sac-sp")
 	public ModelAndView color() {
@@ -32,6 +35,7 @@ public class ColorController {
 	@RequestMapping("/quan-tri/mau-sac-sp/new")
 	public ModelAndView newColorForm(Map<String, Object> model) {
 		ModelAndView mav = new ModelAndView("admin/actionColors/newColor");
+		mav.addObject("listProductId", productService.listProductId());
 		Color color = new Color();
 		model.put("color", color);
 		return mav;
@@ -40,21 +44,22 @@ public class ColorController {
 	@RequestMapping(value = "/quan-tri/mau-sac-sp/save", method = RequestMethod.POST)
 	public String saveColor(@ModelAttribute("color") Color color) {
 		colorService.save(color);
-		return "redirect:/quan-tri";
+		return "redirect:/quan-tri/mau-sac-sp";
 	}
 
 	@RequestMapping("/quan-tri/mau-sac-sp/edit")
 	public ModelAndView editColorForm(@RequestParam long id) {
 		ModelAndView mav = new ModelAndView("admin/actionColors/editColor");
+		mav.addObject("listProductId", productService.listProductId());
 		Color color = colorService.get(id);
 		mav.addObject("color", color);
 		return mav;
 	}
 
-	@RequestMapping("mau-sac-sp/delete")
+	@RequestMapping("/mau-sac-sp/delete")
 	public String deleteColorForm(@RequestParam long id) {
 		colorService.delete(id);
-		return "redirect:quan-tri";
+		return "redirect:/quan-tri/mau-sac-sp";
 	}
 
 }

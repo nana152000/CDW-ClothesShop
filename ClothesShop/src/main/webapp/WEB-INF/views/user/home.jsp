@@ -7,7 +7,7 @@
 	<!-- slide -->
 	<div class="slider-area">
 		<div class="slider-active owl-carousel">
-			<c:forEach var="slide" items="${slides}">
+			<c:forEach var="slide" items="${listSlide}">
 				<div class="single-slider single-slider-book1 bg-img"
 					style="background-image: url(<c:url value="/assets/user/img/slider/${slide.image}"></c:url>)">
 					<div class="container">
@@ -36,7 +36,7 @@
 					<div
 						class="product-tab-list2 text-center mb-95 nav product-menu-mrg"
 						role="tablist">
-						<c:forEach var="category" items="${categories}" varStatus="index">
+						<c:forEach var="category" items="${listCategory}" varStatus="index">
 							<c:if test="${index.first}">
 								<a class="active" href="#home${category.id}" data-toggle="tab"
 									role="tab">
@@ -50,7 +50,7 @@
 					</div>
 
 					<div class="tab-content">
-						<c:forEach var="category" items="${categories}" varStatus="index">
+						<c:forEach var="category" items="${listCategory}" varStatus="index">
 							<c:if test="${index.first}">
 								<div class="tab-pane active show fade" id="home${category.id}"
 									role="tabpanel">
@@ -60,16 +60,16 @@
 									role="tabpanel">
 							</c:if>
 							<div class="custom-row">
-								<c:forEach var="product" items="${products}">
-									<c:if test="${product.id_category == category.id}">
+								<c:forEach var="product" items="${listProduct}">
+									 <c:if test="${product.category.id == category.id}"> 
 										<div class="custom-col-5 custom-col-style mb-95">
 											<div class="product-wrapper">
 												<div class="product-img-2">
 													<a href="#"> <c:forEach var="img"
-															items="${product.image}" varStatus="index">
+															items="${listColor}" varStatus="index">
 															<c:if test="${index.first}">
 																<img
-																	src="<c:url value="/assets/user/img/product/${product.id_product}/${img}"/>"
+																	src="<c:url value="/assets/user/img/product/${img.product.id}/${img.image}"/>"
 																	alt="">
 															</c:if>
 														</c:forEach>
@@ -99,19 +99,19 @@
 							</div>
 					</div>
 					</c:forEach>
-					<c:forEach var="category" items="${categories}">
+					<c:forEach var="category" items="${listCategory}">
 						<div class="tab-pane fade" id="home${category.id}" role="tabpanel">
 							<div class="custom-row">
 								<c:forEach var="product" items="${products}">
-									<c:if test="${product.id_category == category.id}">
+									<c:if test="${product.category.id == category.id}">
 										<div class="custom-col-5 custom-col-style mb-95">
 											<div class="product-wrapper">
 												<div class="product-img-2">
 													<a href="#"> <c:forEach var="img"
-															items="${product.image}" varStatus="index">
+															items="${listColor}" varStatus="index">
 															<c:if test="${index.first}">
 																<img
-																	src="<c:url value="/assets/user/img/product/${product.id_product}/${img}"/>"
+																	src="<c:url value="/assets/user/img/product/${img.product.id}/${img.image}"/>"
 																	alt="">
 															</c:if>
 														</c:forEach>
@@ -164,7 +164,7 @@
 						<h3 class="new-top-title">Sản phẩm mới nhất</h3>
 						<c:if test="${ products.size() > 0 }">
 							<ul class="thumbnails">
-								<c:forEach var="product" items="${ products }" varStatus="loop">
+								<c:forEach var="product" items="${ listProduct }" varStatus="loop">
 									<c:if test="${ (loop.index + 1) < 4 }">
 										<li class="span4">
 											<div class="new-top-product">

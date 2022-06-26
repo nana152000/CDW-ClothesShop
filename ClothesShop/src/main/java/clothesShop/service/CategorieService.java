@@ -36,7 +36,11 @@ public class CategorieService {
 
 	}
 
-	public List<Long> listCategoryId() {
-		return (List<Long>) categorieRepository.listId();
+	public Map<Integer, String> listCategoryId() {
+		Map<Integer, String> listCategoryId = new HashMap<>();
+		for (int i = 0; i < categorieRepository.listId().size(); i++) {
+			listCategoryId.put((i + 1), categorieRepository.listId().get(i));
+		}
+		return listCategoryId;
 	}
 }

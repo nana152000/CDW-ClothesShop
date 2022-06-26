@@ -40,7 +40,7 @@ public class MenuController {
 	@RequestMapping(value = "/quan-tri/menus/save", method = RequestMethod.POST)
 	public String saveMenu(@ModelAttribute("menu") Menu menu) {
 		menuService.save(menu);
-		return "redirect:/quan-tri";
+		return "redirect:/quan-tri/menus";
 	}
 
 	@RequestMapping("/quan-tri/menus/edit")
@@ -51,10 +51,10 @@ public class MenuController {
 		return mav;
 	}
 
-	@RequestMapping("menus/delete")
+	@RequestMapping("/menus/delete")
 	public String deleteMenuForm(@RequestParam long id) {
 		menuService.delete(id);
-		return "redirect:quan-tri";
+		return "redirect:/quan-tri/menus";
 	}
 
 }

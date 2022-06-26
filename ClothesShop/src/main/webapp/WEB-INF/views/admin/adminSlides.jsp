@@ -36,7 +36,7 @@
 									<td>${item.content}</td>
 									<td>${item.image}</td>
 									<td><a
-										href="<c:url value="slides/delete?id=${item.id}" />"><i
+										href="<c:url value="/slides/delete?id=${item.id}" />"><i
 											class="fa-solid fa-trash"></i></a>&emsp; <a
 										href="<c:url value="/quan-tri/slides/edit?id=${item.id}" />"><i
 											class="fa-solid fa-pen-to-square"></i></a></td>

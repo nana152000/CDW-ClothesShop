@@ -45,10 +45,10 @@ public class ProductController {
 		return mav;
 	}
 
-	@RequestMapping("san-pham/delete")
+	@RequestMapping("/san-pham/delete")
 	public String deleteProductForm(@RequestParam long id) {
 		productService.delete(id);
-		return "redirect:quan-tri";
+		return "redirect:/quan-tri";
 	}
 
 }

@@ -14,7 +14,7 @@
 				<div class="menu-style-2 book-menu menu-hover">
 					<nav>
 						<ul>
-							<c:forEach var="menu" items="${menus}">
+							<c:forEach var="menu" items="${listMenu}">
 								<li><div class="dropdown_menu">
 										<c:if test="${index.first}">
 											<button class="dropbtn_menu">
@@ -29,7 +29,7 @@
 										</c:if>
 										<c:if test="${menu.id ==2}">
 											<div class="dropdown-content_menu">
-												<c:forEach var="category" items="${categories}">
+												<c:forEach var="category" items="${listCategory}">
 													<a href="<c:url value="/san-pham/${category.id}"></c:url>">${category.name}</a>
 												</c:forEach>
 											</div>

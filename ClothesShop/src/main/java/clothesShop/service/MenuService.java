@@ -1,6 +1,8 @@
 package clothesShop.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +16,7 @@ import clothesShop.repository.MenuRepository;
 public class MenuService {
 	@Autowired
 	MenuRepository menuRepository;
-	
+
 	public void save(Menu menu) {
 		menuRepository.save(menu);
 
@@ -31,6 +33,14 @@ public class MenuService {
 	public void delete(Long id) {
 		menuRepository.deleteById(id);
 
+	}
+
+	public Map<Integer, String> listMenuId() {
+		Map<Integer, String> listMenuId = new HashMap<>();
+		for (int i = 0; i < menuRepository.listId().size(); i++) {
+			listMenuId.put((i + 1), menuRepository.listId().get(i));
+		}
+		return listMenuId;
 	}
 
 }

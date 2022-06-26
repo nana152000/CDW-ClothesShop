@@ -37,7 +37,7 @@
 									<td>${item.name_color}</td>
 									<td>${item.color_code}</td>
 									<td>${item.	image}</td>
-									<td><a href="<c:url value="mau-sac-sp/delete?id=${item.id}" />"><i
+									<td><a href="<c:url value="/mau-sac-sp/delete?id=${item.id}" />"><i
 											class="fa-solid fa-trash"></i></a>&emsp; <a
 										href="<c:url value="/quan-tri/mau-sac-sp/edit?id=${item.id}" />"><i
 											class="fa-solid fa-pen-to-square"></i></a></td>

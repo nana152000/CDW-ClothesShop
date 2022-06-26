@@ -8,6 +8,6 @@ import org.springframework.data.jpa.repository.Query;
 import clothesShop.entity.Category;
 
 public interface CategorieRepository extends JpaRepository<Category, Long> {
-	@Query(value = "SELECT p.id FROM Category p")
-	public List<Long> listId();
+	@Query(value = "SELECT p.name FROM Category p")
+	public List<String> listId();
 }

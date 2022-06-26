@@ -44,7 +44,7 @@
 									<td>${item.featured_products}</td>
 									<td>${item.new_product}</td>
 									<td>${item.decriptions}</td>
-									<td><a href="<c:url value="san-pham/delete?id=${item.id}" />"><i
+									<td><a href="<c:url value="/san-pham/delete?id=${item.id}" />"><i
 											class="fa-solid fa-trash"></i></a>&emsp; <a
 										href="<c:url value="quan-tri/san-pham/edit?id=${item.id}" />"><i
 											class="fa-solid fa-pen-to-square"></i></a></td>

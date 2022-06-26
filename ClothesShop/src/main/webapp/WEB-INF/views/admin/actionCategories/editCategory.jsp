@@ -11,24 +11,25 @@
 <body>
 	<div align="center">
 		<h2>Chỉnh sửa</h2>
-		<form:form action="save" method="post" modelAttribute="slide">
+		<form:form action="save" method="post" modelAttribute="category">
 			<table border="0" cellpadding="5">
 				<tr>
 					<td>ID:</td>
-					<td>${slide.id}<form:hidden path="id" />
+					<td>${category.id}<form:hidden path="id" />
 					</td>
 				</tr>
-				<tr>
-					<td>Image:</td>
-					<td><form:input path="image" /></td>
+						<tr>
+					<td>Thanh điều hướng:</td>
+					<td><form:select path="menu.id" items="${listMenuId}">
+						</form:select></td>
 				</tr>
 				<tr>
-					<td>Caption:</td>
-					<td><form:input path="caption" /></td>
+					<td>Tên loại sản phẩm:</td>
+					<td><form:input path="name" /></td>
 				</tr>
 				<tr>
-					<td>Content:</td>
-					<td><form:input path="content" /></td>
+					<td>Mô tả loại sản phẩm:</td>
+					<td><form:input path="decriptions" /></td>
 				</tr>
 				<tr>
 					<td colspan="2"><input type="submit" value="Save"></td>

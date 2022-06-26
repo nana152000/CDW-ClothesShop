@@ -1,6 +1,8 @@
 package clothesShop.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,6 +38,14 @@ public class ProductService {
 
 	public List<Product> search(String keyword) {
 		return productRepository.search(keyword);
+	}
+
+	public Map<Integer, String> listProductId() {
+		Map<Integer, String> listProductId = new HashMap<>();
+		for (int i = 0; i < productRepository.listId().size(); i++) {
+			listProductId.put((i + 1), productRepository.listId().get(i));
+		}
+		return listProductId;
 	}
 
 }

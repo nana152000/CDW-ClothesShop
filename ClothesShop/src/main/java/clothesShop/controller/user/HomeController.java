@@ -1,32 +1,46 @@
 package clothesShop.controller.user;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-@Controller
-public class HomeController extends BaseController {
+import clothesShop.service.CategorieService;
+import clothesShop.service.ColorService;
+import clothesShop.service.MenuService;
+import clothesShop.service.ProductService;
+import clothesShop.service.SlideService;
 
-	// ModelAndView 2 phan, view tra ve cac giao dien jsp
-	// model set duwx lieu truyen ve cho view
-	// co 2 cach:
-	// ModelAndView mv=new ModelAndView("user/index");
-	// mv.setViewName("user/index");
-	@RequestMapping(value = {"/trang-chu" }, method = RequestMethod.GET)
+@Controller
+public class HomeController {
+	@Autowired
+	private ProductService productService;
+	@Autowired
+	private SlideService slideService;
+	@Autowired
+	private CategorieService categorieService;
+	@Autowired
+	private ColorService colorService;
+	@Autowired
+	private MenuService menuService;
+
+	@RequestMapping(value = { "/trang-chu" }, method = RequestMethod.GET)
 	public ModelAndView Index() {
-		_mvShare.addObject("slides", _homeService.GetDataSlide());
-		_mvShare.addObject("categories", _homeService.GetDataCategories());
-		_mvShare.addObject("products", _homeService.GetDataProducts());
-		_mvShare.setViewName("user/home");
-		return _mvShare;
+		ModelAndView mav = new ModelAndView("user/home");
+		mav.addObject("listSlide", slideService.listAll());
+		mav.addObject("listCategory", categorieService.listAll());
+		mav.addObject("listProduct", productService.listAll());
+		mav.addObject("listColor", colorService.listAll());
+		mav.addObject("listMenu", menuService.listAll());
+		return mav;
 	}
 
 	@RequestMapping(value = "/san-pham")
 	public ModelAndView Product() {
-		_mvShare.addObject("categories", _homeService.GetDataCategories());
-		_mvShare.addObject("products", _homeService.GetDataProducts());
-		_mvShare.setViewName("user/products/products");
-		return _mvShare;
+		ModelAndView mav = new ModelAndView("user/products/products");
+		mav.addObject("listCategory", categorieService.listAll());
+		mav.addObject("listProduct", productService.listAll());
+		return mav;
 	}
 }

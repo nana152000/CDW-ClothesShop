@@ -13,11 +13,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 import clothesShop.entity.Category;
 import clothesShop.service.CategorieService;
+import clothesShop.service.MenuService;
 
 @Controller
 public class CategoryController {
 	@Autowired
 	private CategorieService categorieService;
+	@Autowired
+	private MenuService menuService;
 	
 	@RequestMapping("/quan-tri/loai-sp")
 	public ModelAndView category() {
@@ -32,6 +35,7 @@ public class CategoryController {
 	@RequestMapping("/quan-tri/loai-sp/new")
 	public ModelAndView newCategoryForm(Map<String, Object> model) {
 		ModelAndView mav = new ModelAndView("admin/actionCategories/newCategory");
+		mav.addObject("listMenuId", menuService.listMenuId());
 		Category category = new Category();
 		model.put("category", category);
 		return mav;
@@ -40,21 +44,22 @@ public class CategoryController {
 	@RequestMapping(value = "/quan-tri/loai-sp/save", method = RequestMethod.POST)
 	public String saveCategory(@ModelAttribute("category") Category category) {
 		categorieService.save(category);
-		return "redirect:/quan-tri";
+		return "redirect:/quan-tri/loai-sp";
 	}
 
 	@RequestMapping("/quan-tri/loai-sp/edit")
 	public ModelAndView editCategoryForm(@RequestParam long id) {
 		ModelAndView mav = new ModelAndView("admin/actionCategories/editCategory");
+		mav.addObject("listMenuId", menuService.listMenuId());
 		Category category = categorieService.get(id);
 		mav.addObject("category", category);
 		return mav;
 	}
 
-	@RequestMapping("loai-sp/delete")
+	@RequestMapping("/loai-sp/delete")
 	public String deleteCategoryForm(@RequestParam long id) {
 		categorieService.delete(id);
-		return "redirect:quan-tri";
+		return "redirect:/quan-tri/loai-sp";
 	}
 
 }

@@ -40,7 +40,7 @@ public class SlideController {
 	@RequestMapping(value = "/quan-tri/slides/save", method = RequestMethod.POST)
 	public String saveSlide(@ModelAttribute("slide") Slide slide) {
 		slideService.save(slide);
-		return "redirect:/quan-tri";
+		return "redirect:/quan-tri/slides";
 	}
 
 	@RequestMapping("/quan-tri/slides/edit")
@@ -51,10 +51,10 @@ public class SlideController {
 		return mav;
 	}
 
-	@RequestMapping("slides/delete")
+	@RequestMapping("/slides/delete")
 	public String deleteSlideForm(@RequestParam long id) {
 		slideService.delete(id);
-		return "redirect:quan-tri";
+		return "redirect:/quan-tri/slides";
 	}
 
 }
