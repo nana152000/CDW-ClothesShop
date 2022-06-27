@@ -6,7 +6,7 @@
 		<div class="container">
 			<div class="header-bottom-wrapper">
 				<div class="logo-2 ptb-40">
-					<a href="index.html"> <img class="img-logo"
+					<a href="<c:url value="/trang-chu"/>"> <img class="img-logo"
 						src="<c:url value="/assets/user/img/logo/logo.png"></c:url>"
 						alt="">
 					</a>

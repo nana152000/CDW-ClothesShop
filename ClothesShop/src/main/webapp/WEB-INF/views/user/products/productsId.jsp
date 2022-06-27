@@ -10,10 +10,10 @@
 		style="background-image: url(<c:url value="/assets/user/img/bg/breadcrumb.jpg"></c:url>)">
 		<div class="container-fluid">
 			<div class="breadcrumb-content text-center">
-				<h2>Shop quần áo</h2>
+				<h2>shop grid</h2>
 				<ul>
-					<li><a href="<c:url value="/trang-chu"/>">Trang chủ</a></li>
-					<li>Sản phẩm</li>
+					<li><a href="index.html">home</a></li>
+					<li>shop grid</li>
 				</ul>
 			</div>
 		</div>
