@@ -20,9 +20,10 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 	@Query("SELECT e FROM Product e ORDER BY e.name DESC")
 	public List<Product> findAllByOrderByNameDesc();
 
-//	public Page<Product> findProductPaging(String firstname, Pageable pageable);
-
 	@Query("SELECT e FROM Product e")
 	public Page<Product> findAll(Pageable pageable);
+	
+//	@Query(value = "SELECT p FROM Product p WHERE p.category.id = :category.id")
+//	public Page<Product> listAllById(@Param("category.id")Long id, Pageable pageable);
 
 }

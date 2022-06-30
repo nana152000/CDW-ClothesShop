@@ -24,8 +24,4 @@ public class Category {
 	private String name;
 	private String decriptions;
 
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "id_menu", nullable = false)
-	private Menu menu;
-
 }

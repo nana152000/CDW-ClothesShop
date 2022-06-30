@@ -17,7 +17,7 @@ import clothesShop.service.IProductService;
 
 @Service
 @Transactional
-public class ProductServiceImpl implements IProductService{
+public class ProductServiceImpl implements IProductService {
 	@Autowired
 	ProductRepository productRepository;
 
@@ -63,15 +63,30 @@ public class ProductServiceImpl implements IProductService{
 //	}
 	@Override
 	public Page<Product> listAll(int pageNum) {
-	    int pageSize = 5;
-	     
-	    Pageable pageable = PageRequest.of(pageNum - 1, pageSize);
-	     
-	    return productRepository.findAll(pageable);
+		int pageSize = 12;
+
+		Pageable pageable = PageRequest.of(pageNum - 1, pageSize);
+
+		return productRepository.findAll(pageable);
 	}
+
 	@Override
 	public Page<Product> findAll(Pageable pageable) {
 		return productRepository.findAll(pageable);
 	}
+
+	@Override
+	public Page<Product> listAllById(int id, int pageNum) {
+		int pageSize = 12;
+
+		Pageable pageable = PageRequest.of(pageNum - 1, pageSize);
+		Page<Product> list=productRepository.findAll(pageable);
+		return productRepository.findAll(pageable);
+		
+	}
+//	public List<Product> findAllById(List<Integer> id) {
+//		return (List<Product>) productRepository.findAllById(id);
+//	}
+
 
 }

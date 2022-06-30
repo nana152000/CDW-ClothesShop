@@ -27,14 +27,6 @@
 												<a href='<c:url value="/${menu.url}"></c:url>'>${menu.name}</a>
 											</button>
 										</c:if>
-										<c:if test="${menu.id ==2}">
-											<div class="dropdown-content_menu">
-												<c:forEach var="category" items="${listCategory}">
-													<a href="<c:url value="/san-pham/${category.id}"></c:url>">${category.name}</a>
-												</c:forEach>
-											</div>
-
-										</c:if>
 									</div></li>
 							</c:forEach>
 

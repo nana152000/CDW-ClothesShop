@@ -51,95 +51,104 @@
 					</div>
 
 					<div class="tab-content">
-						<c:forEach var="product" items="${listProduct}" varStatus="index">
+						<c:forEach var="category" items="${listCategory}"
+							varStatus="index">
 							<c:if test="${index.first}">
-								<div class="tab-pane active show fade"
-									id="home${product.category.id}" role="tabpanel">
+								<div class="tab-pane active show fade" id="home${category.id}"
+									role="tabpanel">
 									<div class="custom-row">
-										<div class="custom-col-5 custom-col-style mb-95">
-											<div class="product-wrapper">
-												<div class="product-img-2">
-													<c:forEach var="color" items="${product.colors}"
-														varStatus="index">
-														<c:if
-															test="${color.product.id == product.id && index.first}">
-															<a href="detail-products/${color.product.id}"> <c:forEach
-																	var="img" items="${color.image}" varStatus="index">
-																	<c:if test="${index.first}">
-																		<img style="width: 180px"
-																			src="<c:url value="/assets/user/img/product/${product.id}/${img}"/>"
-																			alt="">
-																	</c:if>
-																</c:forEach>
-															</a>
-														</c:if>
-													</c:forEach>
-													<div class="product-action-2">
-														<a class="animate-left add-style-2" title="Add To Cart"
-															href="#">Add to Cart <i class="ti-shopping-cart"></i></a>
-														<a class="animate-right wishlist-style-2" title="wishlist"
-															href="#"> <i class="ti-heart"></i>
-														</a>
+										<c:forEach var="product" items="${listProduct}">
+											<c:if test="${product.category.id==category.id}">
+												<div class="custom-col-5 custom-col-style mb-95">
+													<div class="product-wrapper">
+														<div class="product-img-2">
+															<c:forEach var="color" items="${product.colors}"
+																varStatus="index">
+																<c:if
+																	test="${color.product.id == product.id && index.first}">
+																	<a href="detail-products/${color.product.id}"> <c:forEach
+																			var="img" items="${color.image}" varStatus="index">
+																			<c:if test="${index.first}">
+																				<img
+																					src="<c:url value="/assets/user/img/product/${product.id}/${img}"/>"
+																					alt="">
+																			</c:if>
+																		</c:forEach>
+																	</a>
+																</c:if>
+															</c:forEach>
+															<div class="product-action-2">
+																<a class="animate-left add-style-2" title="Add To Cart"
+																	href="#">Add to Cart <i class="ti-shopping-cart"></i></a>
+																<a class="animate-right wishlist-style-2"
+																	title="wishlist" href="#"> <i class="ti-heart"></i>
+																</a>
+															</div>
+														</div>
+														<div class="product-content-2 text-center">
+															<h4>
+																<a href="product-details.html">${product.name}</a>
+															</h4>
+															<div class="product-rating">
+																<i class="ti-star black"></i> <i class="ti-star black"></i>
+																<i class="ti-star black"></i> <i class="ti-star"></i> <i
+																	class="ti-star"></i>
+															</div>
+														</div>
 													</div>
 												</div>
-												<div class="product-content-2 text-center">
-													<h4>
-														<a href="product-details.html">${product.name}</a>
-													</h4>
-													<div class="product-rating">
-														<i class="ti-star black"></i> <i class="ti-star black"></i>
-														<i class="ti-star black"></i> <i class="ti-star"></i> <i
-															class="ti-star"></i>
-													</div>
-												</div>
-											</div>
-										</div>
+											</c:if>
+										</c:forEach>
 									</div>
 								</div>
 							</c:if>
 
 							<c:if test="${not index.first}">
-								<div class="tab-pane fade" id="home${product.category.id}"
+								<div class="tab-pane fade" id="home${category.id}"
 									role="tabpanel">
 									<div class="custom-row">
-										<div class="custom-col-5 custom-col-style mb-95">
-											<div class="product-wrapper">
-												<div class="product-img-2">
-													<c:forEach var="color" items="${product.colors}"
-														varStatus="index">
-														<c:if
-															test="${color.product.id == product.id && index.first}">
-															<a href="detail-products/${color.product.id}"> <c:forEach
-																	var="img" items="${color.image}" varStatus="index">
-																	<c:if test="${index.first}">
-																		<img style="width: 180px"
-																			src="<c:url value="/assets/user/img/product/${product.id}/${img}"/>"
-																			alt="">
-																	</c:if>
-																</c:forEach>
-															</a>
-														</c:if>
-													</c:forEach>
-													<div class="product-action-2">
-														<a class="animate-left add-style-2" title="Add To Cart"
-															href="#">Add to Cart <i class="ti-shopping-cart"></i></a>
-														<a class="animate-right wishlist-style-2" title="wishlist"
-															href="#"> <i class="ti-heart"></i>
-														</a>
+										<c:forEach var="product" items="${listProduct}">
+											<c:if test="${product.category.id==category.id}">
+												<div class="custom-col-5 custom-col-style mb-95">
+													<div class="product-wrapper">
+														<div class="product-img-2">
+															<c:forEach var="color" items="${product.colors}"
+																varStatus="index">
+																<c:if
+																	test="${color.product.id == product.id && index.first}">
+																	<a href="detail-products/${color.product.id}"> <c:forEach
+																			var="img" items="${color.image}" varStatus="index">
+																			<c:if test="${index.first}">
+																				<img
+																					src="<c:url value="/assets/user/img/product/${product.id}/${img}"/>"
+																					alt="">
+																			</c:if>
+																		</c:forEach>
+																	</a>
+																</c:if>
+															</c:forEach>
+															<div class="product-action-2">
+																<a class="animate-left add-style-2" title="Add To Cart"
+																	href="#">Add to Cart <i class="ti-shopping-cart"></i></a>
+																<a class="animate-right wishlist-style-2"
+																	title="wishlist" href="#"> <i class="ti-heart"></i>
+																</a>
+															</div>
+														</div>
+														<div class="product-content-2 text-center">
+															<h4>
+																<a href="product-details.html">${product.name}</a>
+															</h4>
+															<div class="product-rating">
+																<i class="ti-star black"></i> <i class="ti-star black"></i>
+																<i class="ti-star black"></i> <i class="ti-star"></i> <i
+																	class="ti-star"></i>
+															</div>
+														</div>
 													</div>
 												</div>
-												<div class="product-content-2 text-center">
-													<h4>
-														<a href="product-details.html">${product.name}</a>
-													</h4>
-													<div class="product-rating">
-														<i class="ti-star black"></i> <i class="ti-star black"></i>
-														<i class="ti-star black"></i> <i class="ti-star"></i> <i
-															class="ti-star"></i>
-													</div>
-												</div>
-											</div>
-										</div>
+											</c:if>
+										</c:forEach>
 									</div>
 								</div>
 							</c:if>

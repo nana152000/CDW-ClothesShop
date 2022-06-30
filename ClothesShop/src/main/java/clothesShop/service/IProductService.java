@@ -28,4 +28,7 @@ public interface IProductService {
 
 	Page<Product> listAll(int pageNum);
 
+
+	Page<Product> listAllById(int id, int pageNum);
+
 }
