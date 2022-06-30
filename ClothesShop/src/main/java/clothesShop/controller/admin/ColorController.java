@@ -12,15 +12,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import clothesShop.entity.Color;
-import clothesShop.service.ColorService;
-import clothesShop.service.ProductService;
+import clothesShop.service.IColorService;
+import clothesShop.service.IProductService;
 
 @Controller
 public class ColorController {
 	@Autowired
-	private ColorService colorService;
+	private IColorService colorService;
 	@Autowired
-	private ProductService productService;
+	private IProductService productService;
 	
 	@RequestMapping("/quan-tri/mau-sac-sp")
 	public ModelAndView color() {

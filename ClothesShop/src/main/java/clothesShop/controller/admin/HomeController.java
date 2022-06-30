@@ -5,13 +5,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import clothesShop.service.ProductService;
+import clothesShop.service.IProductService;
 
 @Controller(value = "homeControllerOfAdmin")
 public class HomeController {
 
 	@Autowired
-	private ProductService productService;
+	private IProductService productService;
 
 
 	@RequestMapping(value = { "/quan-tri", "/quan-tri/san-pham" })

@@ -11,15 +11,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import clothesShop.entity.Product;
-import clothesShop.service.CategorieService;
-import clothesShop.service.ProductService;
+import clothesShop.service.ICategorieService;
+import clothesShop.service.IProductService;
 
 @Controller
 public class ProductController {
 	@Autowired
-	ProductService productService;
+	private IProductService productService;
 	@Autowired
-	private CategorieService categorieService;
+	private ICategorieService categorieService;
 
 	@RequestMapping("/quan-tri/san-pham/new")
 	public ModelAndView newProductForm(Map<String, Object> model) {

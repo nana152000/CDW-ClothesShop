@@ -12,15 +12,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import clothesShop.entity.Category;
-import clothesShop.service.CategorieService;
-import clothesShop.service.MenuService;
+import clothesShop.service.ICategorieService;
+import clothesShop.service.IMenuService;
 
 @Controller
 public class CategoryController {
 	@Autowired
-	private CategorieService categorieService;
+	private ICategorieService categorieService;
 	@Autowired
-	private MenuService menuService;
+	private IMenuService menuService;
 	
 	@RequestMapping("/quan-tri/loai-sp")
 	public ModelAndView category() {

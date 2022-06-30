@@ -2,7 +2,8 @@ package clothesShop.repository;
 
 import java.util.List;
 
-import org.springframework.data.jpa.repository.EntityGraph;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -15,8 +16,13 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
 	@Query(value = "SELECT p.name FROM Product p")
 	public List<String> listId();
-//
-//	@EntityGraph(value = "joinedColor")
-//	public List<String> listProductById();
+
+	@Query("SELECT e FROM Product e ORDER BY e.name DESC")
+	public List<Product> findAllByOrderByNameDesc();
+
+//	public Page<Product> findProductPaging(String firstname, Pageable pageable);
+
+	@Query("SELECT e FROM Product e")
+	public Page<Product> findAll(Pageable pageable);
 
 }

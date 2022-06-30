@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import clothesShop.entity.Menu;
-import clothesShop.service.MenuService;
+import clothesShop.service.IMenuService;
 
 @Controller
 public class MenuController {
 	@Autowired
-	private MenuService menuService;
+	private IMenuService menuService;
 	
 	@RequestMapping("/quan-tri/menus")
 	public ModelAndView menu() {

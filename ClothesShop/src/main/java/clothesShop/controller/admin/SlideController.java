@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import clothesShop.entity.Slide;
-import clothesShop.service.SlideService;
+import clothesShop.service.ISlideService;
 
 @Controller
 public class SlideController {
 	@Autowired
-	private SlideService slideService;
+	private ISlideService slideService;
 	
 	@RequestMapping("/quan-tri/slides")
 	public ModelAndView slide() {
