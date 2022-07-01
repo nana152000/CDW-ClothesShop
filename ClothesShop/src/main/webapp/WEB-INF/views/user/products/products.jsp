@@ -6,12 +6,12 @@
 <title>Shop quần áo - Sản phẩm</title>
 <body>
 	<div class="breadcrumb-area pt-205 breadcrumb-padding pb-210"
-		style="background-image: url(<c:url value="/assets/user/img/bg/breadcrumb.jpg"></c:url>)">
+		style="background-image: url(<c:url value='/assets/user/img/bg/breadcrumb.jpg'></c:url>)">
 		<div class="container-fluid">
 			<div class="breadcrumb-content text-center">
 				<h2>Shop quần áo</h2>
 				<ul>
-					<li><a href="<c:url value="/trang-chu"/>">Trang chủ</a></li>
+					<li><a href="<c:url value='/trang-chu'/>">Trang chủ</a></li>
 					<li>Sản phẩm</li>
 				</ul>
 			</div>
@@ -194,7 +194,7 @@
 																varStatus="index">
 																<c:if
 																	test="${color.product.id == productPaginate.id && index.first}">
-																	<a href="detail-products/${color.product.id}"> <c:forEach
+																	<a href="<c:url value='/san-pham/${color.product.id}'></c:url>"> <c:forEach
 																			var="img" items="${color.image}" varStatus="index">
 																			<c:if test="${index.first}">
 																				<img
@@ -222,7 +222,7 @@
 																<a href="#">${productPaginate.name} </a>
 															</h4>
 															<span><fmt:formatNumber type="number"
-																	groupingUsed="true" value="${productPaginate.price}" /></span>
+																	groupingUsed="true" value="${productPaginate.price}" /> &nbsp;vnđ</span>
 														</div>
 													</div>
 												</div>

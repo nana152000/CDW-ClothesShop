@@ -6,8 +6,8 @@
 		<div class="container">
 			<div class="header-bottom-wrapper">
 				<div class="logo-2 ptb-40">
-					<a href="<c:url value="/trang-chu"/>"> <img class="img-logo"
-						src="<c:url value="/assets/user/img/logo/logo.png"></c:url>"
+					<a href="<c:url value='/trang-chu'/>"> <img class="img-logo"
+						src="<c:url value='/assets/user/img/logo/logo.png'></c:url>"
 						alt="">
 					</a>
 				</div>
@@ -19,25 +19,24 @@
 										<c:if test="${index.first}">
 											<button class="dropbtn_menu">
 												<a class="active"
-													href="<c:url value="/${menu.url}"></c:url>">${menu.name}</a>
+													href="<c:url value='/${menu.url}'></c:url>">${menu.name}</a>
 											</button>
 										</c:if>
 										<c:if test="${not index.first}">
 											<button class="dropbtn_menu">
-												<a href='<c:url value="/${menu.url}"></c:url>'>${menu.name}</a>
+												<a href="<c:url value='/${menu.url}'></c:url>">${menu.name}</a>
 											</button>
 										</c:if>
 									</div></li>
 							</c:forEach>
-
 						</ul>
 					</nav>
 				</div>
 				<div class="furits-login-cart">
 					<div class="furits-login">
 						<ul>
-							<li><a href="login.html">Login</a></li>
-							<li><a href="register.html">Reg</a></li>
+							<li><a href="<c:url value="/dang-nhap"></c:url>">Login</a></li>
+							<li><a href="<c:url value="/dang-ky"></c:url>">Reg</a></li>
 						</ul>
 					</div>
 					<div class="header-cart-4 furits-cart">
@@ -111,13 +110,15 @@
 								</div>
 							</li>
 							<li class="cart-btn-wrapper"><a class="cart-btn btn-hover"
-								href="cart.html">view cart</a> <a class="cart-btn btn-hover"
-								href="checkout.html">checkout</a></li>
+								href="<c:url value="/gio-hang"></c:url>">view cart</a> <a
+								class="cart-btn btn-hover"
+								href="<c:url value="/thanh-toan"></c:url>">checkout</a></li>
 						</ul>
 					</div>
 					<div class="furniture-wishlist">
 						<ul>
-							<li><a href="wishlist.html"><i class="ti-heart"></i> </a></li>
+							<li><a href="<c:url value="/yeu-thich"></c:url>"><i
+									class="ti-heart"></i> </a></li>
 						</ul>
 					</div>
 				</div>

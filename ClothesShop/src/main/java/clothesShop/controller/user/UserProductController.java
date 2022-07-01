@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import clothesShop.entity.Product;
 import clothesShop.service.ICategorieService;
+import clothesShop.service.IMenuService;
 import clothesShop.service.IProductService;
 
 @Controller
@@ -19,6 +20,8 @@ public class UserProductController {
 	private IProductService productService;
 	@Autowired
 	private ICategorieService categorieService;
+	@Autowired
+	private IMenuService menuService;
 
 	@RequestMapping("/san-pham/page={pageNum}")
 	public ModelAndView viewPage(@PathVariable(name = "pageNum") int pageNum) {
@@ -34,11 +37,20 @@ public class UserProductController {
 		mav.addObject("listProductPaging", listProducts);
 		mav.addObject("listProduct", productService.listAll());
 		mav.addObject("listCategory", categorieService.listAll());
+		mav.addObject("listMenu", menuService.listAll());
 		return mav;
 	}
 
 	@RequestMapping("/san-pham")
-	public ModelAndView viewHomePage() {
+	public ModelAndView viewProductPage() {
 		return viewPage(1);
+	}
+
+	@RequestMapping("/san-pham/{id}")
+	public ModelAndView productDetail(@PathVariable(name = "id") Long id) {
+		ModelAndView mav = new ModelAndView("user/products/product-details");
+		mav.addObject("productDetail", productService.get(id));
+		mav.addObject("listMenu", menuService.listAll());
+		return mav;
 	}
 }
