@@ -31,9 +31,11 @@
 <link
 	href="<c:url value='/assets/user/css/pe-icon-7-stroke.css'/>"
 	rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="<c:url value='/assets/user/css/icofont.css'/>" rel="stylesheet" type="text/css">
 <link
 	href="<c:url value='/assets/user/css/meanmenu.min.css'/>"
 	rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="<c:url value='/assets/user/css/easyzoom.css'/>" rel="stylesheet" type="text/css">
 <link
 	href="<c:url value='/assets/user/css/bundle.css'/>"
 	rel="stylesheet" type="text/css">
