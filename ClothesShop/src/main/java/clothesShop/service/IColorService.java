@@ -14,4 +14,6 @@ public interface IColorService {
 
 	void save(Color color);
 
+	List<String> listImageById(Long id);
+
 }

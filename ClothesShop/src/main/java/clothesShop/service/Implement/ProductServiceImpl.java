@@ -57,10 +57,6 @@ public class ProductServiceImpl implements IProductService {
 		return listProductId;
 	}
 
-//	@Override
-//	public Page<Product> findProductPaging(String firstname, Pageable pageable) {
-//		return productRepository.findProductPaging(firstname, pageable);
-//	}
 	@Override
 	public Page<Product> listAll(int pageNum) {
 		int pageSize = 12;

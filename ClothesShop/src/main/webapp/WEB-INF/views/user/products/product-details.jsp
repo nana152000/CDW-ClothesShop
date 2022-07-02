@@ -28,130 +28,58 @@
 	<div class="product-details ptb-100 pb-90">
 		<div class="container">
 			<div class="row">
-				<%-- <div class="col-md-12 col-lg-7 col-12">
-					<div class="product-details-img-content">
-						<div class="product-details-tab mr-70">
-							<div class="product-details-large tab-content">
-								<c:forEach var="color" items="${productDetail.colors}"
-									varStatus="index">
-									<c:if test="${index.first}">
-										<c:forEach var="img" items="${color.image}">
-											<div class="tab-pane active show fade" id="pro-details${img}"
-												role="tabpanel">
-												<div class="easyzoom easyzoom--overlay">
-													<a href="assets/img/product-details/bl1.jpg"> <img
-														src="<c:url value="/assets/user/img/product/${color.product.id}/${img}"/>"
-														alt="">
-													</a>
-												</div>
-											</div>
-										</c:forEach>
-									</c:if>
-									<c:if test="${not index.first}">
-										<c:forEach var="img" items="${color.image}">
-											<div class="tab-pane fade" id="pro-details${img}"
-												role="tabpanel">
-												<div class="easyzoom easyzoom--overlay">
-													<a href="assets/img/product-details/bl2.jpg"> <img
-														src="<c:url value="/assets/user/img/product/${color.product.id}/${img}"/>"
-														alt="">
-													</a>
-												</div>
-											</div>
-										</c:forEach>
-									</c:if>
-								</c:forEach>
-							</div>
-							<div class="product-details-small nav mt-12" role=tablist>
-								<c:forEach var="color" items="${productDetail.colors}"
-									varStatus="index">
-									<c:if test="${index.first}">
-										<c:forEach var="img" items="${color.image}">
-											<a class="active mr-12" href="#pro-details${img}"
-												data-toggle="tab" role="tab" aria-selected="true"> <img
-												src="<c:url value="/assets/user/img/product/${color.product.id}/${img}"/>"
-												alt="">
-											</a>
-										</c:forEach>
-									</c:if>
-									<c:if test="${not index.first}">
-										<c:forEach var="img" items="${color.image}">
-											<a class="active mr-12" href="#pro-details${img}"
-												data-toggle="tab" role="tab" aria-selected="true"> <img
-												src="<c:url value="/assets/user/img/product/${color.product.id}/${img}"/>"
-												alt="">
-											</a>
-										</c:forEach>
-									</c:if>
-								</c:forEach>
-							</div>
-						</div>
-					</div>
-				</div> --%>
 				<div class="col-md-12 col-lg-7 col-12">
 					<div class="product-details-img-content">
 						<div class="product-details-tab mr-70">
 							<div class="product-details-large tab-content">
-								<div class="tab-pane active show fade" id="pro-details1"
-									role="tabpanel">
-									<div class="easyzoom easyzoom--overlay">
-										<a
-											href="<c:url value="/assets/user/img/product-details/bl1.jpg"/>">
-											<img
-											src="<c:url value="/assets/user/img/product-details/u.jpg"/>"
-											alt="">
-										</a>
-									</div>
-								</div>
-								<div class="tab-pane fade" id="pro-details2" role="tabpanel">
-									<div class="easyzoom easyzoom--overlay">
-										<a
-											href="<c:url value="/assets/user/img/product-details/bl2.jpg"/>">
-											<img
-											src="<c:url value="/assets/user/img/product-details/l2.jpg"/>"
-											alt="">
-										</a>
-									</div>
-								</div>
-								<div class="tab-pane fade" id="pro-details3" role="tabpanel">
-									<div class="easyzoom easyzoom--overlay">
-										<a
-											href="<c:url value="/assets/user/img/product-details/bl3.jpg"/>">
-											<img
-											src="<c:url value="/assets/user/img/product-details/l3.jpg"/>"
-											alt="">
-										</a>
-									</div>
-								</div>
-								<div class="tab-pane fade" id="pro-details4" role="tabpanel">
-									<div class="easyzoom easyzoom--overlay">
-										<a
-											href="<c:url value="/assets/user/img/product-details/bl4.jpg"/>">
-											<img
-											src="<c:url value="/assets/user/img/product-details/l4.jpg"/>"
-											alt="">
-										</a>
-									</div>
-								</div>
+								<c:forEach var="image" items="${listImageById}" varStatus="img">
+									<c:if test="${img.first}">
+										<div class="tab-pane active show fade"
+											id="pro-details${img.index}" role="tabpanel">
+											<div class="easyzoom easyzoom--overlay">
+												<a
+													href="<c:url value="/assets/user/img/product/${idProduct}/${image}"/>">
+													<img 
+													src="<c:url value="/assets/user/img/product/${idProduct}/${image}"/>"
+													alt="">
+												</a>
+											</div>
+										</div>
+									</c:if>
+									<c:if test="${not img.first}">
+										<div class="tab-pane fade" id="pro-details${img.index}" role="tabpanel">
+											<div class="easyzoom easyzoom--overlay">
+												<a
+													href="<c:url value="/assets/user/img/product/${idProduct}/${image}"/>">
+													<img
+													src="<c:url value="/assets/user/img/product/${idProduct}/${image}"/>"
+													alt="">
+												</a>
+											</div>
+										</div>
+									</c:if>
+								</c:forEach>
 							</div>
+
 							<div class="product-details-small nav mt-12" role=tablist>
-								<a class="active mr-12" href="#pro-details1" data-toggle="tab"
-									role="tab" aria-selected="true"> <img
-									src="<c:url value="/assets/user/img/product-details/s1.jpg"/>"
-									alt="">
-								</a> <a class="mr-12" href="#pro-details2" data-toggle="tab"
-									role="tab" aria-selected="true"> <img
-									src="<c:url value="/assets/user/img/product-details/s2.jpg"/>"
-									alt="">
-								</a> <a class="mr-12" href="#pro-details3" data-toggle="tab"
-									role="tab" aria-selected="true"> <img
-									src="<c:url value="/assets/user/img/product-details/s3.jpg"/>"
-									alt="">
-								</a> <a class="mr-12" href="#pro-details4" data-toggle="tab"
-									role="tab" aria-selected="true"> <img
-									src="<c:url value="/assets/user/img/product-details/s4.jpg"/>"
-									alt="">
-								</a>
+								<c:forEach var="image" items="${listImageById}" varStatus="img">
+									<c:if test="${img.first}">
+										<a class="active mr-12" href="#pro-details${img.index}" data-toggle="tab"
+											role="tab" aria-selected="true"> <img
+											style="width: 110px;"
+											src="<c:url value="/assets/user/img/product/${idProduct}/${image}"/>"
+											alt="">
+										</a>
+									</c:if>
+									<c:if test="${not img.first}">
+										<a class="mr-12" href="#pro-details${img.index}" data-toggle="tab"
+											role="tab" aria-selected="true"> <img
+											style="width: 110px;"
+											src="<c:url value="/assets/user/img/product/${idProduct}/${image}"/>"
+											alt="">
+										</a>
+									</c:if>
+								</c:forEach>
 							</div>
 						</div>
 					</div>
@@ -175,16 +103,16 @@
 						</div>
 						<div class="quick-view-select">
 							<div class="select-option-part">
-								<label>Size*</label> <select class="sizes">
-									<option value="">- Please Select -</option>
+								<label>Kích thước*</label> <select class="sizes">
+									<option value="">- Vui lòng chọn kích thước -</option>
 									<c:forEach var="size" items="${productDetail.sizes}">
 										<option value="${size}">${size}</option>
 									</c:forEach>
 								</select>
 							</div>
 							<div class="select-option-part">
-								<label>Color*</label> <select class="select">
-									<option value="">- Please Select -</option>
+								<label>Màu*</label> <select class="select">
+									<option value="">- Vui lòng chọn màu -</option>
 									<c:forEach var="color" items="${productDetail.colors}">
 										<option value="${color.id}">${color.name_color}</option>
 									</c:forEach>
@@ -197,32 +125,13 @@
 									class="cart-plus-minus-box">
 							</div>
 							<div class="quickview-btn-cart">
-								<a class="btn-hover-black" href="#">add to cart</a>
+								<a class="btn-hover-black" href="<c:url value="/gio-hang"/>">Thêm vào giỏ hàng</a>
 							</div>
 							<div class="quickview-btn-wishlist">
 								<a class="btn-hover" href="#"><i class="pe-7s-like"></i></a>
 							</div>
 						</div>
-						<div class="product-details-cati-tag mt-35">
-							<ul>
-								<li class="categories-title">Categories :</li>
-								<li><a href="#">fashion</a></li>
-								<li><a href="#">electronics</a></li>
-								<li><a href="#">toys</a></li>
-								<li><a href="#">food</a></li>
-								<li><a href="#">jewellery</a></li>
-							</ul>
-						</div>
-						<div class="product-details-cati-tag mtb-10">
-							<ul>
-								<li class="categories-title">Tags :</li>
-								<li><a href="#">fashion</a></li>
-								<li><a href="#">electronics</a></li>
-								<li><a href="#">toys</a></li>
-								<li><a href="#">food</a></li>
-								<li><a href="#">jewellery</a></li>
-							</ul>
-						</div>
+						</br>
 						<div class="product-share">
 							<ul>
 								<li class="categories-title">Share :</li>
@@ -278,138 +187,6 @@
 						<div class="product-img">
 							<a href="#"> <img
 								src="assets/img/product/fashion-colorful/1.jpg" alt="">
-							</a> <span>hot</span>
-							<div class="product-action">
-								<a class="animate-left" title="Wishlist" href="#"> <i
-									class="pe-7s-like"></i>
-								</a> <a class="animate-top" title="Add To Cart" href="#"> <i
-									class="pe-7s-cart"></i>
-								</a> <a class="animate-right" title="Quick View" data-toggle="modal"
-									data-target="#exampleModal" href="#"> <i class="pe-7s-look"></i>
-								</a>
-							</div>
-						</div>
-						<div class="product-content">
-							<h4>
-								<a href="#">Arifo Stylas Dress</a>
-							</h4>
-							<span>$115.00</span>
-						</div>
-					</div>
-					<div class="product-wrapper">
-						<div class="product-img">
-							<a href="#"> <img
-								src="assets/img/product/fashion-colorful/2.jpg" alt="">
-							</a>
-							<div class="product-action">
-								<a class="animate-left" title="Wishlist" href="#"> <i
-									class="pe-7s-like"></i>
-								</a> <a class="animate-top" title="Add To Cart" href="#"> <i
-									class="pe-7s-cart"></i>
-								</a> <a class="animate-right" title="Quick View" data-toggle="modal"
-									data-target="#exampleModal" href="#"> <i class="pe-7s-look"></i>
-								</a>
-							</div>
-						</div>
-						<div class="product-content">
-							<h4>
-								<a href="#">Arifo Stylas Dress</a>
-							</h4>
-							<span>$115.00</span>
-						</div>
-					</div>
-					<div class="product-wrapper">
-						<div class="product-img">
-							<a href="#"> <img
-								src="assets/img/product/fashion-colorful/3.jpg" alt="">
-							</a> <span>hot</span>
-							<div class="product-action">
-								<a class="animate-left" title="Wishlist" href="#"> <i
-									class="pe-7s-like"></i>
-								</a> <a class="animate-top" title="Add To Cart" href="#"> <i
-									class="pe-7s-cart"></i>
-								</a> <a class="animate-right" title="Quick View" data-toggle="modal"
-									data-target="#exampleModal" href="#"> <i class="pe-7s-look"></i>
-								</a>
-							</div>
-						</div>
-						<div class="product-content">
-							<h4>
-								<a href="#">Arifo Stylas Dress</a>
-							</h4>
-							<span>$115.00</span>
-						</div>
-					</div>
-					<div class="product-wrapper">
-						<div class="product-img">
-							<a href="#"> <img
-								src="assets/img/product/fashion-colorful/4.jpg" alt="">
-							</a>
-							<div class="product-action">
-								<a class="animate-left" title="Wishlist" href="#"> <i
-									class="pe-7s-like"></i>
-								</a> <a class="animate-top" title="Add To Cart" href="#"> <i
-									class="pe-7s-cart"></i>
-								</a> <a class="animate-right" title="Quick View" data-toggle="modal"
-									data-target="#exampleModal" href="#"> <i class="pe-7s-look"></i>
-								</a>
-							</div>
-						</div>
-						<div class="product-content">
-							<h4>
-								<a href="#">Arifo Stylas Dress</a>
-							</h4>
-							<span>$115.00</span>
-						</div>
-					</div>
-					<div class="product-wrapper">
-						<div class="product-img">
-							<a href="#"> <img
-								src="assets/img/product/fashion-colorful/5.jpg" alt="">
-							</a> <span>hot</span>
-							<div class="product-action">
-								<a class="animate-left" title="Wishlist" href="#"> <i
-									class="pe-7s-like"></i>
-								</a> <a class="animate-top" title="Add To Cart" href="#"> <i
-									class="pe-7s-cart"></i>
-								</a> <a class="animate-right" title="Quick View" data-toggle="modal"
-									data-target="#exampleModal" href="#"> <i class="pe-7s-look"></i>
-								</a>
-							</div>
-						</div>
-						<div class="product-content">
-							<h4>
-								<a href="#">Arifo Stylas Dress</a>
-							</h4>
-							<span>$115.00</span>
-						</div>
-					</div>
-					<div class="product-wrapper">
-						<div class="product-img">
-							<a href="#"> <img
-								src="assets/img/product/fashion-colorful/1.jpg" alt="">
-							</a>
-							<div class="product-action">
-								<a class="animate-left" title="Wishlist" href="#"> <i
-									class="pe-7s-like"></i>
-								</a> <a class="animate-top" title="Add To Cart" href="#"> <i
-									class="pe-7s-cart"></i>
-								</a> <a class="animate-right" title="Quick View" data-toggle="modal"
-									data-target="#exampleModal" href="#"> <i class="pe-7s-look"></i>
-								</a>
-							</div>
-						</div>
-						<div class="product-content">
-							<h4>
-								<a href="#">Arifo Stylas Dress</a>
-							</h4>
-							<span>$115.00</span>
-						</div>
-					</div>
-					<div class="product-wrapper">
-						<div class="product-img">
-							<a href="#"> <img
-								src="assets/img/product/fashion-colorful/2.jpg" alt="">
 							</a> <span>hot</span>
 							<div class="product-action">
 								<a class="animate-left" title="Wishlist" href="#"> <i

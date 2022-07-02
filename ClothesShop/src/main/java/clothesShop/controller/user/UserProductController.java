@@ -7,10 +7,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import clothesShop.entity.Product;
 import clothesShop.service.ICategorieService;
+import clothesShop.service.IColorService;
 import clothesShop.service.IMenuService;
 import clothesShop.service.IProductService;
 
@@ -22,6 +24,8 @@ public class UserProductController {
 	private ICategorieService categorieService;
 	@Autowired
 	private IMenuService menuService;
+	@Autowired
+	private IColorService colorService;
 
 	@RequestMapping("/san-pham/page={pageNum}")
 	public ModelAndView viewPage(@PathVariable(name = "pageNum") int pageNum) {
@@ -50,6 +54,15 @@ public class UserProductController {
 	public ModelAndView productDetail(@PathVariable(name = "id") Long id) {
 		ModelAndView mav = new ModelAndView("user/products/product-details");
 		mav.addObject("productDetail", productService.get(id));
+		mav.addObject("listImageById", colorService.listImageById(id));
+		mav.addObject("idProduct", id);
+		mav.addObject("listMenu", menuService.listAll());
+		return mav;
+	}
+	
+	@RequestMapping(value = "/gio-hang", method = RequestMethod.GET)
+	public ModelAndView cartPage() {
+		ModelAndView mav = new ModelAndView("user/cart/cart");
 		mav.addObject("listMenu", menuService.listAll());
 		return mav;
 	}

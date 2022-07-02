@@ -1,5 +1,7 @@
 package clothesShop.service.Implement;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +14,7 @@ import clothesShop.service.IColorService;
 
 @Service
 @Transactional
-public class ColorServiceImpl implements IColorService{
+public class ColorServiceImpl implements IColorService {
 	@Autowired
 	ColorRepository colorRepository;
 
@@ -35,6 +37,22 @@ public class ColorServiceImpl implements IColorService{
 	@Override
 	public void delete(Long id) {
 		colorRepository.deleteById(id);
+
+	}
+
+	@Override
+	public List<String> listImageById(Long id) {
+		List<String> listImageById = new ArrayList<>();
+		List<Color> listColor = colorRepository.findAll();
+		for (Color color : listColor) {
+			if (color.getProduct().getId() == id) {
+				List<String> listImage = Arrays.asList(color.getImage().split("\\s*,\\s*"));
+				for (String image : listImage) {
+					listImageById.add(image);
+				}
+			}
+		}
+		return listImageById;
 
 	}
 }

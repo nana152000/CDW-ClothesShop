@@ -32,11 +32,11 @@
 								<thead>
 									<tr>
 										<th>remove</th>
-										<th>images</th>
-										<th>Product</th>
-										<th>Price</th>
-										<th>Quantity</th>
-										<th>Total</th>
+										<th>Hình ảnh</th>
+										<th>Sản phẩm</th>
+										<th>Giá</th>
+										<th>Số lượng</th>
+										<th>Tổng tiền</th>
 									</tr>
 								</thead>
 								<tbody>

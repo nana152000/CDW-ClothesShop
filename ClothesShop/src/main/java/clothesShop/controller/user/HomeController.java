@@ -70,12 +70,6 @@ public class HomeController {
 		return mav;
 	}
 
-	@RequestMapping(value = "/gio-hang", method = RequestMethod.GET)
-	public ModelAndView cartPage() {
-		ModelAndView mav = new ModelAndView("user/cart/cart");
-		mav.addObject("listMenu", menuService.listAll());
-		return mav;
-	}
 
 	@RequestMapping(value = "/thanh-toan", method = RequestMethod.GET)
 	public ModelAndView checkoutPage() {
