@@ -122,7 +122,7 @@
 										<li>Total<span><fmt:formatNumber type="number"
 													groupingUsed="true" value="${ TotalPriceCart }" /> ₫</span></li>
 									</ul>
-									<a href="#">Proceed to checkout</a>
+									<a href="<c:url value="/thanh-toan"/>">Proceed to checkout</a>
 								</div>
 							</div>
 						</div>

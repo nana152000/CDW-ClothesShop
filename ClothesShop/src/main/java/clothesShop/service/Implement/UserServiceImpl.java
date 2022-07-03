@@ -47,7 +47,7 @@ public class UserServiceImpl implements IUserService {
 		List<User> users = userRepository.findAll();
 		for (User u : users) {
 			if (u.getUser().equals(userName)) {
-				user = new User(u.getId(), userName, u.getPassword(), u.getDisplay_name(), u.getAddress());
+				user = new User(u.getId(), userName, u.getPassword(), u.getDisplay_name(), u.getAddress(),u.getPhone());
 			}
 		}
 		return user;

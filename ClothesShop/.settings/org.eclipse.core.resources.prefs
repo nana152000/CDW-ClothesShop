@@ -1,6 +1,7 @@
 eclipse.preferences.version=1
 encoding//src/main/java/clothesShop/controller/admin/HomeController.java=UTF-8
 encoding//src/main/java/clothesShop/controller/user/AccountController.java=UTF-8
+encoding//src/main/java/clothesShop/controller/user/CheckouController.java=UTF-8
 encoding//src/main/java/clothesShop/controller/user/HomeController.java=UTF-8
 encoding//src/main/java/clothesShop/entity/Color.java=UTF-8
 encoding//src/main/java/clothesShop/entity/Product.java=UTF-8

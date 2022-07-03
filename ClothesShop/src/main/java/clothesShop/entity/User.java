@@ -10,7 +10,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "users")
+@Table(name = "accounts")
 @Getter
 @Setter
 public class User {
@@ -22,18 +22,20 @@ public class User {
 	private String password;
 	private String display_name;
 	private String address;
+	private String phone;
 
 	public User() {
 		super();
 	}
 
-	public User(Long id, String user, String password, String display_name, String address) {
+	public User(Long id, String user, String password, String display_name, String address, String phone) {
 		super();
 		this.id = id;
 		this.user = user;
 		this.password = password;
 		this.display_name = display_name;
 		this.address = address;
+		this.phone = phone;
 	}
 
 	@Override
@@ -41,7 +43,5 @@ public class User {
 		return "User [id=" + id + ", user=" + user + ", password=" + password + ", display_name=" + display_name
 				+ ", address=" + address + "]";
 	}
-
-
 
 }

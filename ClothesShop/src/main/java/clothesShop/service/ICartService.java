@@ -2,8 +2,10 @@ package clothesShop.service;
 
 import java.util.HashMap;
 
-import clothesShop.dto.user.CartDto;
+import org.springframework.stereotype.Service;
 
+import clothesShop.dto.user.CartDto;
+@Service
 public interface ICartService {
 
 	double totalPrice(HashMap<Long, CartDto> cart);

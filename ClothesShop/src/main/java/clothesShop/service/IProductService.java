@@ -5,9 +5,10 @@ import java.util.Map;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
 
 import clothesShop.entity.Product;
-
+@Service
 public interface IProductService {
 
 	Page<Product> findAll(Pageable pageable);

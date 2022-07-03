@@ -2,8 +2,10 @@ package clothesShop.service;
 
 import java.util.List;
 
-import clothesShop.entity.Color;
+import org.springframework.stereotype.Service;
 
+import clothesShop.entity.Color;
+@Service
 public interface IColorService {
 
 	void delete(Long id);

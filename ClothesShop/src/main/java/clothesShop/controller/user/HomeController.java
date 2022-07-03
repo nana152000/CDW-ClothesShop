@@ -51,12 +51,6 @@ public class HomeController {
 	}
 
 
-	@RequestMapping(value = "/thanh-toan", method = RequestMethod.GET)
-	public ModelAndView checkoutPage() {
-		ModelAndView mav = new ModelAndView("user/checkout/checkout");
-		return mav;
-	}
-
 	@RequestMapping(value = "/yeu-thich", method = RequestMethod.GET)
 	public ModelAndView wishlistPage() {
 		ModelAndView mav = new ModelAndView("user/wishlist/wishlist");

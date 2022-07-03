@@ -40,11 +40,12 @@
 										placeholder="Mật khẩu" />
 									<form:input type="text" path="display_name"
 										placeholder="Họ và tên" />
-										<form:input type="text" path="address"
-										placeholder="Địa chỉ" />
+									<form:input type="text" path="address" placeholder="Địa chỉ" />
+									<form:input type="text" path="phone"
+										placeholder="Số điện thoại" />
 									<div class="button-box">
-										<button type="submit" class="default-btn floatright" value="Save">Đăng
-											ký</button>
+										<button type="submit" class="default-btn floatright"
+											value="Save">Đăng ký</button>
 									</div>
 								</form:form>
 							</div>
