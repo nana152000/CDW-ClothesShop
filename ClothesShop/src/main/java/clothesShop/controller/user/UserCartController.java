@@ -13,20 +13,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import clothesShop.dto.user.CartDto;
-import clothesShop.service.IMenuService;
 import clothesShop.service.Implement.CartServiceImpl;
 
 @Controller
 public class UserCartController {
-	@Autowired
-	private IMenuService menuService;
 	@Autowired
 	private CartServiceImpl cartService;
 
 	@RequestMapping(value = "/gio-hang", method = RequestMethod.GET)
 	public ModelAndView cartPage() {
 		ModelAndView mav = new ModelAndView("user/cart/cart");
-		mav.addObject("listMenu", menuService.listAll());
 		return mav;
 	}
 

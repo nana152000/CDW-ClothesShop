@@ -13,14 +13,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import clothesShop.entity.Category;
 import clothesShop.service.ICategorieService;
-import clothesShop.service.IMenuService;
 
 @Controller
 public class CategoryController {
 	@Autowired
 	private ICategorieService categorieService;
-	@Autowired
-	private IMenuService menuService;
 	
 	@RequestMapping("/quan-tri/loai-sp")
 	public ModelAndView category() {
@@ -35,7 +32,6 @@ public class CategoryController {
 	@RequestMapping("/quan-tri/loai-sp/new")
 	public ModelAndView newCategoryForm(Map<String, Object> model) {
 		ModelAndView mav = new ModelAndView("admin/actionCategories/newCategory");
-		mav.addObject("listMenuId", menuService.listMenuId());
 		Category category = new Category();
 		model.put("category", category);
 		return mav;
@@ -50,7 +46,6 @@ public class CategoryController {
 	@RequestMapping("/quan-tri/loai-sp/edit")
 	public ModelAndView editCategoryForm(@RequestParam long id) {
 		ModelAndView mav = new ModelAndView("admin/actionCategories/editCategory");
-		mav.addObject("listMenuId", menuService.listMenuId());
 		Category category = categorieService.get(id);
 		mav.addObject("category", category);
 		return mav;

@@ -14,21 +14,30 @@
 				<div class="menu-style-2 book-menu menu-hover">
 					<nav>
 						<ul>
-							<c:forEach var="menu" items="${listMenu}">
-								<li><div class="dropdown_menu">
-										<c:if test="${index.first}">
-											<button class="dropbtn_menu">
-												<a class="active"
-													href="<c:url value='/${menu.url}'></c:url>">${menu.name}</a>
-											</button>
-										</c:if>
-										<c:if test="${not index.first}">
-											<button class="dropbtn_menu">
-												<a href="<c:url value='/${menu.url}'></c:url>">${menu.name}</a>
-											</button>
-										</c:if>
-									</div></li>
-							</c:forEach>
+							<li><div class="dropdown_menu">
+									<button class="dropbtn_menu">
+										<a class="active" href="<c:url value='/trang-chu'></c:url>">Trang
+											chủ</a>
+									</button>
+								</div></li>
+							<li><div>
+									<button class="dropbtn_menu">
+										<a class="active" href="<c:url value='/san-pham'></c:url>">Sản
+											phẩm</a>
+									</button>
+								</div></li>
+							<li><div>
+									<button class="dropbtn_menu">
+										<a class="active" href="<c:url value='/gioi-thieu'></c:url>">Giới
+											thiệu</a>
+									</button>
+								</div></li>
+							<li><div>
+									<button class="dropbtn_menu">
+										<a class="active" href="<c:url value='/lien-he'></c:url>">Liên
+											hệ</a>
+									</button>
+								</div></li>
 						</ul>
 					</nav>
 				</div>
@@ -40,8 +49,8 @@
 						</ul>
 					</div>
 					<div class="header-cart-4 furits-cart">
-						<a class="icon-cart" href="<c:url value="/gio-hang"/>"> <i class="pe-7s-shopbag"></i> <span
-							class="handicraft-count">${ TotalQuantyCart }</span>
+						<a class="icon-cart" href="<c:url value="/gio-hang"/>"> <i
+							class="pe-7s-shopbag"></i> <span class="handicraft-count">${ TotalQuantyCart }</span>
 						</a>
 						<ul class="cart-dropdown">
 							<li class="single-product-cart">

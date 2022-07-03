@@ -6,24 +6,33 @@
 <body>
 	<!-- slide -->
 	<div class="slider-area">
-		<div class="slider-active owl-carousel">
-			<c:forEach var="slide" items="${listSlide}">
-				<div class="single-slider single-slider-book1 bg-img"
-					style="background-image: url(<c:url value="/assets/user/img/slider/${slide.image}"></c:url>)">
-					<div class="container">
-						<div
-							class="slider-animation slider-content-book fadeinup-animated">
-							<h1 class="animated">
-								<span>${slide.caption}</span>
-							</h1>
-							<p class="animated">${slide.content}</p>
-							<a href="shop.html">More Books</a>
-						</div>
-					</div>
-				</div>
-			</c:forEach>
-		</div>
-	</div>
+        <div class="slider-active owl-carousel">
+            <div class="single-slider single-slider-book1 bg-img"
+                style="background-image: url(<c:url value="/assets/user/img/slider/slide1.jpg"></c:url>)">
+                <div class="container">
+                    <div class="slider-animation slider-content-book fadeinup-animated">
+                        <h1 class="animated"><span>Knowledge</span> is</h1>
+                        <h2 class="animated">Power.</h2>
+                        <p class="animated">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        </p>
+                        <a href="shop.html">More Books</a>
+                    </div>
+                </div>
+            </div>
+            <div class="single-slider single-slider-book1 bg-img"
+                style="background-image: url(<c:url value="/assets/user/img/slider/slide2.jpg"></c:url>)">
+                <div class="container">
+                    <div class="slider-animation slider-content-book fadeinup-animated">
+                        <h1 class="animated"><span>Knowledge</span> is</h1>
+                        <h2 class="animated">Power.</h2>
+                        <p class="animated">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        </p>
+                        <a href="shop.html">More Books</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 	<!-- best product area start -->
 	<div class="best-product-area pb-15 best-1">
 		<div style="height: 35px"></div>
