@@ -43,10 +43,18 @@
 				</div>
 				<div class="furits-login-cart">
 					<div class="furits-login">
-						<ul>
-							<li><a href="<c:url value="/dang-nhap"></c:url>">Login</a></li>
-							<li><a href="<c:url value="/dang-ky"></c:url>">Reg</a></li>
-						</ul>
+						<c:if test="${empty loginUser }">
+							<ul>
+								<li><a href="<c:url value="/dang-nhap"></c:url>">Đăng nhập</a></li>
+								<li><a href="<c:url value="/dang-ky"></c:url>">Đăng ký</a></li>
+							</ul>
+						</c:if>
+						<c:if test="${not empty loginUser }">
+							<ul>
+								<li><a href="<c:url value="#"></c:url>">${loginUser.display_name}</a></li>
+								<li><a href="<c:url value="/dang-xuat"></c:url>">Đăng xuất</a></li>
+							</ul>
+						</c:if>
 					</div>
 					<div class="header-cart-4 furits-cart">
 						<a class="icon-cart" href="<c:url value="/gio-hang"/>"> <i

@@ -2,13 +2,16 @@ package clothesShop.controller.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import clothesShop.entity.User;
 import clothesShop.service.ICategorieService;
 import clothesShop.service.IColorService;
 import clothesShop.service.IProductService;
+import clothesShop.service.IUserService;
 
 @Controller
 public class HomeController {
@@ -18,6 +21,7 @@ public class HomeController {
 	private ICategorieService categorieService;
 	@Autowired
 	private IColorService colorService;
+
 
 
 	@RequestMapping(value = { "/trang-chu" }, method = RequestMethod.GET)
@@ -37,18 +41,6 @@ public class HomeController {
 	@RequestMapping(value = "/lien-he", method = RequestMethod.GET)
 	public ModelAndView contactPage() {
 		ModelAndView mav = new ModelAndView("user/contact/contact");
-		return mav;
-	}
-
-	@RequestMapping(value = "/dang-nhap", method = RequestMethod.GET)
-	public ModelAndView loginPage() {
-		ModelAndView mav = new ModelAndView("user/login-register/login");
-		return mav;
-	}
-
-	@RequestMapping(value = "/dang-ky", method = RequestMethod.GET)
-	public ModelAndView regPage() {
-		ModelAndView mav = new ModelAndView("user/login-register/register");
 		return mav;
 	}
 

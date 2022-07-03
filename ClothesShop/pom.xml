@@ -104,6 +104,13 @@
 			<version>1.16.20</version>
 			<scope>provided</scope>
 		</dependency>
+		<!-- Max hoas https://mvnrepository.com/artifact/org.mindrot/jbcrypt -->
+		<dependency>
+			<groupId>org.mindrot</groupId>
+			<artifactId>jbcrypt</artifactId>
+			<version>0.4</version>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<plugins>

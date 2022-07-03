@@ -9,15 +9,18 @@ import org.springframework.transaction.annotation.Transactional;
 
 import clothesShop.dto.user.CartDto;
 import clothesShop.entity.Product;
+import clothesShop.service.ICartService;
+import clothesShop.service.ICategorieService;
 import clothesShop.service.IProductService;
 
 @Service
 @Transactional
-public class CartServiceImpl {
+public class CartServiceImpl implements ICartService{
 	@Autowired
 	IProductService productService;
 
-	public HashMap<Long, CartDto> AddCart(long id, HashMap<Long, CartDto> cart) {
+	@Override
+	public HashMap<Long, CartDto> addCart(long id, HashMap<Long, CartDto> cart) {
 		CartDto itemCart = new CartDto();
 		Product product = productService.get(id);
 		if (product != null && cart.containsKey(id)) {
@@ -33,7 +36,8 @@ public class CartServiceImpl {
 		return cart;
 	}
 
-	public HashMap<Long, CartDto> EditCart(long id, int quanty, HashMap<Long, CartDto> cart) {
+	@Override
+	public HashMap<Long, CartDto> editCart(long id, int quanty, HashMap<Long, CartDto> cart) {
 		if (cart == null) {
 			return cart;
 		}
@@ -52,7 +56,8 @@ public class CartServiceImpl {
 		return cart;
 	}
 
-	public HashMap<Long, CartDto> DeleteCart(long id, HashMap<Long, CartDto> cart) {
+	@Override
+	public HashMap<Long, CartDto> deleteCart(long id, HashMap<Long, CartDto> cart) {
 		if (cart == null) {
 			return cart;
 		}
@@ -62,7 +67,8 @@ public class CartServiceImpl {
 		return cart;
 	}
 
-	public int TotalQuanty(HashMap<Long, CartDto> cart) {
+	@Override
+	public int totalQuanty(HashMap<Long, CartDto> cart) {
 		int totalQuanty = 0;
 		for (Map.Entry<Long, CartDto> itemCart : cart.entrySet()) {
 			totalQuanty += itemCart.getValue().getQuanty();
@@ -70,7 +76,8 @@ public class CartServiceImpl {
 		return totalQuanty;
 	}
 
-	public double TotalPrice(HashMap<Long, CartDto> cart) {
+	@Override
+	public double totalPrice(HashMap<Long, CartDto> cart) {
 		double totalPrice = 0;
 		for (Map.Entry<Long, CartDto> itemCart : cart.entrySet()) {
 			totalPrice += itemCart.getValue().getTotalPrice();

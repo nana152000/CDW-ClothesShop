@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import clothesShop.dto.user.CartDto;
-import clothesShop.service.Implement.CartServiceImpl;
+import clothesShop.service.ICartService;
 
 @Controller
 public class UserCartController {
 	@Autowired
-	private CartServiceImpl cartService;
+	private ICartService cartService;
 
 	@RequestMapping(value = "/gio-hang", method = RequestMethod.GET)
 	public ModelAndView cartPage() {
@@ -32,10 +32,10 @@ public class UserCartController {
 		if (cart == null) {
 			cart = new HashMap<Long, CartDto>();
 		}
-		cart = cartService.AddCart(id, cart);
+		cart = cartService.addCart(id, cart);
 		session.setAttribute("Cart", cart);
-		session.setAttribute("TotalQuantyCart", cartService.TotalQuanty(cart));
-		session.setAttribute("TotalPriceCart", cartService.TotalPrice(cart));
+		session.setAttribute("TotalQuantyCart", cartService.totalQuanty(cart));
+		session.setAttribute("TotalPriceCart", cartService.totalPrice(cart));
 		return "redirect:" + request.getHeader("Referer");
 	}
 
@@ -46,10 +46,10 @@ public class UserCartController {
 		if (cart == null) {
 			cart = new HashMap<Long, CartDto>();
 		}
-		cart = cartService.EditCart(id, quantity, cart);
+		cart = cartService.editCart(id, quantity, cart);
 		session.setAttribute("Cart", cart);
-		session.setAttribute("TotalQuantyCart", cartService.TotalQuanty(cart));
-		session.setAttribute("TotalPriceCart", cartService.TotalPrice(cart));
+		session.setAttribute("TotalQuantyCart", cartService.totalQuanty(cart));
+		session.setAttribute("TotalPriceCart", cartService.totalPrice(cart));
 		return "redirect:" + request.getHeader("Referer");
 	}
 
@@ -59,10 +59,10 @@ public class UserCartController {
 		if (cart == null) {
 			cart = new HashMap<Long, CartDto>();
 		}
-		cart = cartService.DeleteCart(id, cart);
+		cart = cartService.deleteCart(id, cart);
 		session.setAttribute("Cart", cart);
-		session.setAttribute("TotalQuantyCart", cartService.TotalQuanty(cart));
-		session.setAttribute("TotalPriceCart", cartService.TotalPrice(cart));
+		session.setAttribute("TotalQuantyCart", cartService.totalQuanty(cart));
+		session.setAttribute("TotalPriceCart", cartService.totalPrice(cart));
 		return "redirect:" + request.getHeader("Referer");
 	}
 }

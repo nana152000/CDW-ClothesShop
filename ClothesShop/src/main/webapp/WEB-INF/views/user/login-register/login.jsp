@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,19 +29,22 @@
 					<div class="login">
 						<div class="login-form-container">
 							<div class="login-form">
-								<form action="#" method="post">
-									<input type="text" name="user-name" placeholder="Username">
-									<input type="password" name="user-password"
-										placeholder="Password">
+								<form:form action="dang-nhap" method="POST"
+									modelAttribute="user">
+									<form:input type="email" path="user" placeholder="Email" />
+									<form:input type="password" path="password"
+										placeholder="Mật khẩu" />
 									<div class="button-box">
 										<div class="login-toggle-btn">
 											<input type="checkbox"> <label>Remember me</label> <a
 												href="<c:url value="/quen-mat-khau"></c:url>">Forgot
 												Password?</a>
 										</div>
-										<button type="submit" class="default-btn floatright">Login</button>
+										<button type="submit" class="default-btn floatright">Đăng
+											nhập</button>
 									</div>
-								</form>
+									<h1>${statusLogin}</h1>
+								</form:form>
 							</div>
 						</div>
 					</div>
