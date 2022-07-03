@@ -50,7 +50,7 @@ public class UserProductController {
 		return viewPage(1);
 	}
 
-	@RequestMapping("/san-pham/{id}")
+	@RequestMapping("/chi-tiet-san-pham/{id}")
 	public ModelAndView productDetail(@PathVariable(name = "id") Long id) {
 		ModelAndView mav = new ModelAndView("user/products/product-details");
 		mav.addObject("productDetail", productService.get(id));
@@ -59,11 +59,6 @@ public class UserProductController {
 		mav.addObject("listMenu", menuService.listAll());
 		return mav;
 	}
+
 	
-	@RequestMapping(value = "/gio-hang", method = RequestMethod.GET)
-	public ModelAndView cartPage() {
-		ModelAndView mav = new ModelAndView("user/cart/cart");
-		mav.addObject("listMenu", menuService.listAll());
-		return mav;
-	}
 }

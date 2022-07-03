@@ -125,7 +125,7 @@
 									class="cart-plus-minus-box">
 							</div>
 							<div class="quickview-btn-cart">
-								<a class="btn-hover-black" href="<c:url value="/gio-hang"/>">Thêm vào giỏ hàng</a>
+								<a class="btn-hover-black" href="<c:url value="/AddCart/${ productDetail.id }"/>">Thêm vào giỏ hàng</a>
 							</div>
 							<div class="quickview-btn-wishlist">
 								<a class="btn-hover" href="#"><i class="pe-7s-like"></i></a>

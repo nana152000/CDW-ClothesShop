@@ -13,45 +13,38 @@
 <link href="<c:url value='/assets/user/img/logo/logo.png'/>"
 	rel="shortcut icon" type="image/x-icon">
 <!-- all css here -->
-<link
-	href="<c:url value='/assets/user/css/bootstrap.min.css'/>"
-	rel="stylesheet" type="text/css">	
-<link
-	href="<c:url value='/assets/user/css/magnific-popup.css'/>"
-	rel="stylesheet" type="text/css">	
-<link
-	href="<c:url value='/assets/user/css/animate.css'/>"
-	rel="stylesheet" type="text/css">	
-<link
-	href="<c:url value='/assets/user/css/owl.carousel.min.css'/>"
-	rel="stylesheet" type="text/css">	
-<link
-	href="<c:url value='/assets/user/css/themify-icons.css'/>"
-	rel="stylesheet" type="text/css">	
-<link
-	href="<c:url value='/assets/user/css/pe-icon-7-stroke.css'/>"
+<link href="<c:url value='/assets/user/css/bootstrap.min.css'/>"
 	rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="<c:url value='/assets/user/css/icofont.css'/>" rel="stylesheet" type="text/css">
-<link
-	href="<c:url value='/assets/user/css/meanmenu.min.css'/>"
+<link href="<c:url value='/assets/user/css/magnific-popup.css'/>"
 	rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="<c:url value='/assets/user/css/easyzoom.css'/>" rel="stylesheet" type="text/css">
-<link
-	href="<c:url value='/assets/user/css/bundle.css'/>"
+<link href="<c:url value='/assets/user/css/animate.css'/>"
 	rel="stylesheet" type="text/css">
-<link
-	href="<c:url value='/assets/user/css/style.css'/>"
+<link href="<c:url value='/assets/user/css/owl.carousel.min.css'/>"
 	rel="stylesheet" type="text/css">
-<link
-	href="<c:url value='/assets/user/css/responsive.css'/>"
+<link href="<c:url value='/assets/user/css/themify-icons.css'/>"
 	rel="stylesheet" type="text/css">
-<link
-	href="<c:url value='/assets/user/css/style-css.css'/>"
+<link href="<c:url value='/assets/user/css/pe-icon-7-stroke.css'/>"
 	rel="stylesheet" type="text/css">
-	
+<link rel="stylesheet"
+	href="<c:url value='/assets/user/css/icofont.css'/>" rel="stylesheet"
+	type="text/css">
+<link href="<c:url value='/assets/user/css/meanmenu.min.css'/>"
+	rel="stylesheet" type="text/css">
+<link rel="stylesheet"
+	href="<c:url value='/assets/user/css/easyzoom.css'/>" rel="stylesheet"
+	type="text/css">
+<link href="<c:url value='/assets/user/css/bundle.css'/>"
+	rel="stylesheet" type="text/css">
+<link href="<c:url value='/assets/user/css/style.css'/>"
+	rel="stylesheet" type="text/css">
+<link href="<c:url value='/assets/user/css/responsive.css'/>"
+	rel="stylesheet" type="text/css">
+<link href="<c:url value='/assets/user/css/style-css.css'/>"
+	rel="stylesheet" type="text/css">
+
 <script
-		src="<c:url value='/assets/user/js/vendor/modernizr-2.8.3.min.js'/>"
-		type="text/javascript"></script>
+	src="<c:url value='/assets/user/js/vendor/modernizr-2.8.3.min.js'/>"
+	type="text/javascript"></script>
 </head>
 <body>
 	<!-- header -->
@@ -65,35 +58,26 @@
 	<script
 		src="<c:url value='/assets/user/js/vendor/jquery-1.12.0.min.js'/>"
 		type="text/javascript"></script>
-	<script
-		src="<c:url value='/assets/user/js/popper.js'/>"
-		type="text/javascript"></script>		
-	<script
-		src="<c:url value='/assets/user/js/bootstrap.min.js'/>"
+	<script src="<c:url value='/assets/user/js/popper.js'/>"
+		type="text/javascript"></script>
+	<script src="<c:url value='/assets/user/js/bootstrap.min.js'/>"
 		type="text/javascript"></script>
 	<script
 		src="<c:url value='/assets/user/js/jquery.magnific-popup.min.js'/>"
 		type="text/javascript"></script>
-	<script
-		src="<c:url value='/assets/user/js/isotope.pkgd.min.js'/>"
+	<script src="<c:url value='/assets/user/js/isotope.pkgd.min.js'/>"
 		type="text/javascript"></script>
-	<script
-		src="<c:url value='/assets/user/js/imagesloaded.pkgd.min.js'/>"
+	<script src="<c:url value='/assets/user/js/imagesloaded.pkgd.min.js'/>"
 		type="text/javascript"></script>
-	<script
-		src="<c:url value='/assets/user/js/jquery.counterup.min.js'/>"
+	<script src="<c:url value='/assets/user/js/jquery.counterup.min.js'/>"
 		type="text/javascript"></script>
-	<script
-		src="<c:url value='/assets/user/js/waypoints.min.js'/>"
+	<script src="<c:url value='/assets/user/js/waypoints.min.js'/>"
 		type="text/javascript"></script>
-	<script
-		src="<c:url value='/assets/user/js/ajax-mail.js'/>"
+	<script src="<c:url value='/assets/user/js/ajax-mail.js'/>"
 		type="text/javascript"></script>
-	<script
-		src="<c:url value='/assets/user/js/owl.carousel.min.js'/>"
+	<script src="<c:url value='/assets/user/js/owl.carousel.min.js'/>"
 		type="text/javascript"></script>
-	<script
-		src="<c:url value='/assets/user/js/plugins.js'/>"
+	<script src="<c:url value='/assets/user/js/plugins.js'/>"
 		type="text/javascript"></script>
 	<script
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMlLa3XrAmtemtf97Z2YpXwPLlimRK7Pk"></script>
@@ -225,8 +209,11 @@
 		}
 		google.maps.event.addDomListener(window, 'load', init);
 	</script>
-	<script
-		src="<c:url value='/assets/user/js/main.js'/>"
+	<script src="<c:url value='/assets/user/js/main.js'/>"
 		type="text/javascript"></script>
+	<script src="<c:url value='/assets/user/js/cart.js'/>"
+		type="text/javascript"></script>
+
+
 </body>
 </html>

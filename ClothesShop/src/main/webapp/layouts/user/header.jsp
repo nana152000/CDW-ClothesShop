@@ -40,8 +40,8 @@
 						</ul>
 					</div>
 					<div class="header-cart-4 furits-cart">
-						<a class="icon-cart" href="#"> <i class="pe-7s-shopbag"></i> <span
-							class="handicraft-count">02</span>
+						<a class="icon-cart" href="<c:url value="/gio-hang"/>"> <i class="pe-7s-shopbag"></i> <span
+							class="handicraft-count">${ TotalQuantyCart }</span>
 						</a>
 						<ul class="cart-dropdown">
 							<li class="single-product-cart">

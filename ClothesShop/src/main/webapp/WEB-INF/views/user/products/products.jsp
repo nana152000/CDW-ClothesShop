@@ -194,7 +194,7 @@
 																varStatus="index">
 																<c:if
 																	test="${color.product.id == productPaginate.id && index.first}">
-																	<a href="<c:url value='/san-pham/${color.product.id}'></c:url>"> <c:forEach
+																	<a href="<c:url value='/chi-tiet-san-pham/${color.product.id}'></c:url>"> <c:forEach
 																			var="img" items="${color.image}" varStatus="index">
 																			<c:if test="${index.first}">
 																				<img
@@ -241,7 +241,7 @@
 																varStatus="index">
 																<c:if
 																	test="${color.product.id == productPaginate.id && index.first}">
-																	<a href="detail-products/${color.product.id}"> <c:forEach
+																	<a href="chi-tiet-san-pham/${color.product.id}"> <c:forEach
 																			var="img" items="${color.image}" varStatus="index">
 																			<c:if test="${index.first}">
 																				<img

@@ -12,8 +12,6 @@ public interface IProductService {
 
 	Page<Product> findAll(Pageable pageable);
 
-//	Page<Product> findProductPaging(String firstname, Pageable pageable);
-
 	Map<Integer, String> listProductId();
 
 	List<Product> search(String keyword);

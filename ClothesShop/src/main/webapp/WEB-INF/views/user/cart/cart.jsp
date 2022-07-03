@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,51 +33,60 @@
 							<table>
 								<thead>
 									<tr>
-										<th>remove</th>
+										<th>Stt</th>
 										<th>Hình ảnh</th>
 										<th>Sản phẩm</th>
+										<th>Màu</th>
 										<th>Giá</th>
 										<th>Số lượng</th>
 										<th>Tổng tiền</th>
+										<th>remove</th>
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-										<td class="product-remove"><a href="#"><i
-												class="pe-7s-close"></i></a></td>
-										<td class="product-thumbnail"><a href="#"><img
-												src="assets/img/cart/1.jpg" alt=""></a></td>
-										<td class="product-name"><a href="#">Wooden Furniture
-										</a></td>
-										<td class="product-price-cart"><span class="amount">$165.00</span></td>
-										<td class="product-quantity"><input value="1"
-											type="number"></td>
-										<td class="product-subtotal">$165.00</td>
-									</tr>
-									<tr>
-										<td class="product-remove"><a href="#"><i
-												class="pe-7s-close"></i></a></td>
-										<td class="product-thumbnail"><a href="#"><img
-												src="assets/img/cart/2.jpg" alt=""></a></td>
-										<td class="product-name"><a href="#">Vestibulum
-												dictum</a></td>
-										<td class="product-price-cart"><span class="amount">$150.00</span></td>
-										<td class="product-quantity"><input value="1"
-											type="number"></td>
-										<td class="product-subtotal">$150.00</td>
-									</tr>
-									<tr>
-										<td class="product-remove"><a href="#"><i
-												class="pe-7s-close"></i></a></td>
-										<td class="product-thumbnail"><a href="#"><img
-												src="assets/img/cart/3.jpg" alt=""></a></td>
-										<td class="product-name"><a href="#">Vestibulum
-												dictum</a></td>
-										<td class="product-price-cart"><span class="amount">$150.00</span></td>
-										<td class="product-quantity"><input value="1"
-											type="number"></td>
-										<td class="product-subtotal">$150.00</td>
-									</tr>
+									<c:forEach var="cart" items="${ Cart }">
+										<tr>
+											<td class="product-remove">1</td>
+											<td class="product-thumbnail"><c:forEach var="color"
+													items="${ cart.value.product.colors }" varStatus="index">
+													<c:if test="${index.first}">
+														<c:forEach var="img" items="${ color.image }"
+															varStatus="index">
+															<c:if test="${index.first}">
+																<a href="#"> <img style="width: 80px;"
+																	src="<c:url value="/assets/user/img/product/${cart.value.product.id}/${img}"/>"
+																	alt="">
+																</a>
+															</c:if>
+														</c:forEach>
+													</c:if>
+												</c:forEach></td>
+											<td class="product-name"><a href="#">${ cart.value.product.name }
+											</a></td>
+											<td class="product-remove"><c:forEach var="color"
+													items="${ cart.value.product.colors }" varStatus="index">
+													<div
+														style="width: 30px; height: 30px; margin-left: 45px; background: ${ color.color_code }; -moz-border-radius: 60px; -webkit-border-radius: 60px; border-radius: 60px;"></div>
+												</c:forEach></td>
+											<td class="product-price-cart"><span class="amount"><fmt:formatNumber
+														type="number" groupingUsed="true"
+														value="${ cart.value.product.price }" /> ₫</span></td>
+											<td class="product-quantity"><input type="number"
+												min="0" max="1000" placeholder="1"
+												id="quantity-cart-${ cart.key }" size="16" type="text"
+												value="${ cart.value.quanty }"></td>
+											<td class="product-subtotal"><fmt:formatNumber
+													type="number" groupingUsed="true"
+													value="${ cart.value.totalPrice }" /> ₫</td>
+											<td class="product-remove"><a
+												href="<c:url value="/DeleteCart/${ cart.key }"/>"><i
+													class="pe-7s-close"></i></a>
+												<button type="button" data-id="${ cart.key }"
+													class="edit-quatity-cart">
+													<span>Update</span>
+												</button></td>
+										</tr>
+									</c:forEach>
 								</tbody>
 							</table>
 						</div>
@@ -89,8 +100,14 @@
 											type="submit">
 									</div>
 									<div class="coupon2">
-										<input class="button" name="update_cart" value="Update cart"
-											type="submit">
+										<%-- <input onclick="EditQuantity();" data-id="${ cart.key }"
+											class="button" name="update_cart" value="Update cart"
+											type="submit"> --%>
+										<button type="button" data-id="${ cart.key }"
+											class="edit-quatity-cart">
+											<span>Update</span>
+										</button>
+
 									</div>
 								</div>
 							</div>
@@ -100,8 +117,10 @@
 								<div class="cart-page-total">
 									<h2>Cart totals</h2>
 									<ul>
-										<li>Subtotal<span>100.00</span></li>
-										<li>Total<span>100.00</span></li>
+										<li>Subtotal<span><fmt:formatNumber type="number"
+													groupingUsed="true" value="${ TotalPriceCart }" /> ₫</span></li>
+										<li>Total<span><fmt:formatNumber type="number"
+													groupingUsed="true" value="${ TotalPriceCart }" /> ₫</span></li>
 									</ul>
 									<a href="#">Proceed to checkout</a>
 								</div>
