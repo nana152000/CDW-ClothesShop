@@ -25,9 +25,10 @@ public interface IProductService {
 
 	List<Product> listAll();
 
-	Page<Product> listAll(int pageNum);
+	Page<Product> listAll(int pageNum, String sortField, String sortDir);
 
+	List<Product> listAllNewProduct();
 
-	Page<Product> listAllById(int id, int pageNum);
+	List<Product> listAll(String keyword);
 
 }

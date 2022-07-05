@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,25 +25,32 @@ public class UserProductController {
 	private IColorService colorService;
 
 	@RequestMapping("/san-pham/page={pageNum}")
-	public ModelAndView viewPage(@PathVariable(name = "pageNum") int pageNum) {
+	public ModelAndView viewPage(@PathVariable(name = "pageNum") int pageNum,
+			@Param("sortField") String sortField, @Param("sortDir") String sortDir) {
 		ModelAndView mav = new ModelAndView("user/products/products");
 
-		Page<Product> page = productService.listAll(pageNum);
+		Page<Product> page = productService.listAll(pageNum, sortField, sortDir);
 
 		List<Product> listProducts = page.getContent();
 
 		mav.addObject("currentPage", pageNum);
 		mav.addObject("totalPages", page.getTotalPages());
 		mav.addObject("totalItems", page.getTotalElements());
+
+		mav.addObject("sortField", sortField);
+		mav.addObject("sortDir", sortDir);
+		mav.addObject("reverseSortDir", sortDir.equals("asc") ? "desc" : "asc");
+
 		mav.addObject("listProductPaging", listProducts);
 		mav.addObject("listProduct", productService.listAll());
 		mav.addObject("listCategory", categorieService.listAll());
+//		mav.addObject("seachKeyword", productService.listAll(keyword));
 		return mav;
 	}
 
 	@RequestMapping("/san-pham")
 	public ModelAndView viewProductPage() {
-		return viewPage(1);
+		return viewPage(1, "name", "");
 	}
 
 	@RequestMapping("/chi-tiet-san-pham/{id}")
@@ -54,5 +62,4 @@ public class UserProductController {
 		return mav;
 	}
 
-	
 }

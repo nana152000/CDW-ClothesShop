@@ -11,8 +11,9 @@ import org.springframework.data.repository.query.Param;
 import clothesShop.entity.Product;
 
 public interface ProductRepository extends JpaRepository<Product, Long> {
-	@Query(value = "SELECT p FROM Product p WHERE p.name LIKE '%' || :keyword || '%'")
-	public List<Product> search(@Param("keyword") String keyword);
+//	@Query(value = "SELECT p FROM Product p WHERE p.name LIKE %?1%" + " OR p.sizes LIKE %?1%\"\r\n"
+//			+ " OR CONCAT(p.price, '') LIKE %?1%")
+//	public List<Product> search(@Param("keyword") String keyword);
 
 	@Query(value = "SELECT p.name FROM Product p")
 	public List<String> listId();
@@ -22,5 +23,8 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
 	@Query("SELECT e FROM Product e")
 	public Page<Product> findAll(Pageable pageable);
-	
+
+	@Query("SELECT e FROM Product e where e.new_product = 1 order by RAND()")
+	public List<Product> listAllNewProduct();
+
 }

@@ -1832,8 +1832,7 @@ a.banner-book-style-btn:hover {
     color: #353535;
     letter-spacing: 0.3px;
 }
-.product-price {
-    display: flex;
+.product-price {  
     line-height: 1;
     margin: 15px 0 17px;
 }

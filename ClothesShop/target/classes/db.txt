@@ -1,37 +1,326 @@
-//menus
-INSERT INTO `menus` (`id`, `name`, `url`) VALUES 
-(1, 'Trang chủ', NULL), 
-(2, 'Sản phẩm', NULL), 
-(3, 'Giới thiệu', NULL), 
-(4, 'Blog', NULL), 
-(5, 'Liên hệ', NULL)
+--
+-- Cơ sở dữ liệu: `clothes_shop`
+--
 
-//Loại
-INSERT INTO `categories` (`id`, `name`, `decriptions`) VALUES 
-(1, 'Áo', NULL), 
-(2, 'Quần', NULL), 
-(3, 'Chân váy', NULL), 
-(4, 'Đầm', NULL)
+-- --------------------------------------------------------
 
-//Màu
-INSERT INTO `colors` (`id`, `id_product`, `name_color`, `color_code`, `image`) VALUES 
-(1, '1', 'Đen', '#000000', 'DEN-1.jpg,\r\nDEN-2.jpg'), 
-(2, '1', 'Trắng', '#FFFFFF', 'TRANG-1.jpg,\r\nTRANG-2.jpg,\r\nTRANG-3.jpg'), 
-(3, '2', 'Cam', '#FF6600', 'CAM-1.jpg,\r\nCAM-2.jpg'), 
-(4, '2', 'Đen', '#000000', 'DEN-1'), 
-(5, '2', 'Hồng', '#FFCCFF', 'HONG-1.jpg'), 
-(6, '3', 'Xanh', '#33CCFF', 'JEAN-1.jpg,\r\nJEAN-2.jpg,\r\nJEAN-3.jpg,\r\nJEAN-4.jpg,\r\nJEAN-5.jpg'),
-(7, '4', 'Đen', '#000000', 'DEN-1.jpg,\r\nDEN-2.jpg'), 
-(8, '4', 'Trắng', '#FFFFFF', 'TRANG-1.jpg,\r\nTRANG-2.jpg'), 
-(9, '4', 'Nâu', '#996600', 'NAU-1.jpg,\r\nNAU-2.jpg'), 
-(10, '5', 'Trắng', '#FFFFFF', 'TRANG-1.jpg'), 
-(11, '5', 'Kem', '# FFFAFA', 'KEM-1.jpg,\r\nKEM-2.jpg'), 
-(12, '5', 'Xanh', '# 63B8FF', 'XANH-1.jpg,\r\nXANH-2.jpg')
+--
+-- Cấu trúc bảng cho bảng `accounts`
+--
 
-//Sản phẩm
-INSERT INTO `products` (`id`, `id_category`, `name`, `sizes`, `price`, `sale`, `featured_products`, `new_product`, `decriptions`, `date_created`, `date_update`) VALUES 
-(1, '1', 'ÁO THUN TAY NGẮN UNISEX IN CHỮ THE NEW ME', 'M,L,XL', '145', '0', '0', '0', '- Tên sản phẩm: Áo thun tay ngắn unisex in chữ The new me\r\n- Chất liệu: thun cotton 100%, co giãn 4 chiều, vải mềm, vải mịn, thoáng mát, không xù lông.\r\n- Cam kết hình ảnh áo thun do shop tự chụp 100%\r\n- Áo thun unisex phù hợp phối với nhiều sản phẩm: jeans, chân váy, quần short, váy 2 dây,... Áo phông unisex cân mọi phong cách từ dễ thương, dịu dàng, năng động, thể thao. Đường may từng chiếc áo chuẩn chỉnh, tỉ mỉ và chắc chắn.\r\n\r\nBảng số đo áo phông form rộng\r\n- Chiều dài áo 65cm - Ngực 55cm - Vai 45cm - Tay 17cm\r\n\r\nLưu ý 1 tí ạ: Số đo này mọi người tự ướm lên áo của chính mình đang mặc vừa để chọn size phù hợp, đừng nhân đôi lên nha khách nha ^^. Chênh lệch 1,2cm vẫn oke nè', '2022-06-09 09:37:22', '2022-06-09 09:37:22'), 
-(2, '1', 'ÁO TAY NGẮN CỔ VEST THÊU TRÁI THƠM', 'FREESIZE', '155', '0', '0', '0', 'Sản phẩm: Áo tay ngắn cổ vest thêu trái thơm\r\nChât liệu: Cotton bột\r\nSize: FREESIZE\r\nKích thước: Dài áo 56cm - Vai 37cm - Ngực 49cm - Dài tay 21,5cm - Rộng tay 17cm', '2022-06-09 09:48:18', '2022-06-09 09:48:18'), 
-(3, '2', 'QUẦN JEAN ỐNG RỘNG VẢI XƯỚC SỌC XANH S258', 'S, M, L', '335', '0', '0', '1', '- Tên sản phẩm: Quần jean ống rộng vải xước sọc xanh S258\r\n\r\n- Chất liệu: jean\r\n\r\n- Cam kết hình thật 100%\r\n\r\n- Size S - M - L\r\n\r\n- Màu: xanh', '2022-06-09 09:54:37', '2022-06-09 09:54:37'), 
-(4, '3', 'CHÂN VÁY NHUNG TĂM DÁNG XÒE LƯNG CAO 6329', 'S, M, L', '185', '0', '1', '0', 'Sản phẩm: Chân váy nhung tăm dáng xòe lưng cao 6329\r\nChất liệu: Nhung\r\nXuất xứ: Việt Nam\r\nSize: S, M, L\r\nBẢNG SIZE\r\nLưu ý 1 tí ạ: Số đo này mọi người tự ướm lên quần áo của chính mình đang mặc vừa để chọn size phù hợp chứ đừng nhân đôi lên nha. Chênh lệch 1,2cm vẫn oke nhé', '2022-06-09 09:59:35', '2022-06-09 09:59:35'), 
-(5, '4', 'ĐẦM TAY PHỒNG HỞ NGỰC CỘT NƠ', 'S, M', '275', '0', '1', '0', 'Sản phẩm: Đầm tay phồng hở ngực cột nơ \r\nMàu sắc: trắng - xanh - kem\r\n\r\nBẢNG SIZE: S, M\r\n\r\nLưu ý 1 tí ạ: Số đo này mọi người tự ướm lên quần áo của chính mình đang mặc vừa để chọn size phù hợp chứ đừng nhân đôi lên nha. Chênh lệch 1,2cm vẫn oke nhé', '2022-06-09 10:05:09', '2022-06-09 10:05:09')
+CREATE TABLE `accounts` (
+  `id` bigint NOT NULL,
+  `user` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `display_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `phone` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `categories`
+--
+
+CREATE TABLE `categories` (
+  `id` int NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `decriptions` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ;
+
+--
+-- Đang đổ dữ liệu cho bảng `categories`
+--
+
+INSERT INTO `categories` (`id`, `name`, `decriptions`) VALUES
+(1, 'Áo', NULL),
+(2, 'Quần', NULL),
+(3, 'Chân váy', NULL),
+(4, 'Đầm', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `colors`
+--
+
+CREATE TABLE `colors` (
+  `id` int NOT NULL,
+  `id_product` bigint NOT NULL,
+  `name_color` varchar(255) NOT NULL,
+  `color_code` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ;
+
+--
+-- Đang đổ dữ liệu cho bảng `colors`
+--
+
+INSERT INTO `colors` (`id`, `id_product`, `name_color`, `color_code`, `image`) VALUES
+(1, 1, 'Đen', '#000000', 'THENEW-DEN-1.jpg,\r\nTHENEW-DEN-2.jpg'),
+(2, 1, 'Trắng', '#FFFFFF', 'THENEW-TRANG-1.jpg,\r\nTHENEW-TRANG-2.jpg,\r\nTHENEW-TRANG-3.jpg'),
+(3, 2, 'Cam', '#FF6600', 'VEST-CAM-1.jpg,\r\nVEST-CAM-2.jpg'),
+(4, 2, 'Đen', '#000000', 'VEST-DEN-1.jpg'),
+(5, 2, 'Hồng', '#FFCCFF', 'VEST-HONG-1.jpg'),
+(6, 3, 'Xanh', '#33CCFF', 'JEAN-1.jpg,\r\nJEAN-2.jpg,\r\nJEAN-3.jpg,\r\nJEAN-4.jpg,\r\nJEAN-5.jpg'),
+(7, 4, 'Đen', '#000000', 'DEN-1.jpg,\r\nDEN-2.jpg'),
+(8, 4, 'Trắng', '#FFFFFF', 'TRANG-1.jpg,\r\nTRANG-2.jpg'),
+(9, 4, 'Nâu', '#996600', 'NAU-1.jpg,\r\nNAU-2.jpg'),
+(10, 5, 'Trắng', '#FFFFFF', 'TRANG-1.jpg'),
+(11, 5, 'Kem', '# FFFAFA', 'KEM-1.jpg,\r\nKEM-2.jpg'),
+(12, 5, 'Xanh', '# 63B8FF', 'XANH-1.jpg,\r\nXANH-2.jpg'),
+(13, 6, 'Hồng', '#FFCCFF', 'THUN NU 1945.jpg,\r\nTHUN NU 1945-1.jpg'),
+(14, 7, 'Đen', '#000000', 'LO-Studio.jpg,\r\nLO-Studio-1.jpg,\r\nLO-Studio-2.jpg,\r\nLO-Studio-3.jpg,\r\nLO-Studio-4.jpg'),
+(15, 8, 'Xanh', '#33CCFF', 'VIET NAM TOI YEU.jpg,\r\nVIET NAM TOI YEU-3.jpg,\r\nVIET NAM TOI YEU-4.jpg'),
+(16, 9, 'Xanh', '#33CCFF', 'HOODIE LIMER.jpg,\r\nHOODIE LIMER-4.jpg'),
+(17, 10, 'Trắng', '#FFFFFF', 'POLO TRANG.jpg,\r\nPOLO TRANG-1.jpg,\r\nPOLO TRANG-2.jpg,\r\nPOLO TRANG-3.jpg,\r\nPOLO TRANG-4.jpg'),
+(18, 11, 'Xanh', '#33CCFF', 'VEST DAI TAY.jpg,\r\nVEST DAI TAY-1.jpg,\r\nVEST DAI TAY-2.jpg,\r\nVEST DAI TAY-3.jpg,\r\nVEST DAI TAY-4.jpg'),
+(19, 8, 'Đen', '#000000', 'VIET NAM TOI YEU-1.jpg,\r\nVIET NAM TOI YEU-2.jpg'),
+(20, 9, 'Đen', '#000000', 'HOODIE LIMER-3.jpg'),
+(21, 9, 'Hồng', '#FFCCFF', 'HOODIE LIMER-1.jpg,\r\nHOODIE LIMER-2.jpg'),
+(22, 6, 'Đen', '#000000', 'THUN NU 1945-2.jpg'),
+(23, 6, 'Trắng', '#FFFFFF', 'THUN NU 1945-3.jpg,\r\nTHUN NU 1945-4.jpg'),
+(24, 12, 'Trắng', '#FFFFFF', 'QUAN SHORT.jpg,\r\nQUAN SHORT-1.jpg,\r\nQUAN SHORT-2.jpg,\r\nQUAN SHORT-3.jpg,\r\nQUAN SHORT-4.jpg\r\n'),
+(25, 13, 'Nâu', '#996600', 'QUAN DUI.jpg,\r\nQUAN DUI-1.jpg,\r\nQUAN DUI-2.jpg,\r\nQUAN DUI-3.jpg,\r\nQUAN DUI-4.jpg'),
+(26, 14, 'Xanh', '#33CCFF', 'JEAN TRON.jpg,\r\nJEAN TRON-1.jpg,\r\nJEAN TRON-2.jpg,\r\nJEAN TRON-3.jpg,\r\nJEAN TRON-4.jpg'),
+(28, 15, 'Đen', '#000000', 'JEAN SHORT.jpg,\r\nJEAN SHORT-1.jpg,\r\nJEAN SHORT-2.jpg,\r\nJEAN SHORT-3.jpg,\r\nJEAN SHORT-4.jpg'),
+(40, 16, 'Xanh', '#33CCFF', 'SHORT THE THAO.jpg,\r\nSHORT THE THAO-3.jpg,\r\nSHORT THE THAO-4.jpg'),
+(41, 16, 'Đen', '#000000', 'SHORT THE THAO-1.jpg'),
+(42, 16, 'Trắng', '#FFFFFF', 'SHORT THE THAO-2.jpg'),
+(43, 17, 'Nâu', '#996600', 'VAY A.jpg,\r\nVAY A-3.jpg'),
+(44, 17, 'Xanh', '#33CCFF', 'VAY A-1.jpg'),
+(45, 17, 'Đen', '#000000', 'VAY A-2.jpg'),
+(46, 17, 'Trắng', '#FFFFFF', 'VAY A-4.jpg'),
+(47, 18, 'Đen', '#000000', 'ONG SUONG.jpg,\r\nONG SUONG-1.jpg,\r\nONG SUONG-2.jpg,\r\nONG SUONG-3.jpg,\r\nONG SUONG-4.jpg'),
+(48, 19, 'Đen', '#000000', 'ONG RONG.jpg,\r\nONG RONG-1.jpg,\r\nONG RONG-2.jpg,\r\nONG RONG-3.jpg,\r\nONG RONG-4.jpg'),
+(49, 20, 'Nâu', '#996600', 'BAGGY.jpg,\r\nBAGGY-1.jpg,\r\nBAGGY-2.jpg,\r\nBAGGY-3.jpg,\r\nBAGGY-4.jpg'),
+(50, 21, 'Nâu', '#996600', 'QUAN TAM.jpg,\r\nQUAN TAM-3.jpg,\r\nQUAN TAM-4.jpg'),
+(51, 21, 'Xanh', '#33CCFF', 'QUAN TAM-1.jpg'),
+(52, 21, 'Đen', '#000000', 'QUAN TAM-2.jpg'),
+(53, 22, 'Xanh', '#33CCFF', 'XEP LY DAI.jpg,\r\nXEP LY DAI-3.jpg'),
+(54, 22, 'Hồng', '#FFCCFF', 'XEP LY DAI-3.jpg'),
+(55, 22, 'Trắng', '#FFFFFF', 'XEP LY DAI-1.jpg'),
+(56, 22, 'Nâu', '#996600', 'XEP LY DAI-2.jpg'),
+(57, 23, 'Đen', '#000000', 'VAY TENNIS.jpg,\r\nVAY TENNIS-1.jpg,\r\nVAY TENNIS-2.jpg,\r\nVAY TENNIS-3.jpg,\r\nVAY TENNIS-1.jpg'),
+(59, 24, 'Trắng', '#FFFFFF', 'CHAN VAY CAP 2 CUC.jpg,\r\nCHAN VAY CAP 2 CUC-1.jpg'),
+(60, 24, 'Nâu', '#996600', 'CHAN VAY CAP 2 CUC-3.jpg'),
+(61, 24, 'Đen', '#000000', 'CHAN VAY CAP 2 CUC-2.jpg,\r\nCHAN VAY CAP 2 CUC-2.jpg'),
+(62, 25, 'Đen', '#000000', 'VAY DA.jpg,\r\nVAY DA-4.jpg'),
+(63, 25, 'Nâu', '#996600', 'VAY DA-1.jpg,\r\nVAY DA-2.jpg,\r\nVAY DA-3.jpg'),
+(64, 26, 'Nâu', '#996600', 'VAY THO 2 TUI.jpg,\r\nVAY THO 2 TUI-1.jpg,\r\nVAY THO 2 TUI-2.jpg,\r\nVAY THO 2 TUI.jpg,\r\nVAY THO 2 TUI-1.jpg'),
+(65, 27, 'Xanh ', '#33CCFF', 'VAY BO.jpg,\r\nVAY BO-1.jpg,\r\nVAY BO-2.jpg,\r\nVAY BO.jpg,\r\nVAY BO-1.jpg'),
+(66, 28, 'Trắng', '#FFFFFF', 'MIDI HAI DAY.jpg,\r\nMIDI HAI DAY-1.jpg,\r\nMIDI HAI DAY-2.jpg,\r\nMIDI HAI DAY-3.jpg,\r\nMIDI HAI DAY.jpg'),
+(67, 29, 'Trắng', '#FFFFFF', 'BODY NO LUNG.jpg,\r\nBODY NO LUNG-1.jpg,\r\nBODY NO LUNG-4.jpg'),
+(68, 29, 'Đen', '#000000', 'BODY NO LUNG-2.jpg'),
+(69, 29, 'Hồng', '#FFCCFF', 'BODY NO LUNG-3.jpg'),
+(70, 30, 'Trắng', '#FFFFFF', 'MIDI NO NGUC-4.jpg'),
+(71, 30, 'Xanh', '#33CCFF', 'MIDI NO NGUC-1.jpg,\r\nMIDI NO NGUC-3.jpg'),
+(72, 30, 'Đen', '#000000', 'MIDI NO NGUC.jpg,\r\nMIDI NO NGUC-2.jpg'),
+(73, 31, 'Đen', '#000000', 'XOE CHEO CO.jpg,\r\nXOE CHEO CO-1.jpg,\r\nXOE CHEO CO-2.jpg,\r\nXOE CHEO CO-3.jpg,\r\nXOE CHEO CO-4.jpg'),
+(74, 32, 'Hồng', '#FFCCFF', 'DAM SUONG.jpg,\r\nDAM SUONG-1.jpg,\r\nDAM SUONG-3.jpg'),
+(75, 32, 'Xanh', '#33CCFF', 'DAM SUONG-2.jpg,\r\nDAM SUONG-4.jpg'),
+(76, 33, 'Trắng', '#FFFFFF', 'DAM BABYDOLL.jpg,\r\nDAM BABYDOLL-1.jpg,\r\nDAM BABYDOLL-2.jpg,\r\nDAM BABYDOLL-3.jpg,\r\nDAM BABYDOLL-4.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` bigint NOT NULL,
+  `user` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `display_name` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `phone` varchar(255) NOT NULL,
+  `total` double NOT NULL,
+  `quantity` int NOT NULL,
+  `note` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `order_details`
+--
+
+CREATE TABLE `order_details` (
+  `id` bigint NOT NULL,
+  `id_order` bigint NOT NULL,
+  `id_product` bigint NOT NULL,
+  `quanity` int NOT NULL,
+  `total` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `order_details`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `products`
+--
+
+CREATE TABLE `products` (
+  `id` bigint NOT NULL,
+  `id_category` int NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `sizes` varchar(255) NOT NULL,
+  `price` double NOT NULL,
+  `sale` int NOT NULL,
+  `featured_products` tinyint(1) NOT NULL,
+  `new_product` tinyint(1) NOT NULL,
+  `decriptions` longtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `products`
+--
+
+INSERT INTO `products` (`id`, `id_category`, `name`, `sizes`, `price`, `sale`, `featured_products`, `new_product`, `decriptions`) VALUES
+(1, 1, 'ÁO THUN TAY NGẮN UNISEX IN CHỮ THE NEW ME', 'M,L,XL', 145000, 0, 0, 0, '- Tên sản phẩm: Áo thun tay ngắn unisex in chữ The new me\r\n- Chất liệu: thun cotton 100%, co giãn 4 chiều, vải mềm, vải mịn, thoáng mát, không xù lông.\r\n- Cam kết hình ảnh áo thun do shop tự chụp 100%\r\n- Áo thun unisex phù hợp phối với nhiều sản phẩm: jeans, chân váy, quần short, váy 2 dây,... Áo phông unisex cân mọi phong cách từ dễ thương, dịu dàng, năng động, thể thao. Đường may từng chiếc áo chuẩn chỉnh, tỉ mỉ và chắc chắn.\r\n\r\nBảng số đo áo phông form rộng\r\n- Chiều dài áo 65cm - Ngực 55cm - Vai 45cm - Tay 17cm\r\n\r\nLưu ý 1 tí ạ: Số đo này mọi người tự ướm lên áo của chính mình đang mặc vừa để chọn size phù hợp, đừng nhân đôi lên nha khách nha ^^. Chênh lệch 1,2cm vẫn oke nè'),
+(2, 1, 'ÁO TAY NGẮN CỔ VEST THÊU TRÁI THƠM', 'FREESIZE', 155000, 0, 0, 0, 'Sản phẩm: Áo tay ngắn cổ vest thêu trái thơm\r\nChât liệu: Cotton bột\r\nSize: FREESIZE\r\nKích thước: Dài áo 56cm - Vai 37cm - Ngực 49cm - Dài tay 21,5cm - Rộng tay 17cm'),
+(3, 2, 'QUẦN JEAN ỐNG RỘNG VẢI XƯỚC SỌC XANH S258', 'S, M, L', 335000, 0, 0, 1, '- Tên sản phẩm: Quần jean ống rộng vải xước sọc xanh S258\r\n\r\n- Chất liệu: jean\r\n\r\n- Cam kết hình thật 100%\r\n\r\n- Size S - M - L\r\n\r\n- Màu: xanh'),
+(4, 3, 'CHÂN VÁY NHUNG TĂM DÁNG XÒE LƯNG CAO 6329', 'S, M, L', 185000, 0, 1, 0, 'Sản phẩm: Chân váy nhung tăm dáng xòe lưng cao 6329\r\nChất liệu: Nhung\r\nXuất xứ: Việt Nam\r\nSize: S, M, L\r\nBẢNG SIZE\r\nLưu ý 1 tí ạ: Số đo này mọi người tự ướm lên quần áo của chính mình đang mặc vừa để chọn size phù hợp chứ đừng nhân đôi lên nha. Chênh lệch 1,2cm vẫn oke nhé'),
+(5, 4, 'ĐẦM TAY PHỒNG HỞ NGỰC CỘT NƠ', 'S, M', 275000, 0, 1, 0, 'Sản phẩm: Đầm tay phồng hở ngực cột nơ \r\nMàu sắc: trắng - xanh - kem\r\n\r\nBẢNG SIZE: S, M\r\n\r\nLưu ý 1 tí ạ: Số đo này mọi người tự ướm lên quần áo của chính mình đang mặc vừa để chọn size phù hợp chứ đừng nhân đôi lên nha. Chênh lệch 1,2cm vẫn oke nhé'),
+(6, 1, 'ÁO THUN NỮ 1945 PHOM VỪA - 1945 T-SHIRT', 'M,L,XL', 249000, 0, 1, 1, 'Áo thun nữ 1945 với phom áo vừa, được nghiên cứu và khảo sát để thiết kế trendy, phù hợp với các bạn trẻ. \r\n\r\nÁo thun 1945 với chất liệu vải thun co giãn 4 chiều, thoáng mát, có khả năng thấm hút mồ hôi. Chiếc áo mang lại cảm giác thoải mái cho khách hàng trong nhiều hoạt động.\r\n\r\nĐường may được chăm chút kỹ càng, có viền bo ở cổ chắc chắn.\r\n\r\nĐiểm nhấn của áo thun 1945 là hình in chất lượng, mực in rõ nét, họa tiết in được phối màu hài hòa với áo. \r\n\r\nChiếc áo thun 1945 với ba màu sắc, trắng, đen, hồng, màu sắc đa dạng, khách hàng dễ dàng lựa chọn.\r\n\r\nÁo thun 1945 rất dễ kết hợp với các item khác cho bạn phong cách trẻ trung, năng động.\r\n\r\nKết hợp áo với quần jeans cho set đồ basic, năng động khi đi học, đi chơi.\r\n\r\nKết hợp với quần short giúp set đồ trở nên cá tính, trẻ trung.\r\n\r\nHoặc các bạn nữ có thể kết hợp với váy, bạn sẽ có set đồ thu hút, không kém phần nữ tính cho các dịp dạo phố, hẹn hò.'),
+(7, 1, 'ÁO THUN NỮ PHOM VỪA HÌNH IN - GRAPHIC T-SHIRT', 'M,L,XL', 249000, 10, 0, 0, 'Áo thun vải cotton 2 chiều thoáng mát, có khả năng thấm hút mồ hôi rất tốt, phù hợp cho nhiều hoạt động, nhất là trong thời tiết nắng nóng của mùa hè.\r\n\r\nĐiểm nhấn của chiếc áo thun Lime Orange là hình in được thiết kế trẻ trung, cá tính giúp nhận dạng thương hiệu đồng thời cũng giúp chiếc áo thêm phần thu hút hơn.'),
+(8, 1, 'ÁO THUN NAM NỮ PHỐI TÚI - HÀ NỘI VIỆT NAM - VIETNAMESE T-SHIRTS', 'M,L,XL', 299000, 0, 1, 0, 'Phố cổ Hà Nội mang một nét rất riêng biệt của người Việt Nam, không thể hòa tan với bất kì nét đẹp của một nước nào khác trên thế giới. Một góc của nét đẹp cổ kính ấy được cách điệu qua hình vẽ.\r\n\r\nSử dụng mực in Plastis sol cho hình in rõ nét và sáng đẹp tự nhiên nhất có thể.\r\n\r\nNhững giá trị văn hóa Việt Nam từ xưa nay chưa bao giờ mai một mà vẫn luôn được tiếp nối bởi các thế hệ yêu nước. Lấy cảm hứng từ điều tuyệt vời ấy mà Lime Orange ra mắt bộ sưu tập áo thun VIETNAMESE - sự kết hợp của giá trị văn hóa Việt Nam, thông điệp tình yêu đất nước, sẽ được thể hiện dưới góc nhìn thời trang. Chúng tôi với phương châm mang đến những sản phẩm đẹp chứa đựng giá trị văn hóa hay. Còn bạn? Hôm nay bạn đã có áo Vietnamese chưa?\r\n\r\nMix and match :\r\n\r\nChiếc áo thun dễ dàng kết hợp với quần jean cho set trang phục cá tính khi đi học.\r\n\r\nKết hợp với quần Air Pants thoải mái nhưng vẫn giữ được sự năng động, phù hợp khi đi chơi cùng bạn bè.'),
+(9, 1, 'ÁO HOODIE LIMER UNISEX - UNISEX HOODIE LIMER', 'M,L,XL', 499000, 15, 0, 1, 'Áo hoodie Limer với phom dáng unisex, phù hợp cho cả nam và nữ. Phom áo hoodie rộng, hơi hướng đường phố, hòa nhịp xu hướng thời trang Hàn Quốc. \r\n\r\nÁo hoodie với chất liệu vải thun chân cua (French Terry) dày dặn nhưng vẫn thoáng mát, có khả năng thấm hút mồ hôi. Áo mang lại cảm giác thoải mái cho khách hàng trong nhiều hoạt động.\r\n\r\nÁo hoodie có bo chun thoải mái nhưng vẫn giữ được độ chắc chắn ở phần tay áo và thân áo. Túi ở thân trước giúp khách hàng cất giữ vật dụng và trang trí thêm cho chiếc áo.\r\n\r\nÁo hoodie Limer được thiết kế phần nón có kích cỡ vừa vặn, nón được may hai lớp tinh tế. Dây kéo nón của áo hoodie được lựa chọn loại dây chất lượng tốt nhất, có đầu inox chắc chắn.\r\n\r\nĐiểm nhấn của Áo hoodie Limer là hình in chất lượng, mực in rõ nét, họa tiết in được phối màu hài hòa với áo hoodie.'),
+(10, 1, 'Áo Polo Nữ Airycool Thoáng Mát Phối Bo', 'M,L,XL', 299000, 0, 0, 1, 'Sản phẩm được thiết kế với 85% Polyamide và 15% spandex. Trong đó, sợi Polyamide là cấu tạo chính giúp tạo cảm giác thoải mái, dễ chịu khi mặc. Kết hợp với 15% spandex giúp sợi vải thêm bền chắc, tạo form dáng thời trang. \r\n\r\nCông nghệ làm mát Freezing giúp tạo lá chắn bảo vệ cơ thể khỏi môi trường bên ngoài. Thiết kế áo giúp tăng tiêu tán bức xạ nhiệt và hạn chế tối đa hấp thụ nhiệt vào cơ thể. Áo polo như một cơ chế làm mát tự nhiên, cho người mặc cảm giác thoải mái, mọi lúc, mọi nơi, và trong mọi hoạt động. \r\n\r\nSản phẩm áo Polo Airy Cool mang đến những tính năng vượt trội cho người dùng. Cảm nhận sử dụng thoải mái, chất liệu vải khô nhanh, mềm mịn. Cảm nhận sử dụng thông thoáng, thấm hút tốt. Sản phẩm giữ form dáng thời trang, có thể kết hợp với nhiều kiểu trang phục hiện đại, trẻ trung, năng động. '),
+(11, 1, 'ÁO VEST DÀI TAY', 'M,L,XL', 839000, 0, 1, 0, 'Áo vest dài tay với kiểu dáng hiện đại, thời trang\r\n\r\nVới thiết kế cổ bẻ đặc trưng, tay dài thanh lịch\r\n\r\nKết hợp túi cơi giả và hàng cúc được may tinh tế nổi bật\r\n\r\nChi tiết độn cầu vai tạo độ cân bằng cho chiếc áo vest\r\n\r\nChất vải mềm mại, đường may tỉ mỉ và chắc chắn\r\n\r\nGam màu hiện đại dễ phối với nhiều trang phục và phụ kiện\r\n\r\nChất liệu: Kaki.'),
+(12, 2, 'Quần short denim nữ Nút Túi Hem thô Dây kéo màu trơn', 'M,L,XL', 278000, 0, 0, 0, 'Màu sắc: trắng\r\nKiểu mẫu: màu trơn\r\nKiểu: Chân thẳng\r\nloại đóng kín: Dây kéo tích hợp\r\nChi tiết: Hem thô, Nút, Túi, Dây kéo\r\nVòng eo: Tự nhiên\r\nChiều dài: Mùa vụ\r\nLoại Phù hợp: Phù hợp thường\r\nSợi vải: Không căng\r\nVật liệu: Denim/jean\r\nThành phần: 100% Bông\r\nHướng dẫn Bảo quản: Machine wash, do not dry clean\r\nVải lót: Không có đường viền\r\nMỏng: Không'),
+(13, 2, 'Quần đùi nữ Nút Túi màu trơn Giải trí', 'M,L,XL', 168000, 0, 0, 0, 'Màu sắc: Màu Khaki\r\nPhong cách: Giải trí\r\nKiểu mẫu: màu trơn\r\nKiểu: Quần giữa\r\nChi tiết: Nút, Túi\r\nVòng eo: Vòng eo cao\r\nChiều dài: Mùa vụ\r\nLoại Phù hợp: Rộng\r\nSợi vải: Không căng\r\nVật liệu: Bông\r\nThành phần: 100% Bông\r\nHướng dẫn Bảo quản: Machine wash or professional dry clean\r\nMỏng: Không'),
+(14, 2, 'Quần jean nữ Nút Dây kéo màu trơn Giải trí', 'M,L,XL', 510000, 0, 0, 0, 'Màu sắc: Rửa trung bình\r\nKiểu mẫu: màu trơn\r\nKiểu: quần ống rộng\r\nloại đóng kín: Dây kéo tích hợp\r\nChi tiết: Nút, Dây kéo\r\nVòng eo: Vòng eo cao\r\nChiều dài: Dài\r\nLoại Phù hợp: Rộng\r\nSợi vải: Không căng\r\nVật liệu: Denim/jean\r\nThành phần: 100% Bông\r\nHướng dẫn Bảo quản: Machine wash, do not dry clean\r\nVải lót: Không có đường viền\r\nMỏng: Không'),
+(15, 2, 'Quần short denim nữ Nút Túi Dây kéo màu trơn', 'M,L,XL', 387000, 0, 0, 0, 'Màu sắc: Màu đen\r\nKiểu mẫu: trơn\r\nKiểu: quần short biker\r\nloại đóng kín: Dây kéo tích hợp\r\nChi tiết: Nút, Túi, Dây kéo\r\nVòng eo: Vòng eo cao\r\nLoại Phù hợp: Da\r\nSợi vải: Căng cao\r\nVật liệu: Denim/jean\r\nThành phần: 70% Bông, 28% Polyester, 2% Bông vải thun\r\nHướng dẫn Bảo quản: Machine wash, do not dry clean\r\nVải lót: Không có đường viền\r\nMỏng: Không'),
+(16, 2, 'Quần Short Thể Thao Nam Viền Fmstyle', 'M,L,XL', 89000, 0, 0, 0, 'Quần short thể thao nam viền Fmstyle'),
+(17, 2, 'QUẦN VÁY A ', 'M,L,XL', 251000, 0, 0, 0, 'Mã sản phẩm: CV279X281.\r\n\r\n- Giá bán: 279.000đ.\r\n\r\n- Chất liệu: Chất tafta.\r\n\r\n- Màu sắc: Xanh lá - Xanh dương - Đen - Trắng - Da.\r\n\r\n- Size: S - M - L.\r\n\r\n- Xuất xứ: Việt Nam.'),
+(18, 2, 'Quần Ống Suông Lưng Cao', 'M,L,XL', 215000, 0, 0, 0, 'THÔNG TIN SẢN PHẨM\r\n\r\n- Tên sản phẩm: Quần Ống Suông Lưng Cao\r\n\r\n- Độ tuổi: > 16 tuổi\r\n\r\n- Phù hợp: Mặc đi chơi, đi làm.\r\n\r\n- Chất liệu: tuyết mưa\r\n\r\n- Màu sắc: Đen\r\n\r\n- Họa tiết: Trơn\r\n\r\n- Xuất xứ: Tự thiết kế và sản xuất tại Việt Nam\r\n\r\n- Cam kết 100% chất lượng từ chất vải đến đường chỉ, phát hiện lỗi được hoàn trả miễn phí.\r\n\r\nHƯỚNG DẪN CHỌN SIZE CHO BẠN\r\n\r\n- Size S: 45 - 50kg\r\n\r\n- Size M: 50 - 55kg\r\n\r\nSize Số +/- 1cm\r\n\r\nHƯỚNG DẪN BẢO QUẢN VÀ SỬ DỤNG\r\n\r\n- Lần đầu đem về chỉ xả nước lạnh rồi phơi khô để đảm bảo chất và màu của sản phẩm nhé\r\n\r\n- Nhớ lộn trái sản phẩm khi giặt và không giặt ngâm\r\n\r\n- Không giặt máy trong 2 tuần đầu\r\n\r\n- Không sử dụng thuốc tẩy\r\n\r\n- Khi phơi lộn trái và không phơi trực tiếp dưới ánh nắng mặt trời'),
+(19, 2, 'Quần Ống Rộng Đai Kiểu Bẻ', 'M,L,XL', 245000, 10, 0, 0, 'THÔNG TIN SẢN PHẨM:\r\n\r\n- Tên sản phẩm: Quần Ống Rộng Đai Kiểu Bẻ\r\n\r\nQuần ống rộng là item không thể thiếu trong tủ đồ của mỗi người dù ở bất cứ độ tuổi nào.\r\n\r\n- Độ tuổi: > 16 tuổi\r\n\r\n- Phù hợp: Mặc đi học, đi làm, đi chơi, đi dạo.\r\n\r\n- Chất liệu: Vải tuyết mưa\r\n\r\n- Màu sắc: Đen\r\n\r\n- Họa tiết: Trơn\r\n\r\n- Xuất xứ: Tự thiết kế và sản xuất bởi FM Style tại Việt Nam \r\n\r\n- Cam kết 100% chất lượng từ chất vải đến đường chỉ, phát hiện lỗi được hoàn trả miễn phí.\r\n\r\nHƯỚNG DẪN CHỌN SIZE CHO BẠN:\r\n\r\n- Freesize < 56kg\r\n\r\nSize Số +/- 1 kg\r\n\r\nHƯỚNG DẪN BẢO QUẢN VÀ SỬ DỤNG:\r\n\r\n- Lần đầu chỉ xả nước lạnh rồi phơi khô để đảm bảo chất và màu của sản phẩm.\r\n\r\n- Nhớ lộn trái sản phẩm khi giặt và không giặt ngâm.\r\n\r\n- Không giặt máy trong 2 tuần đầu.\r\n\r\n- Không sử dụng thuốc tẩy.\r\n\r\n- Khi phơi lộn trái và không phơi trực tiếp dưới ánh nắng mặt trời.'),
+(20, 2, 'QUẦN BAGGY', 'M,L,XL', 429000, 0, 0, 0, 'Giá bán: 429.000đ.\r\n\r\n- Chất liệu: quần kaki.\r\n\r\n- Màu sắc: Trắng-Nâu-Đen.\r\n\r\n- Size: Free size < 53-55kg (eo < 70cm).\r\n\r\n- Xuất xứ: Việt Nam.'),
+(21, 2, 'Quần Tăm Ống Rộng', 'M,L,XL', 119000, 0, 0, 0, 'THÔNG TIN SẢN PHẨM:\r\n\r\n- Tên sản phẩm: Quần Tăm Ống Rộng\r\n\r\nQuần ống rộng là item không thể thiếu trong tủ đồ của mỗi người dù ở bất cứ độ tuổi nào.\r\n\r\n- Độ tuổi: > 16 tuổi\r\n\r\n- Phù hợp: Mặc đi học, đi làm, đi chơi, đi dạo, ở nhà.\r\n\r\n- Chất liệu: Vải thun tăm\r\n\r\n- Màu sắc: Nhiều màu\r\n\r\n- Họa tiết: Trơn\r\n\r\n- Xuất xứ: Tự thiết kế và sản xuất bởi FM Style tại Việt Nam \r\n\r\nHƯỚNG DẪN CHỌN SIZE CHO BẠN:\r\n\r\n- Freesize < 62kg\r\n\r\nSize Số +/- 1 kg\r\n\r\nHƯỚNG DẪN BẢO QUẢN VÀ SỬ DỤNG:\r\n\r\n- Lần đầu chỉ xả nước lạnh rồi phơi khô để đảm bảo chất và màu của sản phẩm.\r\n\r\n- Nhớ lộn trái sản phẩm khi giặt và không giặt ngâm.\r\n\r\n- Không giặt máy trong 2 tuần đầu.\r\n\r\n- Không sử dụng thuốc tẩy.\r\n\r\n- Khi phơi lộn trái và không phơi trực tiếp dưới ánh nắng mặt trời.'),
+(22, 3, 'Chân Váy Xếp Ly Dài\r\n\r\n', 'M,L,XL', 169000, 0, 0, 0, 'THÔNG TIN SẢN PHẨM:\r\n\r\n- Tên sản phẩm: Chân Váy Xếp Ly Dài\r\n\r\nChân váy dài là item không thể thiếu trong tủ đồ của mỗi người dù ở bất cứ độ tuổi nào. Chân váy dài là sự lựa chọn hàng đầu của các quý cô công sở.\r\n\r\n- Độ tuổi: > 16 tuổi\r\n\r\n- Phù hợp: Mặc đi học, đi làm, đi chơi, đi dạo.\r\n\r\n- Chất liệu: Vải lụa \r\n\r\n- Màu sắc: Nhiều màu\r\n\r\n- Họa tiết: Trơn\r\n\r\n- Xuất xứ: Tự thiết kế và sản xuất bởi FM Style tại Việt Nam \r\n\r\n- Cam kết 100% chất lượng từ chất vải đến đường chỉ, phát hiện lỗi được hoàn trả miễn phí.\r\n\r\nHƯỚNG DẪN CHỌN SIZE CHO BẠN:\r\n\r\n- Freesize < 56kg\r\n\r\nSize Số +/- 1 kg\r\n\r\nHƯỚNG DẪN BẢO QUẢN VÀ SỬ DỤNG:\r\n\r\n- Lần đầu chỉ xả nước lạnh rồi phơi khô để đảm bảo chất và màu của sản phẩm.\r\n\r\n- Nhớ lộn trái sản phẩm khi giặt và không giặt ngâm.\r\n\r\n- Không giặt máy trong 2 tuần đầu.\r\n\r\n- Không sử dụng thuốc tẩy.\r\n\r\n- Khi phơi lộn trái và không phơi trực tiếp dưới ánh nắng mặt trời.'),
+(23, 3, 'CHÂN VÁY TENNIS ', 'M,L,XL', 186000, 0, 0, 0, ' Giá bán: 219.000đ.\r\n- Chất liệu: Kaki.\r\n- Màu sắc: Xám-Đen.\r\n- Size: M-L-XL.\r\n- Xuất xứ: Việt Nam.'),
+(24, 3, 'Chân váy cạp 2 cúc ốp túi 2 bên', 'M,L,XL', 179000, 0, 0, 0, 'Chân váy cạp 2 cúc ốp túi 2 bên\r\n\r\nGiá bán: 179000\r\n\r\nMàu sắc: Trắng, đen, nâu\r\n\r\nKích cỡ: M,L,XL'),
+(25, 3, 'Chân váy da xích cạp', 'M,L,XL', 245000, 0, 0, 0, 'Chân váy da xích cạp\r\n\r\nGiá bán: 245000\r\n\r\nMàu sắc: Nâu, đen\r\n\r\nKích cỡ: M,L,XL'),
+(26, 3, 'Chân váy thô 2 túi trước kèm belt', 'M,L,XL', 169000, 0, 0, 0, 'Chân váy thô 2 túi trước kèm belt\r\n\r\nGiá bán: 169000\r\n\r\nMàu sắc: Nâu\r\n\r\nKích cỡ: M,L,XL'),
+(27, 3, 'Chân váy bò túi thêu chữ Fashion', 'M,L,XL', 239000, 0, 0, 0, 'Chân váy bò túi thêu chữ Fashion\r\n\r\nGiá bán: 239000\r\n\r\nMàu sắc: Xanh\r\n\r\nKích cỡ: M,L,XL'),
+(28, 4, 'ĐẦM MIDI HAI DÂY', 'M,L,XL', 479000, 0, 1, 1, 'Giá bán: 479.000đ.\r\n\r\n- Chất liệu: Kaki mềm.\r\n\r\n- Màu sắc: Trắng.\r\n\r\n- Size: M,L,XL\r\n\r\n- Ngực: 70-90 cm.\r\n\r\n- Eo: dưới 70 cm.\r\n\r\n- Mông: 80 - 95 cm.\r\n\r\n- Xuất xứ: Việt Nam.'),
+(29, 4, 'ĐẦM BODY NƠ LƯNG', 'M,L,XL', 489000, 0, 1, 1, '- Giá bán: 489.000đ.\r\n\r\n- Chất liệu: Organza ánh kim.\r\n\r\n- Màu sắc: Hồng -Trắng - Đen.\r\n\r\n- Size: M,L,XL.\r\n\r\n- Ngực: 70-90 cm.\r\n\r\n- Eo: dưới 70 cm.\r\n\r\n- Mông: 80 - 95 cm.\r\n\r\n- Xuất xứ: Việt Nam.'),
+(30, 4, 'ĐẦM MIDI NƠ NGỰC', 'M,L,XL', 499000, 0, 1, 0, '- Giá bán: 499.000đ.\r\n\r\n- Chất liệu: Chất thun gân.\r\n\r\n- Màu sắc:Xanh-Trắng-Đen.\r\n\r\n- Size: M,L,XL.\r\n\r\n- Xuất xứ: Việt Nam.'),
+(31, 4, 'ĐẦM XÒE CHÉO CỔ', 'M,L,XL', 529000, 0, 1, 1, '- Giá bán: 529.000đ.\r\n\r\n- Chất liệu: Chất tafta nhũ.\r\n\r\n- Màu sắc: Đen.\r\n\r\n- Size: M,L,XL.\r\n\r\n- Ngực: 70-90 cm.\r\n\r\n- Eo: dưới 70 cm.\r\n\r\n- Mông: 80 - 95 cm.\r\n\r\n- Xuất xứ: Việt Nam.'),
+(32, 4, 'ĐẦM SUÔNG PHỐ BÈO ', 'M,L,XL', 399000, 0, 0, 0, '- Giá bán: 399.000đ.\r\n\r\n- Chất liệu: Tơ.\r\n\r\n- Màu sắc: Hồng - Xanh.\r\n\r\n- Size: M,L,XL.\r\n\r\n- Xuất xứ: Việt Nam.'),
+(33, 4, 'ĐẦM BABYDOLL', 'M,L,XL', 539000, 0, 0, 0, '- Giá bán: 539.000đ.\r\n\r\n- Chất liệu: Chất tơ họa tiết..\r\n\r\n- Màu sắc: Trắng.\r\n\r\n- Size: M,L,XL.\r\n\r\n- Xuất xứ: Việt Nam.');
+
+--
+-- Chỉ mục cho các bảng đã đổ
+--
+
+--
+-- Chỉ mục cho bảng `accounts`
+--
+ALTER TABLE `accounts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `colors`
+--
+ALTER TABLE `colors`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_product` (`id_product`);
+
+--
+-- Chỉ mục cho bảng `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `order_details`
+--
+ALTER TABLE `order_details`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id_order` (`id_order`),
+  ADD UNIQUE KEY `id_product` (`id_product`);
+
+--
+-- Chỉ mục cho bảng `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idCategory` (`id_category`);
+
+--
+-- AUTO_INCREMENT cho các bảng đã đổ
+--
+
+--
+-- AUTO_INCREMENT cho bảng `accounts`
+--
+ALTER TABLE `accounts`
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT cho bảng `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
+--
+-- AUTO_INCREMENT cho bảng `colors`
+--
+ALTER TABLE `colors`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+
+--
+-- AUTO_INCREMENT cho bảng `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT cho bảng `order_details`
+--
+ALTER TABLE `order_details`
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT cho bảng `products`
+--
+ALTER TABLE `products`
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+
+--
+-- Các ràng buộc cho các bảng đã đổ
+--
+
+--
+-- Các ràng buộc cho bảng `colors`
+--
+ALTER TABLE `colors`
+  ADD CONSTRAINT `colors_ibfk_1` FOREIGN KEY (`id_product`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `order_details`
+--
+ALTER TABLE `order_details`
+  ADD CONSTRAINT `order_details_ibfk_1` FOREIGN KEY (`id_order`) REFERENCES `orders` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `order_details_ibfk_2` FOREIGN KEY (`id_product`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `products`
+--
+ALTER TABLE `products`
+  ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`id_category`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;

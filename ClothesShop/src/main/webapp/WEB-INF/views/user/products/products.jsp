@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <title>Shop quần áo - Sản phẩm</title>
 <body>
 	<div class="breadcrumb-area pt-205 breadcrumb-padding pb-210"
@@ -25,8 +26,8 @@
 						<div class="sidebar-widget mb-50">
 							<h3 class="sidebar-title">Tìm kiếm sản phẩm</h3>
 							<div class="sidebar-search">
-								<form action="#">
-									<input placeholder="Search Products..." type="text">
+								<form action="san-pham">
+									<input placeholder="Tìm kiếm..." type="text">
 									<button>
 										<i class="ti-search"></i>
 									</button>
@@ -163,11 +164,11 @@
 										</p>
 									</div>
 									<div class="shop-selector">
-										<label>Sắp xếp : </label> <select name="select">
-											<option value="">Mặc định</option>
-											<option value="">A to Z</option>
-											<option value="">Z to A</option>
-										</select>
+										<label>Sắp xếp : </label>&nbsp<a
+											href="<c:url value="/san-pham/page=${currentPage}?sortField=name&sortDir=${reverseSortDir}"/>">
+											<c:if test="${fn:contains(sortDir, 'asc')}">A -> Z</c:if> <c:if
+												test="${not fn:contains(sortDir, 'asc')}">Z -> A</c:if>
+										</a>
 									</div>
 								</div>
 								<div class="shop-filter-tab">
@@ -186,7 +187,7 @@
 									<div id="grid-sidebar1" class="tab-pane fade active show">
 										<div class="row">
 											<c:forEach var="productPaginate"
-												items="${ listProductPaging }">
+												items="${ listProductPaging }" varStatus="loop">
 												<div class="col-lg-6 col-md-6 col-xl-3">
 													<div class="product-wrapper mb-30">
 														<div class="product-img">
@@ -194,10 +195,12 @@
 																varStatus="index">
 																<c:if
 																	test="${color.product.id == productPaginate.id && index.first}">
-																	<a href="<c:url value='/chi-tiet-san-pham/${color.product.id}'></c:url>"> <c:forEach
-																			var="img" items="${color.image}" varStatus="index">
+																	<a
+																		href="<c:url value='/chi-tiet-san-pham/${color.product.id}'></c:url>">
+																		<c:forEach var="img" items="${color.image}"
+																			varStatus="index">
 																			<c:if test="${index.first}">
-																				<img
+																				<img style="height: 270px"
 																					src="<c:url value="/assets/user/img/product/${productPaginate.id}/${img}"/>"
 																					alt="">
 																			</c:if>
@@ -222,7 +225,8 @@
 																<a href="#">${productPaginate.name} </a>
 															</h4>
 															<span><fmt:formatNumber type="number"
-																	groupingUsed="true" value="${productPaginate.price}" /> &nbsp;vnđ</span>
+																	groupingUsed="true" value="${productPaginate.price}" />
+																&nbsp;₫</span>
 														</div>
 													</div>
 												</div>
@@ -244,7 +248,7 @@
 																	<a href="chi-tiet-san-pham/${color.product.id}"> <c:forEach
 																			var="img" items="${color.image}" varStatus="index">
 																			<c:if test="${index.first}">
-																				<img
+																				<img style="height: 240px"
 																					src="<c:url value="/assets/user/img/product/${productPaginate.id}/${img}"/>"
 																					alt="">
 																			</c:if>
@@ -266,7 +270,7 @@
 																	<a href="#">${productPaginate.name} </a>
 																</h4>
 																<span><fmt:formatNumber type="number"
-																		groupingUsed="true" value="${productPaginate.price}" /></span>
+																		groupingUsed="true" value="${productPaginate.price}" />&nbsp;₫</span>
 															</div>
 															<div class="product-list-cart-wishlist">
 																<div class="product-list-cart">
@@ -292,7 +296,9 @@
 				</div>
 			</div>
 			<div class="pagination">
-				<a href="<c:url value='/san-pham/page=${currentPage - 1}'></c:url>">
+				<a
+					href="<c:url value="/san-pham/page=${currentPage - 1}?sortField=${sortField}&sortDir=${sortDir}
+				"></c:url>">
 					<c:if test="${currentPage > 1}">
 								<
 								</c:if> <c:if test="${currentPage <= 1}">
@@ -302,14 +308,20 @@
 				<c:forEach var="item" begin="1" end="${ totalPages }"
 					varStatus="loop">
 					<c:if test="${ (loop.index) == currentPage }">
-						<a href="<c:url value="/san-pham/page=${ loop.index }"/>"
+						<a
+							href="<c:url value="/san-pham/page=${ loop.index }?sortField=${sortField}&sortDir=${sortDir}
+						"/>"
 							class="active">${ loop.index }</a>
 					</c:if>
 					<c:if test="${ (loop.index) != currentPage }">
-						<a href="<c:url value="/san-pham/page=${ loop.index }"/>">${ loop.index }</a>
+						<a
+							href="<c:url value="/san-pham/page=${ loop.index }?sortField=${sortField}&sortDir=${sortDir}
+						"/>">${ loop.index }</a>
 					</c:if>
 				</c:forEach>
-				<a href="<c:url value='/san-pham/page=${currentPage + 1}'></c:url>">
+				<a
+					href="<c:url value="/san-pham/page=${currentPage + 1}?sortField=${sortField}&sortDir=${sortDir}
+				"></c:url>">
 					<c:if test="${currentPage < totalPages}">
 								>
 								</c:if> <c:if test="${currentPage >= totalPages}">

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,7 +24,21 @@ public class ProductServiceImpl implements IProductService {
 
 	@Override
 	public List<Product> listAll() {
-		return (List<Product>) productRepository.findAll();
+
+		return productRepository.findAll();
+	}
+
+	@Override
+	public List<Product> listAll(String keyword) {
+		if (keyword != null) {
+//			return productRepository.search(keyword);
+		}
+		return productRepository.findAll();
+	}
+
+	@Override
+	public List<Product> listAllNewProduct() {
+		return productRepository.listAllNewProduct();
 	}
 
 	@Override
@@ -45,7 +60,8 @@ public class ProductServiceImpl implements IProductService {
 
 	@Override
 	public List<Product> search(String keyword) {
-		return productRepository.search(keyword);
+		return null;
+//		return productRepository.search(keyword);
 	}
 
 	@Override
@@ -58,10 +74,12 @@ public class ProductServiceImpl implements IProductService {
 	}
 
 	@Override
-	public Page<Product> listAll(int pageNum) {
-		int pageSize = 12;
+	public Page<Product> listAll(int pageNum, String sortField, String sortDir) {
+		int pageSize = 8;
+		Sort sort = Sort.by("name").ascending();
 
-		Pageable pageable = PageRequest.of(pageNum - 1, pageSize);
+		Pageable pageable = PageRequest.of(pageNum - 1, pageSize,
+				sortDir.equals("asc") ? Sort.by(sortField).ascending() : Sort.by(sortField).descending());
 
 		return productRepository.findAll(pageable);
 	}
@@ -70,19 +88,5 @@ public class ProductServiceImpl implements IProductService {
 	public Page<Product> findAll(Pageable pageable) {
 		return productRepository.findAll(pageable);
 	}
-
-	@Override
-	public Page<Product> listAllById(int id, int pageNum) {
-		int pageSize = 12;
-
-		Pageable pageable = PageRequest.of(pageNum - 1, pageSize);
-		Page<Product> list=productRepository.findAll(pageable);
-		return productRepository.findAll(pageable);
-		
-	}
-//	public List<Product> findAllById(List<Integer> id) {
-//		return (List<Product>) productRepository.findAllById(id);
-//	}
-
 
 }
