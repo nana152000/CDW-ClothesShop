@@ -76,10 +76,16 @@ public class ProductServiceImpl implements IProductService {
 	@Override
 	public Page<Product> listAll(int pageNum, String sortField, String sortDir) {
 		int pageSize = 8;
-		Sort sort = Sort.by("name").ascending();
+		Sort sort;
+		if (sortDir.equals("asc")) {
+			sort = Sort.by(sortField).ascending();
+		} else if (sortDir.equals("desc")) {
+			sort = Sort.by(sortField).descending();
+		} else {
+			sort = Sort.unsorted();
+		}
 
-		Pageable pageable = PageRequest.of(pageNum - 1, pageSize,
-				sortDir.equals("asc") ? Sort.by(sortField).ascending() : Sort.by(sortField).descending());
+		Pageable pageable = PageRequest.of(pageNum - 1, pageSize, sort);
 
 		return productRepository.findAll(pageable);
 	}

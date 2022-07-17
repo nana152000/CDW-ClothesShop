@@ -10,6 +10,9 @@
 <title><decorator:title default="Master-Layout"></decorator:title></title>
 <!-- Favicon -->
 
+<!-- JavaScript Bundle with Popper -->
+<script src="<c:url value='/assets/user/js/product.js'/>"
+	type="text/javascript"></script>
 <link href="<c:url value='/assets/user/img/logo/logo.png'/>"
 	rel="shortcut icon" type="image/x-icon">
 <!-- all css here -->

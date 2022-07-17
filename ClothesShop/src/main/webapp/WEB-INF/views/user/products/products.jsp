@@ -163,22 +163,18 @@
 											<span>${totalItems}</span> sản phẩm trong tổng <span>${listProduct.size()}</span>
 										</p>
 									</div>
+
 									<div class="shop-selector">
-										<label>Sắp xếp : </label>&nbsp<a
-											href="<c:url value="/san-pham/page=${currentPage}?sortField=name&sortDir=${reverseSortDir}"/>">
-											<c:if test="${fn:contains(sortDir, 'asc')}">A -> Z</c:if> <c:if
-												test="${not fn:contains(sortDir, 'asc')}">Z -> A</c:if>
-										</a>
-									</div>
-								</div>
-								<div class="shop-filter-tab">
-									<div class="shop-tab nav" role=tablist>
-										<a class="active" href="#grid-sidebar1" data-toggle="tab"
-											role="tab" aria-selected="false"> <i
-											class="ti-layout-grid4-alt"></i>
-										</a> <a href="#grid-sidebar2" data-toggle="tab" role="tab"
-											aria-selected="true"> <i class="ti-menu"></i>
-										</a>
+										<label>Sắp xếp : </label>&nbsp
+										<div class="btn-group">
+											<a href="<c:url value="/san-pham"/>"
+												class="btn btn-light linkSort active" aria-current="page">Mặc
+												định</a> <a
+												href="<c:url value="/san-pham/page=${currentPage}?sortField=name&sortDir=${reverseSortDirAsc}"/>"
+												class="btn btn-light linkSort">A -> Z</a> <a
+												href="<c:url value="/san-pham/page=${currentPage}?sortField=name&sortDir=${reverseSortDirDesc}"/>"
+												class="btn btn-light linkSort">Z -> A</a>
+										</div>
 									</div>
 								</div>
 							</div>

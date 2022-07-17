@@ -39,8 +39,10 @@ public class UserProductController {
 
 		mav.addObject("sortField", sortField);
 		mav.addObject("sortDir", sortDir);
-		mav.addObject("reverseSortDir", sortDir.equals("asc") ? "desc" : "asc");
 
+		mav.addObject("reverseSortDirAsc", sortDir = "asc");
+		mav.addObject("reverseSortDirDesc", sortDir = "desc");
+		
 		mav.addObject("listProductPaging", listProducts);
 		mav.addObject("listProduct", productService.listAll());
 		mav.addObject("listCategory", categorieService.listAll());
