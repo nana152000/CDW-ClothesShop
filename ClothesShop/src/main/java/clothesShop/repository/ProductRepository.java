@@ -26,5 +26,10 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
 	@Query("SELECT e FROM Product e where e.new_product = 1 order by RAND()")
 	public List<Product> listAllNewProduct();
+	
+	@Query("SELECT e FROM Product e where e.sale != 0 order by RAND()")
+	public List<Product> listAllSaleProduct();
 
+	@Query("SELECT p FROM Product p WHERE p.category.id = 1 ")
+	public Page<Product> findAllByCategory1(Pageable pageable);
 }

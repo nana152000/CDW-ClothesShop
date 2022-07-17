@@ -27,7 +27,9 @@ public interface IProductService {
 	Page<Product> listAll(int pageNum, String sortField, String sortDir, String keyword);
 
 	List<Product> listAllNewProduct();
+	
+	List<Product> listAllSaleProduct();
 
-//	List<Product> listAll(String keyword);
+	Page<Product> findAllByCategory1(int pageNum, String sortField, String sortDir);
 
 }

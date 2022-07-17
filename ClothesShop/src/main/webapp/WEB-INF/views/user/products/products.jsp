@@ -6,14 +6,17 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <title>Shop quần áo - Sản phẩm</title>
 <body>
-	<div class="breadcrumb-area pt-205 breadcrumb-padding pb-210"
-		style="background-image: url(<c:url value='/assets/user/img/bg/breadcrumb.jpg'></c:url>)">
+	<div
+		class="breadcrumb-area pt-205 breadcrumb-padding pb-210 background-banner"
+		style="background-image: url(<c:url value='/assets/user/img/bg/bgr.jpg'></c:url>);">
 		<div class="container-fluid">
 			<div class="breadcrumb-content text-center">
-				<h2>Shop quần áo</h2>
+				<h2 style="color: black;">Shop quần áo</h2>
 				<ul>
-					<li><a href="<c:url value='/trang-chu'/>">Trang chủ</a></li>
-					<li>Sản phẩm</li>
+					<li><a href="<c:url value='/trang-chu'/>"
+						style="color: black;">Trang chủ</a></li>
+					<li style="color: black;">/</li>
+					<li style="color: black;">Sản phẩm</li>
 				</ul>
 			</div>
 		</div>
@@ -39,117 +42,63 @@
 							<h3 class="sidebar-title">Loại sản phẩm</h3>
 							<div class="sidebar-categories">
 								<ul>
-									<c:forEach var="category" items="${ listCategory }">
-										<li><a href="#">${category.name} <c:forEach
-													var="product" items="${ listProduct }">
-													<c:if test="${product.category.id == category.id }">
-														<span>4</span>
-													</c:if>
-												</c:forEach>
-										</a></li>
-									</c:forEach>
+									<li><a href="#">${listCategory[0].name} <span>${totalItemsCategory1}</span>
+									</a></li>
+									<li><a href="#">${listCategory[1].name} <span>${totalItemsCategory2}</span>
+									</a></li>
+									<li><a href="#">${listCategory[2].name} <span>${totalItemsCategory3}</span>
+									</a></li>
+									<li><a href="#">${listCategory[3].name} <span>${totalItemsCategory4}</span>
+									</a></li>
+
 								</ul>
 							</div>
 						</div>
 						<div class="sidebar-widget mb-50">
-							<h3 class="sidebar-title">Sản phẩm nổi bật</h3>
+							<h3 class="sidebar-title">Sản phẩm Giảm giá</h3>
 							<div class="sidebar-top-rated-all">
-								<div class="sidebar-top-rated mb-30">
-									<div class="single-top-rated">
-										<div class="top-rated-img">
-											<a href="#"><img
-												src="assets/img/product/sidebar-product/1.jpg"
-												class="img-sidebar_product" alt=""></a>
-										</div>
-										<div class="top-rated-text">
-											<h4>
-												<a href="#">Flying Drone</a>
-											</h4>
-											<div class="top-rated-rating">
-												<ul>
-													<li><i class="pe-7s-star"></i></li>
-													<li><i class="pe-7s-star"></i></li>
-													<li><i class="pe-7s-star"></i></li>
-													<li><i class="pe-7s-star"></i></li>
-													<li><i class="pe-7s-star"></i></li>
-												</ul>
+								<c:forEach var="product" items="${ listAllSaleProduct }"
+									varStatus="loop">
+									<c:if test="${ loop.index+1 < 5}">
+										<div class="sidebar-top-rated mb-30">
+											<div class="single-top-rated">
+												<div class="top-rated-img">
+													<c:forEach var="color" items="${product.colors}"
+														varStatus="index">
+														<c:if
+															test="${color.product.id == product.id && index.first}">
+															<c:forEach var="img" items="${color.image}"
+																varStatus="index">
+																<c:if test="${index.first}">
+																	<img style="width: 100px; height: 105px"
+																		src="<c:url value="/assets/user/img/product/${product.id}/${img}"/>"
+																		alt="">
+																</c:if>
+															</c:forEach>
+
+														</c:if>
+													</c:forEach>
+												</div>
+												<div class="top-rated-text">
+													<h4>
+														<a href="<c:url value="chi-tiet-san-pham/${product.id}"/>">${product.name}</a>
+													</h4>
+
+													<div class="old-price">
+														<span style="text-decoration: line-through;"><fmt:formatNumber
+																type="number" groupingUsed="true"
+																value="${ product.price }" /> ₫</span>
+													</div>
+													<div class="new-price">
+														<span style="font-weight: bold;"><fmt:formatNumber
+																type="number" groupingUsed="true"
+																value="${ product.price * (100-product.sale)/100}" /> ₫</span>
+													</div>
+												</div>
 											</div>
-											<span>$140.00</span>
 										</div>
-									</div>
-								</div>
-								<div class="sidebar-top-rated mb-30">
-									<div class="single-top-rated">
-										<div class="top-rated-img">
-											<a href="#"><img
-												src="assets/img/product/sidebar-product/2.jpg"
-												class="img-sidebar_product" alt=""></a>
-										</div>
-										<div class="top-rated-text">
-											<h4>
-												<a href="#">Flying Drone</a>
-											</h4>
-											<div class="top-rated-rating">
-												<ul>
-													<li><i class="pe-7s-star"></i></li>
-													<li><i class="pe-7s-star"></i></li>
-													<li><i class="pe-7s-star"></i></li>
-													<li><i class="pe-7s-star"></i></li>
-													<li><i class="pe-7s-star"></i></li>
-												</ul>
-											</div>
-											<span>$140.00</span>
-										</div>
-									</div>
-								</div>
-								<div class="sidebar-top-rated mb-30">
-									<div class="single-top-rated">
-										<div class="top-rated-img">
-											<a href="#"><img
-												src="assets/img/product/sidebar-product/3.jpg"
-												class="img-sidebar_product" alt=""></a>
-										</div>
-										<div class="top-rated-text">
-											<h4>
-												<a href="#">Flying Drone</a>
-											</h4>
-											<div class="top-rated-rating">
-												<ul>
-													<li><i class="pe-7s-star"></i></li>
-													<li><i class="pe-7s-star"></i></li>
-													<li><i class="pe-7s-star"></i></li>
-													<li><i class="pe-7s-star"></i></li>
-													<li><i class="pe-7s-star"></i></li>
-												</ul>
-											</div>
-											<span>$140.00</span>
-										</div>
-									</div>
-								</div>
-								<div class="sidebar-top-rated mb-30">
-									<div class="single-top-rated">
-										<div class="top-rated-img">
-											<a href="#"><img
-												src="assets/img/product/sidebar-product/4.jpg"
-												class="img-sidebar_product" alt=""></a>
-										</div>
-										<div class="top-rated-text">
-											<h4>
-												<a href="#">Flying Drone</a>
-											</h4>
-											<div class="top-rated-rating">
-												<ul>
-													<li><i class="pe-7s-star"></i></li>
-													<li><i class="pe-7s-star"></i></li>
-													<li><i class="pe-7s-star"></i></li>
-													<li><i class="pe-7s-star"></i></li>
-													<li><i class="pe-7s-star"></i></li>
-												</ul>
-											</div>
-											<span>$140.00</span>
-										</div>
-									</div>
-								</div>
+									</c:if>
+								</c:forEach>
 							</div>
 						</div>
 					</div>

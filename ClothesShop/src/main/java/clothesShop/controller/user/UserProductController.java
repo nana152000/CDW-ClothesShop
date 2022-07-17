@@ -1,15 +1,11 @@
 package clothesShop.controller.user;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
-import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.repository.query.Param;
-import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,6 +32,7 @@ public class UserProductController {
 		ModelAndView mav = new ModelAndView("user/products/products");
 
 		Page<Product> page = productService.listAll(pageNum, sortField, sortDir, keyword);
+//		Page<Product> pageCategory1 = productService.findAllByCategory1(pageNum, sortField, sortDir);
 
 		List<Product> listProducts = page.getContent();
 
@@ -50,13 +47,39 @@ public class UserProductController {
 		mav.addObject("reverseSortDirDesc", sortDir = "desc");
 
 		mav.addObject("listProductPaging", listProducts);
-		mav.addObject("listProduct", productService.listAll());
+		List<Product> listProduct = productService.listAll();
+		mav.addObject("listProduct", listProduct);
 		mav.addObject("listCategory", categorieService.listAll());
 
 		mav.addObject("keyword", keyword);
-		System.out.println("key: " + keyword);
-		System.out.println("total: " + page.getTotalPages());
-		System.out.println("ele: " + page.getTotalElements());
+
+		// Loại
+		List<Product> listCategory1 = new ArrayList<>();
+		List<Product> listCategory2 = new ArrayList<>();
+		List<Product> listCategory3 = new ArrayList<>();
+		List<Product> listCategory4 = new ArrayList<>();
+		Long id;
+		for (int i = 0; i < listProduct.size(); i++) {
+			id = listProduct.get(i).getCategory().getId();
+			if (id == 2) {
+				listCategory2.add(listProduct.get(i));
+			} else if (id == 1) {
+				listCategory1.add(listProduct.get(i));
+			} else if (id == 3) {
+				listCategory3.add(listProduct.get(i));
+			} else if (id == 4) {
+				listCategory4.add(listProduct.get(i));
+			}
+		}
+
+		mav.addObject("totalItemsCategory1", listCategory1.size());
+		mav.addObject("totalItemsCategory2", listCategory2.size());
+		mav.addObject("totalItemsCategory3", listCategory3.size());
+		mav.addObject("totalItemsCategory4", listCategory4.size());
+		
+		//sp giảm giá
+		mav.addObject("listAllSaleProduct", productService.listAllSaleProduct());
+
 		return mav;
 	}
 

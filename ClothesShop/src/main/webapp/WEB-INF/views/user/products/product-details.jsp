@@ -12,14 +12,17 @@
 <body>
 	<!-- banner  -->
 	<div class="breadcrumb-area pt-205 pb-210"
-		style="background-image: url(<c:url value='/assets/user/img/bg/breadcrumb.jpg'></c:url>)">
+		style="background-image: url(<c:url value='/assets/user/img/bg/bgr.jpg'></c:url>)">
 		<div class="container">
 			<div class="breadcrumb-content text-center">
-				<h2>Chi tiết sản phẩm</h2>
+				<h2 style="color: black;">Chi tiết sản phẩm</h2>
 				<ul>
-					<li><a href="<c:url value='/trang-chu'/>">Trang chủ</a></li>
-					<li>Sản phẩm</li>
-					<li>Chi tiết sản phẩm</li>
+					<li><a href="<c:url value='/trang-chu'/>"
+						style="color: black;">Trang chủ</a></li>
+					<li style="color: black;">/</li>
+					<li style="color: black;">Sản phẩm</li>
+					<li style="color: black;">/</li>
+					<li style="color: black;">Chi tiết sản phẩm</li>
 				</ul>
 			</div>
 		</div>
@@ -39,7 +42,7 @@
 											<div class="easyzoom easyzoom--overlay">
 												<a
 													href="<c:url value="/assets/user/img/product/${idProduct}/${image}"/>">
-													<img 
+													<img
 													src="<c:url value="/assets/user/img/product/${idProduct}/${image}"/>"
 													alt="">
 												</a>
@@ -47,7 +50,8 @@
 										</div>
 									</c:if>
 									<c:if test="${not img.first}">
-										<div class="tab-pane fade" id="pro-details${img.index}" role="tabpanel">
+										<div class="tab-pane fade" id="pro-details${img.index}"
+											role="tabpanel">
 											<div class="easyzoom easyzoom--overlay">
 												<a
 													href="<c:url value="/assets/user/img/product/${idProduct}/${image}"/>">
@@ -64,16 +68,16 @@
 							<div class="product-details-small nav mt-12" role=tablist>
 								<c:forEach var="image" items="${listImageById}" varStatus="img">
 									<c:if test="${img.first}">
-										<a class="active mr-12" href="#pro-details${img.index}" data-toggle="tab"
-											role="tab" aria-selected="true"> <img
+										<a class="active mr-12" href="#pro-details${img.index}"
+											data-toggle="tab" role="tab" aria-selected="true"> <img
 											style="width: 110px;"
 											src="<c:url value="/assets/user/img/product/${idProduct}/${image}"/>"
 											alt="">
 										</a>
 									</c:if>
 									<c:if test="${not img.first}">
-										<a class="mr-12" href="#pro-details${img.index}" data-toggle="tab"
-											role="tab" aria-selected="true"> <img
+										<a class="mr-12" href="#pro-details${img.index}"
+											data-toggle="tab" role="tab" aria-selected="true"> <img
 											style="width: 110px;"
 											src="<c:url value="/assets/user/img/product/${idProduct}/${image}"/>"
 											alt="">
@@ -98,8 +102,20 @@
 							</div>
 						</div>
 						<div class="details-price">
-							<span><fmt:formatNumber type="number" groupingUsed="true"
-									value="${productDetail.price}" /> &nbsp;vnđ</span>
+							<c:if test="${productDetail.sale !=0}">
+								<div class="old-price">
+									<span style="text-decoration: line-through;"><fmt:formatNumber
+											type="number" groupingUsed="true"
+											value="${ productDetail.price }" /> ₫</span>
+								</div>
+								<span><fmt:formatNumber type="number" groupingUsed="true"
+										value="${ productDetail.price * (100-productDetail.sale)/100}" />
+									₫</span>
+							</c:if>
+							<c:if test="${productDetail.sale ==0}">
+								<span><fmt:formatNumber type="number" groupingUsed="true"
+										value="${productDetail.price}" /> ₫</span>
+							</c:if>
 						</div>
 						<div class="quick-view-select">
 							<div class="select-option-part">
@@ -125,7 +141,9 @@
 									class="cart-plus-minus-box">
 							</div>
 							<div class="quickview-btn-cart">
-								<a class="btn-hover-black" href="<c:url value="/AddCart/${ productDetail.id }"/>">Thêm vào giỏ hàng</a>
+								<a class="btn-hover-black"
+									href="<c:url value="/AddCart/${ productDetail.id }"/>">Thêm
+									vào giỏ hàng</a>
 							</div>
 							<div class="quickview-btn-wishlist">
 								<a class="btn-hover" href="#"><i class="pe-7s-like"></i></a>
