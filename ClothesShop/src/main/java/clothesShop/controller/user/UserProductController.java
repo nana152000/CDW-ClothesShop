@@ -31,8 +31,7 @@ public class UserProductController {
 	private IColorService colorService;
 
 	@RequestMapping("/san-pham/keyword={keyword}/page={pageNum}")
-	public ModelAndView viewPage(HttpServletRequest request, HttpSession session,
-			@PathVariable(name = "pageNum") int pageNum, @Param("sortField") String sortField,
+	public ModelAndView viewPage(@PathVariable(name = "pageNum") int pageNum, @Param("sortField") String sortField,
 			@Param("sortDir") String sortDir, @Param("keyword") String keyword) {
 		ModelAndView mav = new ModelAndView("user/products/products");
 
@@ -55,7 +54,6 @@ public class UserProductController {
 		mav.addObject("listCategory", categorieService.listAll());
 
 		mav.addObject("keyword", keyword);
-		session.setAttribute("keyword", keyword);
 		System.out.println("key: " + keyword);
 		System.out.println("total: " + page.getTotalPages());
 		System.out.println("ele: " + page.getTotalElements());
@@ -63,8 +61,8 @@ public class UserProductController {
 	}
 
 	@RequestMapping("/san-pham")
-	public ModelAndView viewProductPage(HttpServletRequest request, HttpSession session,@RequestParam(value = "keyword", defaultValue = "") String keyword) {
-		return viewPage(request, session, 1, "name", "no", keyword);
+	public ModelAndView viewProductPage(@RequestParam(value = "keyword", defaultValue = "") String keyword) {
+		return viewPage(1, "name", "no", keyword);
 	}
 
 	@RequestMapping("/chi-tiet-san-pham/{id}")
