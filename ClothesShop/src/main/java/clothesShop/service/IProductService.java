@@ -8,14 +8,13 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import clothesShop.entity.Product;
+
 @Service
 public interface IProductService {
 
-	Page<Product> findAll(Pageable pageable);
+//	Page<Product> findAll(Pageable pageable);
 
 	Map<Integer, String> listProductId();
-
-	List<Product> search(String keyword);
 
 	void delete(Long id);
 
@@ -25,10 +24,10 @@ public interface IProductService {
 
 	List<Product> listAll();
 
-	Page<Product> listAll(int pageNum, String sortField, String sortDir);
+	Page<Product> listAll(int pageNum, String sortField, String sortDir, String keyword);
 
 	List<Product> listAllNewProduct();
 
-	List<Product> listAll(String keyword);
+//	List<Product> listAll(String keyword);
 
 }

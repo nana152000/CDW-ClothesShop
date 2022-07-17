@@ -2,12 +2,18 @@ package clothesShop.controller.user;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.repository.query.Param;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import clothesShop.entity.Product;
@@ -24,12 +30,13 @@ public class UserProductController {
 	@Autowired
 	private IColorService colorService;
 
-	@RequestMapping("/san-pham/page={pageNum}")
-	public ModelAndView viewPage(@PathVariable(name = "pageNum") int pageNum,
-			@Param("sortField") String sortField, @Param("sortDir") String sortDir) {
+	@RequestMapping("/san-pham/keyword={keyword}/page={pageNum}")
+	public ModelAndView viewPage(HttpServletRequest request, HttpSession session,
+			@PathVariable(name = "pageNum") int pageNum, @Param("sortField") String sortField,
+			@Param("sortDir") String sortDir, @Param("keyword") String keyword) {
 		ModelAndView mav = new ModelAndView("user/products/products");
 
-		Page<Product> page = productService.listAll(pageNum, sortField, sortDir);
+		Page<Product> page = productService.listAll(pageNum, sortField, sortDir, keyword);
 
 		List<Product> listProducts = page.getContent();
 
@@ -42,17 +49,22 @@ public class UserProductController {
 
 		mav.addObject("reverseSortDirAsc", sortDir = "asc");
 		mav.addObject("reverseSortDirDesc", sortDir = "desc");
-		
+
 		mav.addObject("listProductPaging", listProducts);
 		mav.addObject("listProduct", productService.listAll());
 		mav.addObject("listCategory", categorieService.listAll());
-//		mav.addObject("seachKeyword", productService.listAll(keyword));
+
+		mav.addObject("keyword", keyword);
+		session.setAttribute("keyword", keyword);
+		System.out.println("key: " + keyword);
+		System.out.println("total: " + page.getTotalPages());
+		System.out.println("ele: " + page.getTotalElements());
 		return mav;
 	}
 
 	@RequestMapping("/san-pham")
-	public ModelAndView viewProductPage() {
-		return viewPage(1, "name", "no");
+	public ModelAndView viewProductPage(HttpServletRequest request, HttpSession session,@RequestParam(value = "keyword", defaultValue = "") String keyword) {
+		return viewPage(request, session, 1, "name", "no", keyword);
 	}
 
 	@RequestMapping("/chi-tiet-san-pham/{id}")

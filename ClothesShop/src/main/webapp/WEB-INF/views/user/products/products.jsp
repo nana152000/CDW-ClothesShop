@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <title>Shop quần áo - Sản phẩm</title>
@@ -26,8 +26,9 @@
 						<div class="sidebar-widget mb-50">
 							<h3 class="sidebar-title">Tìm kiếm sản phẩm</h3>
 							<div class="sidebar-search">
-								<form action="san-pham">
-									<input placeholder="Tìm kiếm..." type="text">
+								<form action="<c:url value="/san-pham"/>">
+									<input class="form-control" placeholder="Tìm kiếm..."
+										type="text" name="keyword">
 									<button>
 										<i class="ti-search"></i>
 									</button>
@@ -172,11 +173,11 @@
 													class="btn btn-light active" aria-current="page"
 													style="border-radius: 15px 50px 30px;">Mặc định</a>
 												<a
-													href="<c:url value="/san-pham/page=${currentPage}?sortField=name&sortDir=${reverseSortDirAsc}"/>"
+													href="<c:url value="/san-pham/keyword=${keyword}/page=${currentPage}?sortField=name&sortDir=${reverseSortDirAsc}"/>"
 													class="btn btn-light"
 													style="border-radius: 15px 50px 30px;">A -> Z</a>
 												<a
-													href="<c:url value="/san-pham/page=${currentPage}?sortField=name&sortDir=${reverseSortDirDesc}"/>"
+													href="<c:url value="/san-pham/keyword=${keyword}/page=${currentPage}?sortField=name&sortDir=${reverseSortDirDesc}"/>"
 													class="btn btn-light linkSort"
 													style="border-radius: 15px 50px 30px;">Z -> A</a>
 											</c:if>
@@ -184,11 +185,11 @@
 												<a href="<c:url value="/san-pham"/>" class="btn btn-light"
 													style="border-radius: 15px 50px 30px;">Mặc định</a>
 												<a
-													href="<c:url value="/san-pham/page=${currentPage}?sortField=name&sortDir=${reverseSortDirAsc}"/>"
+													href="<c:url value="/san-pham/keyword=${keyword}/page=${currentPage}?sortField=name&sortDir=${reverseSortDirAsc}"/>"
 													class="btn btn-light active"
 													style="border-radius: 15px 50px 30px;">A -> Z</a>
 												<a
-													href="<c:url value="/san-pham/page=${currentPage}?sortField=name&sortDir=${reverseSortDirDesc}"/>"
+													href="<c:url value="/san-pham/keyword=${keyword}/page=${currentPage}?sortField=name&sortDir=${reverseSortDirDesc}"/>"
 													class="btn btn-light linkSort"
 													style="border-radius: 15px 50px 30px;">Z -> A</a>
 											</c:if>
@@ -196,11 +197,11 @@
 												<a href="<c:url value="/san-pham"/>" class="btn btn-light"
 													style="border-radius: 15px 50px 30px;">Mặc định</a>
 												<a
-													href="<c:url value="/san-pham/page=${currentPage}?sortField=name&sortDir=${reverseSortDirAsc}"/>"
+													href="<c:url value="/san-pham/keyword=${keyword}/page=${currentPage}?sortField=name&sortDir=${reverseSortDirAsc}"/>"
 													class="btn btn-light"
 													style="border-radius: 15px 50px 30px;">A -> Z</a>
 												<a
-													href="<c:url value="/san-pham/page=${currentPage}?sortField=name&sortDir=${reverseSortDirDesc}"/>"
+													href="<c:url value="/san-pham/keyword=${keyword}/page=${currentPage}?sortField=name&sortDir=${reverseSortDirDesc}"/>"
 													class="btn btn-light active"
 													style="border-radius: 15px 50px 30px;">Z -> A</a>
 											</c:if>
@@ -334,7 +335,7 @@
 			</div>
 			<div class="pagination">
 				<a
-					href="<c:url value="/san-pham/page=${currentPage - 1}?sortField=${sortField}&sortDir=${sortDir}
+					href="<c:url value="/san-pham/keyword=${keyword}/page=${currentPage - 1}?sortField=${sortField}&sortDir=${sortDir}
 				"></c:url>">
 					<c:if test="${currentPage > 1}">
 								<
@@ -346,18 +347,18 @@
 					varStatus="loop">
 					<c:if test="${ (loop.index) == currentPage }">
 						<a
-							href="<c:url value="/san-pham/page=${ loop.index }?sortField=${sortField}&sortDir=${sortDir}
+							href="<c:url value="/san-pham/keyword=${keyword}/page=${ loop.index }?sortField=${sortField}&sortDir=${sortDir}
 						"/>"
 							class="active">${ loop.index }</a>
 					</c:if>
 					<c:if test="${ (loop.index) != currentPage }">
 						<a
-							href="<c:url value="/san-pham/page=${ loop.index }?sortField=${sortField}&sortDir=${sortDir}
+							href="<c:url value="/san-pham/keyword=${keyword}/page=${ loop.index }?sortField=${sortField}&sortDir=${sortDir}
 						"/>">${ loop.index }</a>
 					</c:if>
 				</c:forEach>
 				<a
-					href="<c:url value="/san-pham/page=${currentPage + 1}?sortField=${sortField}&sortDir=${sortDir}
+					href="<c:url value="/san-pham/keyword=${keyword}/page=${currentPage + 1}?sortField=${sortField}&sortDir=${sortDir}
 				"></c:url>">
 					<c:if test="${currentPage < totalPages}">
 								>
@@ -365,6 +366,7 @@
 								>
 								</c:if>
 				</a>
+
 			</div>
 		</div>
 	</div>
