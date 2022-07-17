@@ -52,7 +52,7 @@ public class UserProductController {
 
 	@RequestMapping("/san-pham")
 	public ModelAndView viewProductPage() {
-		return viewPage(1, "name", "");
+		return viewPage(1, "name", "no");
 	}
 
 	@RequestMapping("/chi-tiet-san-pham/{id}")

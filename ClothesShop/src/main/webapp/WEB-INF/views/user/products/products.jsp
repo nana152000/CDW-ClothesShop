@@ -166,15 +166,56 @@
 
 									<div class="shop-selector">
 										<label>Sắp xếp : </label>&nbsp
-										<div class="btn-group">
-											<a href="<c:url value="/san-pham"/>"
-												class="btn btn-light linkSort active" aria-current="page">Mặc
-												định</a> <a
-												href="<c:url value="/san-pham/page=${currentPage}?sortField=name&sortDir=${reverseSortDirAsc}"/>"
-												class="btn btn-light linkSort">A -> Z</a> <a
-												href="<c:url value="/san-pham/page=${currentPage}?sortField=name&sortDir=${reverseSortDirDesc}"/>"
-												class="btn btn-light linkSort">Z -> A</a>
+										<div class="btn-group" style="bottom: 2px">
+											<c:if test="${fn:contains(sortDir, 'no')}">
+												<a href="<c:url value="/san-pham"/>"
+													class="btn btn-light active" aria-current="page"
+													style="border-radius: 15px 50px 30px;">Mặc định</a>
+												<a
+													href="<c:url value="/san-pham/page=${currentPage}?sortField=name&sortDir=${reverseSortDirAsc}"/>"
+													class="btn btn-light"
+													style="border-radius: 15px 50px 30px;">A -> Z</a>
+												<a
+													href="<c:url value="/san-pham/page=${currentPage}?sortField=name&sortDir=${reverseSortDirDesc}"/>"
+													class="btn btn-light linkSort"
+													style="border-radius: 15px 50px 30px;">Z -> A</a>
+											</c:if>
+											<c:if test="${fn:contains(sortDir, 'asc')}">
+												<a href="<c:url value="/san-pham"/>" class="btn btn-light"
+													style="border-radius: 15px 50px 30px;">Mặc định</a>
+												<a
+													href="<c:url value="/san-pham/page=${currentPage}?sortField=name&sortDir=${reverseSortDirAsc}"/>"
+													class="btn btn-light active"
+													style="border-radius: 15px 50px 30px;">A -> Z</a>
+												<a
+													href="<c:url value="/san-pham/page=${currentPage}?sortField=name&sortDir=${reverseSortDirDesc}"/>"
+													class="btn btn-light linkSort"
+													style="border-radius: 15px 50px 30px;">Z -> A</a>
+											</c:if>
+											<c:if test="${fn:contains(sortDir, 'desc')}">
+												<a href="<c:url value="/san-pham"/>" class="btn btn-light"
+													style="border-radius: 15px 50px 30px;">Mặc định</a>
+												<a
+													href="<c:url value="/san-pham/page=${currentPage}?sortField=name&sortDir=${reverseSortDirAsc}"/>"
+													class="btn btn-light"
+													style="border-radius: 15px 50px 30px;">A -> Z</a>
+												<a
+													href="<c:url value="/san-pham/page=${currentPage}?sortField=name&sortDir=${reverseSortDirDesc}"/>"
+													class="btn btn-light active"
+													style="border-radius: 15px 50px 30px;">Z -> A</a>
+											</c:if>
+
 										</div>
+									</div>
+								</div>
+								<div class="shop-filter-tab">
+									<div class="shop-tab nav" role=tablist>
+										<a class="active" href="#grid-sidebar1" data-toggle="tab"
+											role="tab" aria-selected="false"> <i
+											class="ti-layout-grid4-alt"></i>
+										</a> <a href="#grid-sidebar2" data-toggle="tab" role="tab"
+											aria-selected="true"> <i class="ti-menu"></i>
+										</a>
 									</div>
 								</div>
 							</div>

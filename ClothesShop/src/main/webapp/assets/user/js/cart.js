@@ -4,3 +4,4 @@ $(".edit-quatity-cart").on("click", function() {
 	alert(quantity);
 	window.location = "EditCart/" + id + "/" + quantity;
 });
+
