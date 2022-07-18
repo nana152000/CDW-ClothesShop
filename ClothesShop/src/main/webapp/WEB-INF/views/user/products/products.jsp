@@ -6,6 +6,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <title>Shop quần áo - Sản phẩm</title>
 <body>
+	<div style="height: 105px"></div>
 	<div
 		class="breadcrumb-area pt-205 breadcrumb-padding pb-210 background-banner"
 		style="background-image: url(<c:url value='/assets/user/img/bg/bgr.jpg'></c:url>);">
@@ -201,9 +202,6 @@
 																	class="pe-7s-like"></i>
 																</a> <a class="animate-top" title="Add To Cart" href="#">
 																	<i class="pe-7s-cart"></i>
-																</a> <a class="animate-right" title="Quick View"
-																	data-toggle="modal" data-target="#exampleModal"
-																	href="#"> <i class="pe-7s-look"></i>
 																</a>
 															</div>
 														</div>

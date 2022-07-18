@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,13 +27,18 @@ public class UserCartController {
 		return mav;
 	}
 
-	@RequestMapping(value = "AddCart/{id}")
-	public String AddCart(HttpServletRequest request, HttpSession session, @PathVariable long id) {
+	@RequestMapping(value = "chi-tiet-san-pham/AddCart/{id}")
+	public String AddCart(HttpServletRequest request, HttpSession session, @PathVariable long id,
+			@ModelAttribute("cart") CartDto cartDto) {
 		HashMap<Long, CartDto> cart = (HashMap<Long, CartDto>) session.getAttribute("Cart");
 		if (cart == null) {
 			cart = new HashMap<Long, CartDto>();
 		}
-		cart = cartService.addCart(id, cart);
+
+		cart = cartService.addCart(id, cartDto.getSize(), cartDto.getColor(), cart);
+
+		System.out.println("size: " + cartDto.getSize());
+		System.out.println("color: " + cartDto.getColor());
 		session.setAttribute("Cart", cart);
 		session.setAttribute("TotalQuantyCart", cartService.totalQuanty(cart));
 		session.setAttribute("TotalPriceCart", cartService.totalPrice(cart));

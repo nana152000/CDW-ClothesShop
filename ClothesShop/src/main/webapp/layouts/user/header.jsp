@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<header class="res-header-sm">
-	<div class="header-bottom clearfix">
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<header class="res-header-sm"
+	style="position: fixed; width: 100%; box-sizing: border-box; background: white; z-index: 3;">
+	<div class="header-bottom clearfix" style="height: 100px;">
 		<div class="container">
-			<div class="header-bottom-wrapper">
-				<div class="logo-2 ptb-40">
+			<div class="header-bottom-wrapper" style="height: 100px">
+				<div class="logo-2 ptb-20">
 					<a href="<c:url value='/trang-chu'/>"> <img class="img-logo"
 						src="<c:url value='/assets/user/img/logo/logo.png'></c:url>"
 						alt="">
@@ -42,94 +44,65 @@
 					</nav>
 				</div>
 				<div class="furits-login-cart">
-					<div class="furits-login">
+					<div class="furits-login" style="padding: 40px 0 10px;">
 						<c:if test="${empty loginUser }">
 							<ul>
-								<li><a href="<c:url value="/dang-nhap"></c:url>">Đăng nhập</a></li>
+								<li><a href="<c:url value="/dang-nhap"></c:url>">Đăng
+										nhập</a></li>
 								<li><a href="<c:url value="/dang-ky"></c:url>">Đăng ký</a></li>
 							</ul>
 						</c:if>
 						<c:if test="${not empty loginUser }">
 							<ul>
 								<li><a href="<c:url value="#"></c:url>">${loginUser.display_name}</a></li>
-								<li><a href="<c:url value="/dang-xuat"></c:url>">Đăng xuất</a></li>
+								<li><a href="<c:url value="/dang-xuat"></c:url>">Đăng
+										xuất</a></li>
 							</ul>
 						</c:if>
 					</div>
-					<div class="header-cart-4 furits-cart">
+					<div class="header-cart-4 furits-cart" style="bottom: 20px">
 						<a class="icon-cart" href="<c:url value="/gio-hang"/>"> <i
-							class="pe-7s-shopbag"></i> <span class="handicraft-count">${ TotalQuantyCart }</span>
+							class="pe-7s-shopbag"></i> <c:if
+								test="${ TotalQuantyCart == null }">
+								<span class="handicraft-count">0</span>
+							</c:if> <c:if test="${TotalQuantyCart != null }">
+								<span class="handicraft-count">${ TotalQuantyCart }</span>
+							</c:if>
 						</a>
 						<ul class="cart-dropdown">
-							<li class="single-product-cart">
-								<div class="cart-img">
-									<a href="#"><img
-										src="<c:url value="/assets/user/img/cart/1.jpg"></c:url>"
-										alt=""></a>
-								</div>
-								<div class="cart-title">
-									<h5>
-										<a href="#"> Bits Headphone</a>
-									</h5>
-									<h6>
-										<a href="#">Black</a>
-									</h6>
-									<span>$80.00 x 1</span>
-								</div>
-								<div class="cart-delete">
-									<a href="#"><i class="ti-trash"></i></a>
-								</div>
-							</li>
-							<li class="single-product-cart">
-								<div class="cart-img">
-									<a href="#"><img
-										src="<c:url value="/assets/user/img/cart/2.jpg"></c:url>"
-										alt=""></a>
-								</div>
-								<div class="cart-title">
-									<h5>
-										<a href="#"> Bits Headphone</a>
-									</h5>
-									<h6>
-										<a href="#">Black</a>
-									</h6>
-									<span>$80.00 x 1</span>
-								</div>
-								<div class="cart-delete">
-									<a href="#"><i class="ti-trash"></i></a>
-								</div>
-							</li>
-							<li class="single-product-cart">
-								<div class="cart-img">
-									<a href="#"><img
-										src="<c:url value="/assets/user/img/cart/3.jpg"></c:url>"
-										alt=""></a>
-								</div>
-								<div class="cart-title">
-									<h5>
-										<a href="#"> Bits Headphone</a>
-									</h5>
-									<h6>
-										<a href="#">Black</a>
-									</h6>
-									<span>$80.00 x 1</span>
-								</div>
-								<div class="cart-delete">
-									<a href="#"><i class="ti-trash"></i></a>
-								</div>
-							</li>
+							<c:forEach var="cart" items="${ Cart }">
+								<li class="single-product-cart">
+									<div class="cart-img">
+										<a href="#"><img
+											src="<c:url value="/assets/user/img/cart/1.jpg"></c:url>"
+											alt=""></a>
+									</div>
+									<div class="cart-title">
+										<h5>
+											<a href="#"> ${ cart.value.product.name }</a>
+										</h5>
+										<h6>
+											<a href="#">Size: ${ cart.value.size }</a>
+										</h6>
+										<span>${ cart.value.product.price } x ${ cart.value.quanty }</span>
+									</div>
+
+								</li>
+							</c:forEach>
 							<li class="cart-space">
 								<div class="cart-sub">
-									<h4>Subtotal</h4>
+									<h4>Tổng:</h4>
 								</div>
 								<div class="cart-price">
-									<h4>$240.00</h4>
+									<h4>
+										<fmt:formatNumber type="number" groupingUsed="true"
+											value="${ TotalPriceCart }" />
+										₫
+									</h4>
 								</div>
 							</li>
 							<li class="cart-btn-wrapper"><a class="cart-btn btn-hover"
-								href="<c:url value="/gio-hang"></c:url>">view cart</a> <a
-								class="cart-btn btn-hover"
-								href="<c:url value="/thanh-toan"></c:url>">checkout</a></li>
+								href="<c:url value="/gio-hang"></c:url>">Xem giỏ hàng</a>
 						</ul>
 					</div>
 					<div class="furniture-wishlist">

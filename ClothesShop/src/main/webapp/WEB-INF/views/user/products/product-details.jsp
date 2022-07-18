@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -117,38 +117,41 @@
 										value="${productDetail.price}" /> ₫</span>
 							</c:if>
 						</div>
-						<div class="quick-view-select">
-							<div class="select-option-part">
-								<label>Kích thước*</label> <select class="sizes">
-									<option value="">- Vui lòng chọn kích thước -</option>
-									<c:forEach var="size" items="${productDetail.sizes}">
-										<option value="${size}">${size}</option>
-									</c:forEach>
-								</select>
+						<form:form action="AddCart/${ productDetail.id }" method="post"
+							modelAttribute="cart">
+							<div class="quick-view-select">
+								<div class="select-option-part">
+									<label>Kích thước*</label>
+									<form:select class="size" name="size" id="size" path="size">
+										<form:option value="">- Vui lòng chọn kích thước -</form:option>
+										<form:options items="${sizes}"></form:options>
+									</form:select>
+								</div>
+								<div class="select-option-part">
+									<label>Màu*</label>
+									<form:select class="color" name="color" id="color" path="color">
+										<form:option value="">- Vui lòng chọn màu -</form:option>
+										<form:options items="${colors}"></form:options>
+									</form:select>
+
+								</div>
 							</div>
-							<div class="select-option-part">
-								<label>Màu*</label> <select class="select">
-									<option value="">- Vui lòng chọn màu -</option>
-									<c:forEach var="color" items="${productDetail.colors}">
-										<option value="${color.id}">${color.name_color}</option>
-									</c:forEach>
-								</select>
+							<div class="quickview-plus-minus">
+								<div class="cart-plus-minus">
+									<input type="text" value="1" name="qtybutton"
+										class="cart-plus-minus-box">
+								</div>
+								<div class="quickview-btn-cart">
+									<input type="submit"
+										class="btn btn-outline-dark btn-lg font-weight-bold"
+										value="THÊM VÀO GIỎ HÀNG"
+										style="height: 48px; font-size: 18px;">
+								</div>
+								<div class="quickview-btn-wishlist">
+									<a class="btn-hover" href="#"><i class="pe-7s-like"></i></a>
+								</div>
 							</div>
-						</div>
-						<div class="quickview-plus-minus">
-							<div class="cart-plus-minus">
-								<input type="text" value="02" name="qtybutton"
-									class="cart-plus-minus-box">
-							</div>
-							<div class="quickview-btn-cart">
-								<a class="btn-hover-black"
-									href="<c:url value="/AddCart/${ productDetail.id }"/>">Thêm
-									vào giỏ hàng</a>
-							</div>
-							<div class="quickview-btn-wishlist">
-								<a class="btn-hover" href="#"><i class="pe-7s-like"></i></a>
-							</div>
-						</div>
+						</form:form>
 						</br>
 						<div class="product-share">
 							<ul>

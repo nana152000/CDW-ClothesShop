@@ -10,14 +10,16 @@
 <title>Shop quần áo - Giỏ hàng</title>
 </head>
 <body>
+	<div style="height: 105px"></div>
 	<div class="breadcrumb-area pt-205 pb-210"
-		style="background-image: url(<c:url value="/assets/user/img/bg/breadcrumb.jpg"></c:url>)">
+		style="background-image: url(<c:url value="/assets/user/img/bg/bgr.jpg"></c:url>)">
 		<div class="container">
 			<div class="breadcrumb-content text-center">
-				<h2>Giỏ hàng</h2>
+				<h2 style="color: black;">Giỏ hàng</h2>
 				<ul>
-					<li><a href="index.html">Trang chủ</a></li>
-					<li>Giỏ hàng</li>
+					<li><a href="index.html" style="color: black;">Trang chủ</a></li>
+					<li style="color: black;">/</li>
+					<li style="color: black;">Giỏ hàng</li>
 				</ul>
 			</div>
 		</div>
@@ -36,6 +38,7 @@
 										<th>Stt</th>
 										<th>Hình ảnh</th>
 										<th>Sản phẩm</th>
+										<th>Size</th>
 										<th>Màu</th>
 										<th>Giá</th>
 										<th>Số lượng</th>
@@ -46,7 +49,7 @@
 								<tbody>
 									<c:forEach var="cart" items="${ Cart }">
 										<tr>
-											<td class="product-remove">1</td>
+											<td class="product-remove">${ cart.key}</td>
 											<td class="product-thumbnail"><c:forEach var="color"
 													items="${ cart.value.product.colors }" varStatus="index">
 													<c:if test="${index.first}">
@@ -63,11 +66,12 @@
 												</c:forEach></td>
 											<td class="product-name"><a href="#">${ cart.value.product.name }
 											</a></td>
-											<td class="product-remove"><c:forEach var="color"
-													items="${ cart.value.product.colors }" varStatus="index">
-													<div
-														style="width: 30px; height: 30px; margin-left: 45px; background: ${ color.color_code }; -moz-border-radius: 60px; -webkit-border-radius: 60px; border-radius: 60px;"></div>
-												</c:forEach></td>
+											<td class="product-name"><a href="#">${ cart.value.size }
+											</a></td>
+											<td class="product-remove">
+												<div
+													style="width: 30px; height: 30px; margin-left: 37px;border: 2px solid black; background: ${ cart.value.color }; -moz-border-radius: 60px; -webkit-border-radius: 60px; border-radius: 60px;"></div>
+											</td>
 											<td class="product-price-cart"><span class="amount"><fmt:formatNumber
 														type="number" groupingUsed="true"
 														value="${ cart.value.product.price }" /> ₫</span></td>

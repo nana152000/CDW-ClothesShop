@@ -5,6 +5,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <title>Shop quần áo - Trang chủ</title>
 <body>
+	<div style="height: 105px"></div>
 	<!-- slide -->
 	<div class="slider-area">
 		<div class="slider-active owl-carousel">
@@ -97,7 +98,8 @@
 																	href="<c:url value="/AddCart/${ product.id }"/>">Add
 																	to Cart <i class="ti-shopping-cart"></i>
 																</a> <a class="animate-right wishlist-style-2"
-																	title="wishlist" href="<c:url value="yeu-thich"/>"> <i class="ti-heart"></i>
+																	title="wishlist" href="<c:url value="yeu-thich"/>">
+																	<i class="ti-heart"></i>
 																</a>
 															</div>
 														</div>
@@ -149,7 +151,8 @@
 																	href="<c:url value="/AddCart/${ product.id }"/>">Add
 																	to Cart <i class="ti-shopping-cart"></i>
 																</a> <a class="animate-right wishlist-style-2"
-																	title="wishlist" href="<c:url value="yeu-thich"/>"> <i class="ti-heart"></i>
+																	title="wishlist" href="<c:url value="yeu-thich"/>">
+																	<i class="ti-heart"></i>
 																</a>
 															</div>
 														</div>

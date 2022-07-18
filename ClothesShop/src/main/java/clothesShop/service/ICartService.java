@@ -5,6 +5,7 @@ import java.util.HashMap;
 import org.springframework.stereotype.Service;
 
 import clothesShop.dto.user.CartDto;
+
 @Service
 public interface ICartService {
 
@@ -16,6 +17,6 @@ public interface ICartService {
 
 	HashMap<Long, CartDto> editCart(long id, int quanty, HashMap<Long, CartDto> cart);
 
-	HashMap<Long, CartDto> addCart(long id, HashMap<Long, CartDto> cart);
+	HashMap<Long, CartDto> addCart(long id, String size, String color, HashMap<Long, CartDto> cart);
 
 }

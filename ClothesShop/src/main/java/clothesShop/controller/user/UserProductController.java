@@ -1,7 +1,9 @@
 package clothesShop.controller.user;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -12,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import clothesShop.dto.user.CartDto;
+import clothesShop.entity.Color;
 import clothesShop.entity.Product;
 import clothesShop.service.ICategorieService;
 import clothesShop.service.IColorService;
@@ -76,8 +80,8 @@ public class UserProductController {
 		mav.addObject("totalItemsCategory2", listCategory2.size());
 		mav.addObject("totalItemsCategory3", listCategory3.size());
 		mav.addObject("totalItemsCategory4", listCategory4.size());
-		
-		//sp giảm giá
+
+		// sp giảm giá
 		mav.addObject("listAllSaleProduct", productService.listAllSaleProduct());
 
 		return mav;
@@ -89,11 +93,28 @@ public class UserProductController {
 	}
 
 	@RequestMapping("/chi-tiet-san-pham/{id}")
-	public ModelAndView productDetail(@PathVariable(name = "id") Long id) {
+	public ModelAndView productDetail(Map<String, Object> model, @PathVariable(name = "id") Long id) {
 		ModelAndView mav = new ModelAndView("user/products/product-details");
-		mav.addObject("productDetail", productService.get(id));
+		Product product = productService.get(id);
+		mav.addObject("productDetail", product);
 		mav.addObject("listImageById", colorService.listImageById(id));
 		mav.addObject("idProduct", id);
+
+		String sizes = productService.get(id).getSizes();
+		String[] size = sizes.trim().split(",");
+		mav.addObject("sizes", size);
+
+		List<Color> colors = colorService.listAll();
+
+		Map<String, String> listColor = new HashMap<>();
+		for (Color color : colors) {
+			if (color.getProduct().getId() == product.getId()) {
+				listColor.put(color.getColor_code(), color.getName_color());
+			}
+		}
+		mav.addObject("colors", listColor);
+
+		model.put("cart", new CartDto());
 		return mav;
 	}
 
