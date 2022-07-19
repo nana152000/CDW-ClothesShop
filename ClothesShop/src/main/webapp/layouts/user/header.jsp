@@ -63,10 +63,10 @@
 					<div class="header-cart-4 furits-cart" style="bottom: 20px">
 						<a class="icon-cart" href="<c:url value="/gio-hang"/>"> <i
 							class="pe-7s-shopbag"></i> <c:if
-								test="${ TotalQuantyCart == null }">
+								test="${ TotalQuantityCart == null }">
 								<span class="handicraft-count">0</span>
-							</c:if> <c:if test="${TotalQuantyCart != null }">
-								<span class="handicraft-count">${ TotalQuantyCart }</span>
+							</c:if> <c:if test="${TotalQuantityCart != null }">
+								<span class="handicraft-count">${ TotalQuantityCart }</span>
 							</c:if>
 						</a>
 						<ul class="cart-dropdown">
@@ -84,7 +84,7 @@
 										<h6>
 											<a href="#">Size: ${ cart.value.size }</a>
 										</h6>
-										<span>${ cart.value.product.price } x ${ cart.value.quanty }</span>
+										<span>${ cart.value.product.price } x ${ cart.value.quantity }</span>
 									</div>
 
 								</li>

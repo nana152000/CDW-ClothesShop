@@ -44,7 +44,7 @@ public class OrderServiceImpl implements IOrderService {
 		}
 		for (Map.Entry<Long, CartDto> itemCart : carts.entrySet()) {
 			OrderDetail orderDetail = new OrderDetail();
-			orderDetail.setQuanity(itemCart.getValue().getQuanty());
+			orderDetail.setQuanity(itemCart.getValue().getQuantity());
 			orderDetail.setTotal(itemCart.getValue().getTotalPrice());
 			
 			orderDetail.setOrder(o);

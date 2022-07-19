@@ -27,7 +27,7 @@ public class UserCartController {
 		return mav;
 	}
 
-	@RequestMapping(value = "chi-tiet-san-pham/AddCart/{id}")
+	@RequestMapping(value = { "chi-tiet-san-pham/AddCart/{id}", "AddCart/{id}" })
 	public String AddCart(HttpServletRequest request, HttpSession session, @PathVariable long id,
 			@ModelAttribute("cart") CartDto cartDto) {
 		HashMap<Long, CartDto> cart = (HashMap<Long, CartDto>) session.getAttribute("Cart");
@@ -35,12 +35,12 @@ public class UserCartController {
 			cart = new HashMap<Long, CartDto>();
 		}
 
-		cart = cartService.addCart(id, cartDto.getSize(), cartDto.getColor(), cartDto.getQuanty(), cart);
+		cart = cartService.addCart(id, cartDto.getSize(), cartDto.getColor(), cartDto.getQuantity(), cart);
 
 		System.out.println("size: " + cartDto.getSize());
 		System.out.println("color: " + cartDto.getColor());
 		session.setAttribute("Cart", cart);
-		session.setAttribute("TotalQuantyCart", cartService.totalQuanty(cart));
+		session.setAttribute("TotalQuantityCart", cartService.totalQuantity(cart));
 		session.setAttribute("TotalPriceCart", cartService.totalPrice(cart));
 		return "redirect:" + request.getHeader("Referer");
 	}
@@ -54,7 +54,7 @@ public class UserCartController {
 		}
 		cart = cartService.editCart(id, quantity, cart);
 		session.setAttribute("Cart", cart);
-		session.setAttribute("TotalQuantyCart", cartService.totalQuanty(cart));
+		session.setAttribute("TotalQuantityCart", cartService.totalQuantity(cart));
 		session.setAttribute("TotalPriceCart", cartService.totalPrice(cart));
 		return "redirect:" + request.getHeader("Referer");
 	}
@@ -67,7 +67,7 @@ public class UserCartController {
 		}
 		cart = cartService.deleteCart(id, cart);
 		session.setAttribute("Cart", cart);
-		session.setAttribute("TotalQuantyCart", cartService.totalQuanty(cart));
+		session.setAttribute("TotalQuantityCart", cartService.totalQuantity(cart));
 		session.setAttribute("TotalPriceCart", cartService.totalPrice(cart));
 		return "redirect:" + request.getHeader("Referer");
 	}

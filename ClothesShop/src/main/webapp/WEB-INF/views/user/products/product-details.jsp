@@ -118,7 +118,8 @@
 							</c:if>
 						</div>
 						<form:form action="AddCart/${ productDetail.id }" method="post"
-							modelAttribute="cart">
+							modelAttribute="cart" onsubmit="return validateForm()"
+							name="myForm">
 							<div class="quick-view-select">
 								<div class="select-option-part">
 									<label>Kích thước*</label>
@@ -133,20 +134,19 @@
 										<form:option value="">- Vui lòng chọn màu -</form:option>
 										<form:options items="${colors}"></form:options>
 									</form:select>
-
 								</div>
 							</div>
 							<div class="quickview-plus-minus">
 								<div class="cart-plus-minus">
 									<form:input type="text" value="1" name="qtybutton"
-										class="cart-plus-minus-box" path="quanty" />
+										class="cart-plus-minus-box" path="quantity" />
 								</div>
 								<div class="quickview-btn-cart">
-										<input type="submit"
-											class="btn btn-outline-dark btn-lg font-weight-bold"
-											value="THÊM VÀO GIỎ HÀNG"
-											style="height: 48px; font-size: 18px;">
-								
+									<input type="submit"
+										class="btn btn-outline-dark btn-lg font-weight-bold"
+										value="THÊM VÀO GIỎ HÀNG"
+										style="height: 48px; font-size: 18px;"
+										id="togglee">
 								</div>
 								<div class="quickview-btn-wishlist">
 									<a class="btn-hover" href="#"><i class="pe-7s-like"></i></a>

@@ -94,9 +94,10 @@
 																</c:if>
 															</c:forEach>
 															<div class="product-action-2">
-																<a class="animate-left add-style-2" title="Add To Cart"
-																	href="<c:url value="/AddCart/${ product.id }"/>">Add
-																	to Cart <i class="ti-shopping-cart"></i>
+																<a class="animate-left add-style-2"
+																	title="Chi tiết sản phẩm"
+																	href="<c:url value="chi-tiet-san-pham/${product.id}"/>">Chi
+																	tiết sản phẩm <i class="ti-shopping-cart"></i>
 																</a> <a class="animate-right wishlist-style-2"
 																	title="wishlist" href="<c:url value="yeu-thich"/>">
 																	<i class="ti-heart"></i>
@@ -147,9 +148,10 @@
 																</c:if>
 															</c:forEach>
 															<div class="product-action-2">
-																<a class="animate-left add-style-2" title="Add To Cart"
-																	href="<c:url value="/AddCart/${ product.id }"/>">Add
-																	to Cart <i class="ti-shopping-cart"></i>
+																<a class="animate-left add-style-2"
+																	title="Chi tiết sản phẩm"
+																	href="<c:url value="chi-tiet-san-pham/${product.id}"/>">Chi
+																	tiết sản phẩm <i class="ti-shopping-cart"></i>
 																</a> <a class="animate-right wishlist-style-2"
 																	title="wishlist" href="<c:url value="yeu-thich"/>">
 																	<i class="ti-heart"></i>

@@ -9,7 +9,7 @@ import lombok.Setter;
 public class CartDto {
 	private String color;
 	private String size;
-	private int quanty;
+	private int quantity;
 	private double totalPrice;
 	private Product product;
 
@@ -17,11 +17,11 @@ public class CartDto {
 
 	}
 
-	public CartDto(String color, String size, int quanty, double totalPrice, Product product) {
+	public CartDto(String color, String size, int quantity, double totalPrice, Product product) {
 		super();
 		this.color = color;
 		this.size = size;
-		this.quanty = quanty;
+		this.quantity = quantity;
 		this.totalPrice = totalPrice;
 		this.product = product;
 	}

@@ -11,7 +11,7 @@ public interface ICartService {
 
 	double totalPrice(HashMap<Long, CartDto> cart);
 
-	int totalQuanty(HashMap<Long, CartDto> cart);
+	int totalQuantity(HashMap<Long, CartDto> cart);
 
 	HashMap<Long, CartDto> deleteCart(long id, HashMap<Long, CartDto> cart);
 

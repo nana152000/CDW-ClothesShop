@@ -196,11 +196,17 @@
 																	</a>
 																</c:if>
 															</c:forEach>
-															<span>hot</span>
+															<c:if test="${productPaginate.featured_products }">
+																<span>hot</span>
+															</c:if>
+															<c:if test="${productPaginate.sale!=0 }">
+																<span>sale</span>
+															</c:if>
 															<div class="product-action">
 																<a class="animate-left" title="Wishlist" href="#"> <i
 																	class="pe-7s-like"></i>
-																</a> <a class="animate-top" title="Add To Cart" href="#">
+																</a> <a class="animate-top" title="Chi tiết sản phẩm"
+																	href="<c:url value='/chi-tiet-san-pham/${productPaginate.id}'></c:url>">
 																	<i class="pe-7s-cart"></i>
 																</a>
 															</div>

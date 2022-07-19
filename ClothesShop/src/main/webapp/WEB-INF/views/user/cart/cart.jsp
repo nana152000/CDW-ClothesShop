@@ -78,7 +78,7 @@
 											<td class="product-quantity"><input type="number"
 												min="0" max="1000" placeholder="1"
 												id="quantity-cart-${ cart.key }" size="16" type="text"
-												value="${ cart.value.quanty }"></td>
+												value="${ cart.value.quantity }"></td>
 											<td class="product-subtotal"><fmt:formatNumber
 													type="number" groupingUsed="true"
 													value="${ cart.value.totalPrice }" /> ₫</td>
