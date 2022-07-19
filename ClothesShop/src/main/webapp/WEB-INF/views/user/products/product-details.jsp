@@ -138,14 +138,15 @@
 							</div>
 							<div class="quickview-plus-minus">
 								<div class="cart-plus-minus">
-									<input type="text" value="1" name="qtybutton"
-										class="cart-plus-minus-box">
+									<form:input type="text" value="1" name="qtybutton"
+										class="cart-plus-minus-box" path="quanty" />
 								</div>
 								<div class="quickview-btn-cart">
-									<input type="submit"
-										class="btn btn-outline-dark btn-lg font-weight-bold"
-										value="THÊM VÀO GIỎ HÀNG"
-										style="height: 48px; font-size: 18px;">
+										<input type="submit"
+											class="btn btn-outline-dark btn-lg font-weight-bold"
+											value="THÊM VÀO GIỎ HÀNG"
+											style="height: 48px; font-size: 18px;">
+								
 								</div>
 								<div class="quickview-btn-wishlist">
 									<a class="btn-hover" href="#"><i class="pe-7s-like"></i></a>

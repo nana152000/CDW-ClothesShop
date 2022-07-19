@@ -17,6 +17,6 @@ public interface ICartService {
 
 	HashMap<Long, CartDto> editCart(long id, int quanty, HashMap<Long, CartDto> cart);
 
-	HashMap<Long, CartDto> addCart(long id, String size, String color, HashMap<Long, CartDto> cart);
+	HashMap<Long, CartDto> addCart(long id, String size, String color, int quanty, HashMap<Long, CartDto> cart);
 
 }

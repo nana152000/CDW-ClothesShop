@@ -18,10 +18,10 @@ import clothesShop.service.IProductService;
 public class CartServiceImpl implements ICartService {
 	@Autowired
 	IProductService productService;
+	HashMap<Long, Long> listIndex;
 
 	@Override
-	public HashMap<Long, CartDto> addCart(long id, String size, String color, HashMap<Long, CartDto> cart) {
-		long index=1;
+	public HashMap<Long, CartDto> addCart(long id, String size, String color, int quanty, HashMap<Long, CartDto> cart) {
 		CartDto itemCart = new CartDto();
 		Product product = productService.get(id);
 		CartDto cartDto = new CartDto();
@@ -34,23 +34,24 @@ public class CartServiceImpl implements ICartService {
 		if (product != null && cart.containsKey(id) && cartDto.getSize().equals(size)
 				&& cartDto.getColor().equals(color)) {
 			itemCart = cart.get(id);
-			itemCart.setQuanty(itemCart.getQuanty() + 1);
+			itemCart.setQuanty(itemCart.getQuanty() + quanty);
 			itemCart.setTotalPrice(itemCart.getQuanty() * itemCart.getProduct().getPrice());
-		} else if (product != null && cart.containsKey(id) && cartDto.getSize().equals(size)
-				&& (cartDto.getColor().equals(color) == false)) {
-			Product product1 = productService.get(id);
-			id = id + 1;
-			itemCart.setSize(size);
+		} else if (product != null && cart.containsKey(id) && cartDto.getSize().equals(size) == false
+				&& (cartDto.getColor().equals(color))) {
+			itemCart = cart.get(id);
+			String sizeInitial = itemCart.getSize();
+			itemCart.setSize(sizeInitial.concat("\n" + size));
 			itemCart.setColor(color);
-			itemCart.setProduct(product1);
-			itemCart.setQuanty(1);
+			itemCart.setProduct(product);
+			itemCart.setQuanty(quanty);
 			itemCart.setTotalPrice(product.getPrice());
+			System.out.println("ok");
 		} else {
 			itemCart.setSize(size);
 			itemCart.setColor(color);
 			itemCart.setProduct(product);
-			itemCart.setQuanty(1);
-			itemCart.setTotalPrice(product.getPrice());
+			itemCart.setQuanty(quanty);
+			itemCart.setTotalPrice(product.getPrice() * quanty);
 		}
 		cart.put(id, itemCart);
 		return cart;

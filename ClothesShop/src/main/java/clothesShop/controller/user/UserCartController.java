@@ -35,7 +35,7 @@ public class UserCartController {
 			cart = new HashMap<Long, CartDto>();
 		}
 
-		cart = cartService.addCart(id, cartDto.getSize(), cartDto.getColor(), cart);
+		cart = cartService.addCart(id, cartDto.getSize(), cartDto.getColor(), cartDto.getQuanty(), cart);
 
 		System.out.println("size: " + cartDto.getSize());
 		System.out.println("color: " + cartDto.getColor());
