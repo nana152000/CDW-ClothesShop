@@ -42,7 +42,7 @@ public class CheckouController {
 
 	@RequestMapping(value = "/thanh-toan", method = RequestMethod.POST)
 	public String loginPageIn(HttpServletRequest request, HttpSession session, @ModelAttribute("orders") Order order) {
-		order.setQuantity((int)session.getAttribute("TotalQuantyCart"));
+		order.setQuantity((int)session.getAttribute("TotalQuantityCart"));
 		order.setTotal((double)session.getAttribute("TotalPriceCart"));
 		if (orderService.addOrder(order) > 0) {
 			HashMap<Long, CartDto> carts = (HashMap<Long, CartDto>) session.getAttribute("Cart");
