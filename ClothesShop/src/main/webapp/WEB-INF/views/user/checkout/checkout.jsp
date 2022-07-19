@@ -10,13 +10,14 @@
 </head>
 <body>
 	<div class="breadcrumb-area pt-205 pb-210"
-		style="background-image: url(<c:url value="/assets/user/img/bg/breadcrumb.jpg"></c:url>)">
+		style="background-image: url(<c:url value="/assets/user/img/bg/bgr.jpg"></c:url>)">
 		<div class="container">
 			<div class="breadcrumb-content text-center">
-				<h2>Thanh toán</h2>
+				<h2 style="color: black;">Thanh toán</h2>
 				<ul>
-					<li><a href="index.html">Trang chủ</a></li>
-					<li>Thanh toán</li>
+					<li><a href="index.html" style="color: black;">Trang chủ</a></li>
+					<li style="color: black;">/</li>
+					<li style="color: black;">Thanh toán</li>
 				</ul>
 			</div>
 		</div>
@@ -78,46 +79,49 @@
 			</div>
 			<div class="row">
 				<div class="col-lg-6 col-md-12 col-12">
-					<form:form action="thanh-toan" method="POST" modelAttribute="orders">
+					<form:form action="thanh-toan" method="POST"
+						modelAttribute="orders">
 						<div class="checkbox-form">
 							<h3>Thanh toán đơn hàng</h3>
 							<div class="row">
 								<div class="col-md-12">
 									<div class="checkout-form-list">
-										<label>Họ và tên <span class="required">*</span></label> 
-										<form:input type="text" placeholder="" path="display_name"/>
+										<label>Họ và tên <span class="required">*</span></label>
+										<form:input type="text" placeholder="" path="display_name" />
 									</div>
 								</div>
 								<div class="col-md-12">
 									<div class="checkout-form-list">
-										<label>Họ và tên <span class="required">*</span></label> 
-										<form:input type="text" placeholder="" path="password"/>
+										<label>Họ và tên <span class="required">*</span></label>
+										<form:input type="text" placeholder="" path="password" />
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="checkout-form-list">
-										<label>Email <span class="required">*</span></label> <form:input
-											type="email" path="user"/>
+										<label>Email <span class="required">*</span></label>
+										<form:input type="email" path="user" />
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="checkout-form-list">
-										<label>Số điện thoại <span class="required">*</span></label> <form:input
-											type="text" path="phone"/>
+										<label>Số điện thoại <span class="required">*</span></label>
+										<form:input type="text" path="phone" />
 									</div>
 								</div>
 								<div class="col-md-12">
 									<div class="checkout-form-list">
-										<label>Địa chỉ <span class="required">*</span></label> <form:input
-											type="text" placeholder="Street address" path="address"/>
+										<label>Địa chỉ <span class="required">*</span></label>
+										<form:input type="text" placeholder="Street address"
+											path="address" />
 									</div>
-								</div>							
+								</div>
 							</div>
-							<div class="different-address">							
+							<div class="different-address">
 								<div class="order-notes">
 									<div class="checkout-form-list mrg-nn">
 										<label>Ghi chú</label>
-										<form:textarea path="note"  id="checkout-mess" cols="30" rows="10"
+										<form:textarea path="note" id="checkout-mess" cols="30"
+											rows="10"
 											placeholder="Notes about your order, e.g. special notes for delivery."></form:textarea>
 									</div>
 								</div>
@@ -144,7 +148,7 @@
 										</td>
 										<td class="product-total"><span class="amount">£165.00</span>
 										</td>
-									</tr>								
+									</tr>
 								</tbody>
 								<tfoot>
 									<tr class="cart-subtotal">
@@ -183,7 +187,8 @@
 										<div class="panel-heading">
 											<h5 class="panel-title">
 												<a class="collapsed" data-toggle="collapse"
-													aria-expanded="false" data-parent="#faq" href="#payment-2">Thanh toán khi nhận hàng</a>
+													aria-expanded="false" data-parent="#faq" href="#payment-2">Thanh
+													toán khi nhận hàng</a>
 											</h5>
 										</div>
 										<div id="payment-2" class="panel-collapse collapse">

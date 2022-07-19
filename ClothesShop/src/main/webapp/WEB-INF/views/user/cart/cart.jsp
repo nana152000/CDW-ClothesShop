@@ -10,6 +10,21 @@
 <title>Shop quần áo - Giỏ hàng</title>
 </head>
 <body>
+	<style type="text/css">
+table {
+	counter-reset: rowNumber -1;
+}
+
+table tr {
+	counter-increment: rowNumber;
+}
+
+table tr td:first-child::before {
+	content: counter(rowNumber);
+	min-width: 1em;
+	margin-right: 0.5em;
+}
+</style>
 	<div style="height: 105px"></div>
 	<div class="breadcrumb-area pt-205 pb-210"
 		style="background-image: url(<c:url value="/assets/user/img/bg/bgr.jpg"></c:url>)">
@@ -43,13 +58,13 @@
 										<th>Giá</th>
 										<th>Số lượng</th>
 										<th>Tổng tiền</th>
-										<th>remove</th>
+										<th></th>
 									</tr>
 								</thead>
 								<tbody>
 									<c:forEach var="cart" items="${ Cart }">
 										<tr>
-											<td class="product-remove">${ cart.key}</td>
+											<td class="product-remove"></td>
 											<td class="product-thumbnail"><c:forEach var="color"
 													items="${ cart.value.product.colors }" varStatus="index">
 													<c:if test="${index.first}">
@@ -64,17 +79,30 @@
 														</c:forEach>
 													</c:if>
 												</c:forEach></td>
-											<td class="product-name"><a href="#">${ cart.value.product.name }
+											<td class="product-name"><a
+												href="<c:url value='/chi-tiet-san-pham/${cart.key}'></c:url>">${ cart.value.product.name }
 											</a></td>
-											<td class="product-name"><a href="#">${ cart.value.size }
-											</a></td>
+											<td class="product-name">${ cart.value.size }</td>
 											<td class="product-remove">
 												<div
 													style="width: 30px; height: 30px; margin-left: 37px;border: 2px solid black; background: ${ cart.value.color }; -moz-border-radius: 60px; -webkit-border-radius: 60px; border-radius: 60px;"></div>
 											</td>
-											<td class="product-price-cart"><span class="amount"><fmt:formatNumber
-														type="number" groupingUsed="true"
-														value="${ cart.value.product.price }" /> ₫</span></td>
+											<td class="product-price-cart"><c:if
+													test="${cart.value.product.sale !=0 }">
+													<span style="text-decoration: line-through;"><fmt:formatNumber
+															type="number" groupingUsed="true"
+															value="${ cart.value.product.price }" /> ₫</span>
+													<span class="amount"> <fmt:formatNumber
+															type="number" groupingUsed="true"
+															value="${ cart.value.product.price * (100-cart.value.product.sale)/100}" />
+														₫
+													</span>
+												</c:if> <c:if test="${cart.value.product.sale ==0 }">
+													<span class="amount"> <fmt:formatNumber
+															type="number" groupingUsed="true"
+															value="${ cart.value.product.price }" /> ₫
+													</span>
+												</c:if></td>
 											<td class="product-quantity"><input type="number"
 												min="0" max="1000" placeholder="1"
 												id="quantity-cart-${ cart.key }" size="16" type="text"
@@ -82,12 +110,15 @@
 											<td class="product-subtotal"><fmt:formatNumber
 													type="number" groupingUsed="true"
 													value="${ cart.value.totalPrice }" /> ₫</td>
-											<td class="product-remove"><a
+											<td class="product-remove"
+												style="display: block; padding-top: 59px;"><a
 												href="<c:url value="/DeleteCart/${ cart.key }"/>"><i
-													class="pe-7s-close"></i></a>
+													class="fa-solid fa-trash" style="font-size: 20px"></i></a>
 												<button type="button" data-id="${ cart.key }"
-													class="edit-quatity-cart">
-													<span>Update</span>
+													class="edit-quatity-cart"
+													style="border: none; background-color: white;'">
+													<span><i class="fa-solid fa-pen-to-square"
+														style="font-size: 20px"></i></span>
 												</button></td>
 										</tr>
 									</c:forEach>
@@ -95,38 +126,15 @@
 							</table>
 						</div>
 						<div class="row">
-							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-								<div class="coupon-all">
-									<div class="coupon">
-										<input id="coupon_code" class="input-text" name="coupon_code"
-											value="" placeholder="Coupon code" type="text"> <input
-											class="button" name="apply_coupon" value="Apply coupon"
-											type="submit">
-									</div>
-									<div class="coupon2">
-										<%-- <input onclick="EditQuantity();" data-id="${ cart.key }"
-											class="button" name="update_cart" value="Update cart"
-											type="submit"> --%>
-										<button type="button" data-id="${ cart.key }"
-											class="edit-quatity-cart">
-											<span>Update</span>
-										</button>
-
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="row">
 							<div class="col-md-5 ml-auto">
 								<div class="cart-page-total">
-									<h2>Cart totals</h2>
+									<h2>Tổng</h2>
 									<ul>
-										<li>Subtotal<span><fmt:formatNumber type="number"
-													groupingUsed="true" value="${ TotalPriceCart }" /> ₫</span></li>
-										<li>Total<span><fmt:formatNumber type="number"
-													groupingUsed="true" value="${ TotalPriceCart }" /> ₫</span></li>
+										<li>Tổng thanh toán:<span><fmt:formatNumber
+													type="number" groupingUsed="true"
+													value="${ TotalPriceCart }" /> ₫</span></li>
 									</ul>
-									<a href="<c:url value="/thanh-toan"/>">Proceed to checkout</a>
+									<a href="<c:url value="/thanh-toan"/>">Mua hàng</a>
 								</div>
 							</div>
 						</div>

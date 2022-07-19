@@ -35,7 +35,13 @@ public class CartServiceImpl implements ICartService {
 				&& cartDto.getColor().equals(color)) {
 			itemCart = cart.get(id);
 			itemCart.setQuantity(itemCart.getQuantity() + quanty);
-			itemCart.setTotalPrice(itemCart.getQuantity() * itemCart.getProduct().getPrice());
+			if (itemCart.getProduct().getSale() != 0) {
+				itemCart.setTotalPrice(itemCart.getQuantity()
+						* (itemCart.getProduct().getPrice() * (100 - itemCart.getProduct().getSale()) / 100));
+			} else {
+				itemCart.setTotalPrice(itemCart.getQuantity() * itemCart.getProduct().getPrice());
+			}
+
 		} else if (product != null && cart.containsKey(id) && cartDto.getSize().equals(size) == false
 				&& (cartDto.getColor().equals(color))) {
 			itemCart = cart.get(id);
@@ -44,14 +50,22 @@ public class CartServiceImpl implements ICartService {
 			itemCart.setColor(color);
 			itemCart.setProduct(product);
 			itemCart.setQuantity(quanty);
-			itemCart.setTotalPrice(product.getPrice());
+			if (itemCart.getProduct().getSale() != 0) {
+				itemCart.setTotalPrice((product.getPrice() * (100 - product.getSale()) / 100) * quanty);
+			} else {
+				itemCart.setTotalPrice(product.getPrice() * quanty);
+			}
 			System.out.println("ok");
 		} else {
 			itemCart.setSize(size);
 			itemCart.setColor(color);
 			itemCart.setProduct(product);
 			itemCart.setQuantity(quanty);
-			itemCart.setTotalPrice(product.getPrice() * quanty);
+			if (itemCart.getProduct().getSale() != 0) {
+				itemCart.setTotalPrice((product.getPrice() * (100 - product.getSale()) / 100) * quanty);
+			} else {
+				itemCart.setTotalPrice(product.getPrice() * quanty);
+			}
 		}
 		cart.put(id, itemCart);
 		return cart;
