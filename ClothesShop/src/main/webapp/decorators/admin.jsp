@@ -7,6 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title><decorator:title default="Master-Layout"></decorator:title></title>
 <!-- Custom fonts for this template-->
 <link

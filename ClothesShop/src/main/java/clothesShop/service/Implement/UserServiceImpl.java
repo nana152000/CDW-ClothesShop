@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import clothesShop.entity.Color;
 import clothesShop.entity.Product;
 import clothesShop.entity.User;
 import clothesShop.repository.UserRepository;
@@ -21,7 +22,7 @@ public class UserServiceImpl implements IUserService {
 	@Override
 	public User checkAccount(User user) {
 		String pass = user.getPassword();
-		user = findByUser(user.getUser());
+		user = findByUser(user.getEmail());
 		System.out.println("user: " + user.toString());
 		if (user != null) {
 			if (BCrypt.checkpw(pass, user.getPassword())) {
@@ -46,11 +47,17 @@ public class UserServiceImpl implements IUserService {
 		User user = new User();
 		List<User> users = userRepository.findAll();
 		for (User u : users) {
-			if (u.getUser().equals(userName)) {
-				user = new User(u.getId(), userName, u.getPassword(), u.getDisplay_name(), u.getAddress(),u.getPhone());
+			if (u.getEmail().equals(userName)) {
+				user = new User(u.getId(), userName, u.getPassword(), u.getDisplay_name(), u.getAddress(),
+						u.getPhone());
 			}
 		}
 		return user;
+	}
+
+	@Override
+	public List<User> listAll() {
+		return (List<User>) userRepository.findAll();
 	}
 
 }

@@ -5,7 +5,6 @@
 <title>Admin - Loại sản phẩm</title>
 <body>
 	<div class="container-fluid">
-		<!-- DataTables Example -->
 		<div class="card mb-3">
 			<div class="card-header">
 				<i class="fas fa-table"></i> Loại sản phẩm
@@ -21,21 +20,20 @@
 						cellspacing="0">
 						<thead>
 							<tr>
-								<th>#</th>
-								<th>Tên loại</th>
-								<th>Mô tả</th>
-								<th>Menu</th>
+								<th style="text-align: center;">STT</th>
+								<th style="text-align: center;">Tên loại</th>
+								<th style="text-align: center;">Mô tả</th>
 								<th></th>
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach var="item" items="${listCategory}">
+							<c:forEach var="item" items="${listCategory}" varStatus="loop">
 								<tr>
-									<td>${item.id}</td>
-									<td>${item.name}</td>
-									<td>${item.decriptions}</td>
-									<td>${item.menu.name}</td>
-									<td><a href="<c:url value="/loai-sp/delete?id=${item.id}" />"><i
+									<td style="text-align: center;">${loop.index+1}</td>
+									<td style="text-align: center;">${item.name}</td>
+									<td style="text-align: center;">${item.decriptions}</td>
+									<td style="text-align: center;"><a
+										href="<c:url value="/loai-sp/delete?id=${item.id}" />"><i
 											class="fa-solid fa-trash"></i></a>&emsp; <a
 										href="<c:url value="/quan-tri/loai-sp/edit?id=${item.id}" />"><i
 											class="fa-solid fa-pen-to-square"></i></a></td>

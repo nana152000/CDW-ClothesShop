@@ -1,8 +1,11 @@
 package clothesShop.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import clothesShop.entity.User;
+
 @Service
 public interface IUserService {
 
@@ -12,4 +15,5 @@ public interface IUserService {
 
 	User findByUser(String userName);
 
+	List<User> listAll();
 }

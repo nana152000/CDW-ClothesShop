@@ -21,7 +21,7 @@ public class Order {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private String user;
+	private String email;
 	private String password;
 	private String display_name;
 	private String address;
@@ -32,7 +32,7 @@ public class Order {
 
 	@Override
 	public String toString() {
-		return "Order [id=" + id + ", user=" + user + ", password=" + password + ", display_name=" + display_name
+		return "Order [id=" + id + ", email=" + email + ", password=" + password + ", display_name=" + display_name
 				+ ", address=" + address + ", phone=" + phone + ", total=" + total + ", quantity=" + quantity
 				+ ", note=" + note + "]";
 	}
@@ -41,11 +41,11 @@ public class Order {
 		super();
 	}
 
-	public Order(Long id, String user, String password, String display_name, String address, String phone, double total,
+	public Order(Long id, String email, String password, String display_name, String address, String phone, double total,
 			int quantity, String note) {
 		super();
 		this.id = id;
-		this.user = user;
+		this.email = email;
 		this.password = password;
 		this.display_name = display_name;
 		this.address = address;

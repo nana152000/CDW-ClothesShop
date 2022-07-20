@@ -6,30 +6,28 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Chỉnh sửa loại</title>
+<title>Thêm loại sản phẩm</title>
 </head>
 <body>
-	<div align="center">
-		<h2>Chỉnh sửa</h2>
+	<div style="padding: 0px 300px;">
+		<h2>Thêm loại sản phẩm</h2>
 		<form:form action="save" method="post" modelAttribute="category">
-			<table border="0" cellpadding="5">
-				<tr>
-					<td>Thanh điều hướng:</td>
-					<td><form:select path="menu.id" items="${listMenuId}">
-						</form:select></td>
-				</tr>
-				<tr>
-					<td>Tên loại sản phẩm:</td>
-					<td><form:input path="name" /></td>
-				</tr>
-				<tr>
-					<td>Mô tả loại sản phẩm:</td>
-					<td><form:input path="decriptions" /></td>
-				</tr>
-				<tr>
-					<td colspan="2"><input type="submit" value="Save"></td>
-				</tr>
-			</table>
+			<div class="mb-3 row">
+				<label for="inputPassword" class="col-sm-3 col-form-label">Tên
+					loại sản phẩm:</label>
+				<div class="col-sm-9">
+					<form:input path="name" class="form-control" />
+				</div>
+			</div>
+			<div class="mb-3 row">
+				<label for="inputPassword" class="col-sm-3 col-form-label">Mô
+					tả loại sản phẩm</label>
+				<div class="col-sm-9">
+					<form:textarea class="form-control"
+						id="exampleFormControlTextarea1" rows="5" path="decriptions"></form:textarea>
+				</div>
+			</div>
+			<input class="btn btn-secondary" type="submit" value="Lưu">
 		</form:form>
 	</div>
 </body>

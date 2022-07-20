@@ -21,7 +21,7 @@
 						cellspacing="0">
 						<thead>
 							<tr>
-								<th>#</th>
+								<th>STT</th>
 								<th>Tên sản phẩm</th>
 								<th>Tên màu</th>
 								<th>Mã màu</th>
@@ -30,15 +30,14 @@
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach var="item" items="${listColor}">
+							<c:forEach var="item" items="${listColor}" varStatus="loop">
 								<tr>
-									<td>${item.id}</td>
+									<td>${loop.index+1}</td>
 									<td>${item.product.name}</td>
 									<td>${item.name_color}</td>
 									<td>${item.color_code}</td>
 									<td>${item.	image}</td>
-									<td><a href="<c:url value="/mau-sac-sp/delete?id=${item.id}" />"><i
-											class="fa-solid fa-trash"></i></a>&emsp; <a
+									<td><a
 										href="<c:url value="/quan-tri/mau-sac-sp/edit?id=${item.id}" />"><i
 											class="fa-solid fa-pen-to-square"></i></a></td>
 								</tr>

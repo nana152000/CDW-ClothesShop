@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import clothesShop.dto.user.CartDto;
 import clothesShop.entity.Order;
 import clothesShop.entity.OrderDetail;
+import clothesShop.entity.User;
 import clothesShop.repository.OrderDetailRepository;
 import clothesShop.repository.OrderRepository;
 import clothesShop.service.IOrderService;
@@ -38,7 +39,7 @@ public class OrderServiceImpl implements IOrderService {
 		Order o = new Order();
 		for (Order order : listOrder) {
 			if (order.getId() == idOrder) {
-				o = new Order(idOrder, o.getUser(), o.getPassword(), o.getDisplay_name(), o.getAddress(), o.getPhone(),
+				o = new Order(idOrder, o.getEmail(), o.getPassword(), o.getDisplay_name(), o.getAddress(), o.getPhone(),
 						o.getTotal(), o.getQuantity(), o.getNote());
 			}
 		}
@@ -54,5 +55,19 @@ public class OrderServiceImpl implements IOrderService {
 			orderDetailRepository.save(orderDetail);
 			System.out.println("order detail: " + orderDetail);
 		}
+	}
+	
+	@Override
+	public List<Order> listAll() {
+		return (List<Order>) orderRepository.findAll();
+	}
+	@Override
+	public List<OrderDetail> listAllOrderDetail() {
+		return (List<OrderDetail>) orderDetailRepository.findAll();
+	}
+	@Override
+	public void delete(Long id) {
+		orderRepository.deleteById(id);
+
 	}
 }

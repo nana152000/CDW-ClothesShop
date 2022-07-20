@@ -56,10 +56,4 @@ public class ColorController {
 		return mav;
 	}
 
-	@RequestMapping("/mau-sac-sp/delete")
-	public String deleteColorForm(@RequestParam long id) {
-		colorService.delete(id);
-		return "redirect:/quan-tri/mau-sac-sp";
-	}
-
 }

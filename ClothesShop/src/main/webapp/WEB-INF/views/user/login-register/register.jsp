@@ -35,7 +35,7 @@
 							<div class="login-form">
 								<form:form action="save" method="POST" modelAttribute="user">
 									<!-- path la de mapping toi class Users trong entity -->
-									<form:input type="email" path="user" placeholder="Email" />
+									<form:input type="email" path="email" placeholder="Email" />
 									<form:input type="password" path="password"
 										placeholder="Mật khẩu" />
 									<form:input type="text" path="display_name"

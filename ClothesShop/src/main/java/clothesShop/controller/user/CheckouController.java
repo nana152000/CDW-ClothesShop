@@ -32,7 +32,7 @@ public class CheckouController {
 		Order order = new Order();
 		User loginInf = (User) session.getAttribute("loginUser");
 		if (loginInf != null) {
-			order.setUser(loginInf.getUser());
+			order.setEmail(loginInf.getEmail());
 			order.setPassword(loginInf.getPassword());
 			order.setDisplay_name(loginInf.getDisplay_name());
 			order.setPhone(loginInf.getPhone());

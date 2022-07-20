@@ -49,7 +49,7 @@
 								<div class="col-md-6">
 									<div class="checkout-form-list">
 										<label>Email <span class="required">*</span></label>
-										<form:input type="email" path="user" />
+										<form:input type="email" path="email" />
 									</div>
 								</div>
 								<div class="col-md-6">
