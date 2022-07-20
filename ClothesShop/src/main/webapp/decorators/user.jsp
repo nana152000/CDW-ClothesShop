@@ -50,6 +50,18 @@
 	type="text/javascript"></script>
 
 <script type="text/javascript">
+	function checkLoginOrder() {
+		var x = document.forms["ordersForm"]["pass"].value;
+		if (x == "" || x == null) {
+			document.getElementById('orderTogglee').style.disabled = true;
+			alert("Vui lòng đăng nhập");
+			window.location = "dang-nhap";
+			return false;
+		} else {
+			document.getElementById('orderTogglee').style.disabled = false;
+			return true;
+		}
+	}
 	function validateForm() {
 		var x = document.forms["myForm"]["size"].value;
 		var y = document.forms["myForm"]["color"].value;

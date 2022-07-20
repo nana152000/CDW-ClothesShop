@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <header class="res-header-sm"
-	style="position: fixed; width: 100%; box-sizing: border-box; background: white; z-index: 3;">
+	style="position: fixed; width: 100%; box-sizing: border-box; background: white; z-index: 6;">
 	<div class="header-bottom clearfix" style="height: 100px;">
 		<div class="container">
 			<div class="header-bottom-wrapper" style="height: 100px">

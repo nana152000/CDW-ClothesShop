@@ -8,19 +8,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Shop quần áo - Thanh toán</title>
-<script type="text/javascript">
-	function checkLogin() {
-		var x = document.forms["orders"]["pass"].value;
-		if (x == "" || x == null) {
-			document.getElementById('order').style.disabled = true;
-			alert("Vui lòng đăng nhập");
-			return false;
-		} else {
-			document.getElementById('order').style.disabled = false;
-			return true;
-		}
-	}
-</script>
 </head>
 <body>
 	<div class="breadcrumb-area pt-205 pb-210"
@@ -41,7 +28,7 @@
 		<div class="container">
 			<div class="row">
 				<form:form action="thanh-toan" method="POST" modelAttribute="orders"
-					name="orders" onsubmit="return checkLogin()">
+					onsubmit="return checkLoginOrder()" name="ordersForm">
 					<div class="col-lg-6 col-md-12 col-12" style="float: left;">
 						<div class="checkbox-form">
 							<h3>Thanh toán đơn hàng</h3>
@@ -53,7 +40,7 @@
 									</div>
 								</div>
 								<div class="col-md-12">
-									<div class="checkout-form-list">
+									<div class="checkout-form-list" style="display: none">
 										<label>Pass <span class="required">*</span></label>
 										<form:input type="text" placeholder="" path="password"
 											name="pass" id="pass" />
@@ -174,7 +161,7 @@
 										</div>
 									</div>
 									<div class="order-button-payment">
-										<input type="submit" value="Đặt hàng" id="order" />
+										<input type="submit" value="Đặt hàng" id="orderTogglee" />
 									</div>
 								</div>
 							</div>
