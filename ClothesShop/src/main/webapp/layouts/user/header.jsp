@@ -69,42 +69,44 @@
 								<span class="handicraft-count">${ TotalQuantityCart }</span>
 							</c:if>
 						</a>
-						<ul class="cart-dropdown">
-							<c:forEach var="cart" items="${ Cart }" varStatus="loop">
-								<c:if test="${ loop.index+1 < 4}">
-									<li class="single-product-cart">
-										<div class="cart-img">
-											<a href="#"><img
-												src="<c:url value="/assets/user/img/cart/1.jpg"></c:url>"
-												alt=""></a>
-										</div>
-										<div class="cart-title">
-											<h5>
-												<a href="#"> ${ cart.value.product.name }</a>
-											</h5>
-											<h6>
-												<a href="#">Size: ${ cart.value.size }</a>
-											</h6>
-											<span>${ cart.value.product.price } x ${ cart.value.quantity }</span>
-										</div>
-									</li>
-								</c:if>
-							</c:forEach>
-							<li class="cart-btn-wrapper"><a class="cart-btn btn-hover"
-								href="<c:url value="/gio-hang"></c:url>">Xem thêm</a></li>
-							<li class="cart-space" style="padding-top: 30px;">
-								<div class="cart-sub">
-									<h4>Tổng:</h4>
-								</div>
-								<div class="cart-price">
-									<h4>
-										<fmt:formatNumber type="number" groupingUsed="true"
-											value="${ TotalPriceCart }" />
-										₫
-									</h4>
-								</div>
-							</li>
-						</ul>
+						<c:if test="${ TotalQuantityCart != null }">
+							<ul class="cart-dropdown">
+								<c:forEach var="cart" items="${ Cart }" varStatus="loop">
+									<c:if test="${ loop.index+1 < 4}">
+										<li class="single-product-cart">
+											<div class="cart-img">
+												<a href="#"><img
+													src="<c:url value="/assets/user/img/cart/1.jpg"></c:url>"
+													alt=""></a>
+											</div>
+											<div class="cart-title">
+												<h5>
+													<a href="#"> ${ cart.value.product.name }</a>
+												</h5>
+												<h6>
+													<a href="#">Size: ${ cart.value.size }</a>
+												</h6>
+												<span>${ cart.value.product.price } x ${ cart.value.quantity }</span>
+											</div>
+										</li>
+									</c:if>
+								</c:forEach>
+								<li class="cart-btn-wrapper"><a class="cart-btn btn-hover"
+									href="<c:url value="/gio-hang"></c:url>">Xem thêm</a></li>
+								<li class="cart-space" style="padding-top: 30px;">
+									<div class="cart-sub">
+										<h4>Tổng:</h4>
+									</div>
+									<div class="cart-price">
+										<h4>
+											<fmt:formatNumber type="number" groupingUsed="true"
+												value="${ TotalPriceCart }" />
+											₫
+										</h4>
+									</div>
+								</li>
+							</ul>
+						</c:if>
 					</div>
 					<div class="furniture-wishlist">
 						<ul>
