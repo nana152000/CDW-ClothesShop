@@ -15,12 +15,15 @@ import org.springframework.web.servlet.ModelAndView;
 import clothesShop.dto.user.CartDto;
 import clothesShop.entity.Order;
 import clothesShop.entity.User;
+import clothesShop.service.ICartService;
 import clothesShop.service.IOrderService;
 
 @Controller
 public class CheckouController {
 	@Autowired
 	IOrderService orderService;
+	@Autowired
+	private ICartService cartService;
 
 	@RequestMapping(value = "/thanh-toan", method = RequestMethod.GET)
 	public ModelAndView checkoutPage(HttpServletRequest request, HttpSession session) {
@@ -42,13 +45,16 @@ public class CheckouController {
 
 	@RequestMapping(value = "/thanh-toan", method = RequestMethod.POST)
 	public String loginPageIn(HttpServletRequest request, HttpSession session, @ModelAttribute("orders") Order order) {
-		order.setQuantity((int)session.getAttribute("TotalQuantityCart"));
-		order.setTotal((double)session.getAttribute("TotalPriceCart"));
+		order.setQuantity((int) session.getAttribute("TotalQuantityCart"));
+		order.setTotal((double) session.getAttribute("TotalPriceCart"));
 		if (orderService.addOrder(order) > 0) {
 			HashMap<Long, CartDto> carts = (HashMap<Long, CartDto>) session.getAttribute("Cart");
 			orderService.addOrderDetail(carts);
 		}
 		session.removeAttribute("Cart");
+		session.removeAttribute("TotalQuantityCart");
+		session.removeAttribute("TotalPriceCart");
+
 		return "redirect:gio-hang";
 	}
 }

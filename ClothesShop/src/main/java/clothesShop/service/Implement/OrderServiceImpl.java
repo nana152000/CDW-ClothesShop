@@ -44,13 +44,15 @@ public class OrderServiceImpl implements IOrderService {
 		}
 		for (Map.Entry<Long, CartDto> itemCart : carts.entrySet()) {
 			OrderDetail orderDetail = new OrderDetail();
-			orderDetail.setQuanity(itemCart.getValue().getQuantity());
+			orderDetail.setSize(itemCart.getValue().getSize());
+			orderDetail.setColor(itemCart.getValue().getColor());
+			orderDetail.setQuantity(itemCart.getValue().getQuantity());
 			orderDetail.setTotal(itemCart.getValue().getTotalPrice());
-			
+
 			orderDetail.setOrder(o);
 			orderDetail.setProduct(itemCart.getValue().getProduct());
 			orderDetailRepository.save(orderDetail);
-			System.out.println("jjj: " + orderDetail);
+			System.out.println("order detail: " + orderDetail);
 		}
 	}
 }

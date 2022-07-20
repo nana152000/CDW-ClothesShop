@@ -20,7 +20,9 @@ public class OrderDetail {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private int quanity;
+	private String size;
+	private String color;
+	private int quantity;
 	private double total;
 
 	@ManyToOne(fetch = FetchType.EAGER)
@@ -33,9 +35,8 @@ public class OrderDetail {
 
 	@Override
 	public String toString() {
-		return "OrderDetail [id=" + id + ", quanity=" + quanity + ", total=" + total + ", order=" + order + ", product="
-				+ product + "]";
+		return "OrderDetail [id=" + id + ", quanity=" + quantity + ", total=" + total + ", order=" + order
+				+ ", product=" + product + "]";
 	}
-	
-	
+
 }
