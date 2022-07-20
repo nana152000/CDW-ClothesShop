@@ -67,7 +67,7 @@ table tr td:first-child::before {
 											<td class="product-remove"></td>
 											<td class="product-thumbnail"><c:forEach var="color"
 													items="${ cart.value.product.colors }" varStatus="index">
-													<c:if test="${index.first}">
+													<c:if test="${ cart.value.color == color.color_code}">
 														<c:forEach var="img" items="${ color.image }"
 															varStatus="index">
 															<c:if test="${index.first}">

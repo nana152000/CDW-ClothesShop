@@ -75,9 +75,20 @@
 									<c:if test="${ loop.index+1 < 4}">
 										<li class="single-product-cart">
 											<div class="cart-img">
-												<a href="#"><img
-													src="<c:url value="/assets/user/img/cart/1.jpg"></c:url>"
-													alt=""></a>
+												<c:forEach var="color"
+													items="${ cart.value.product.colors }" varStatus="index">
+													<c:if test="${ cart.value.color == color.color_code}">
+														<c:forEach var="img" items="${ color.image }"
+															varStatus="index">
+															<c:if test="${index.first}">
+																<a href="#"> <img style="width: 80px;padding-top: 20px"
+																	src="<c:url value="/assets/user/img/product/${cart.value.product.id}/${img}"/>"
+																	alt="">
+																</a>
+															</c:if>
+														</c:forEach>
+													</c:if>
+												</c:forEach>
 											</div>
 											<div class="cart-title">
 												<h5>
