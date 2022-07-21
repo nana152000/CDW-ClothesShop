@@ -54,7 +54,7 @@
 						</c:if>
 						<c:if test="${not empty loginUser }">
 							<ul>
-								<li><a href="<c:url value="#"></c:url>">${loginUser.display_name}</a></li>
+								<li><a href="<c:url value="/tai-khoan"></c:url>">${loginUser.display_name}</a></li>
 								<li><a href="<c:url value="/dang-xuat"></c:url>">Đăng
 										xuất</a></li>
 							</ul>

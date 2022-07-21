@@ -7,8 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import clothesShop.entity.Color;
-import clothesShop.entity.Product;
 import clothesShop.entity.User;
 import clothesShop.repository.UserRepository;
 import clothesShop.service.IUserService;
@@ -58,6 +56,11 @@ public class UserServiceImpl implements IUserService {
 	@Override
 	public List<User> listAll() {
 		return (List<User>) userRepository.findAll();
+	}
+	
+	@Override
+	public User get(Long id) {
+		return userRepository.findById(id).get();
 	}
 
 }

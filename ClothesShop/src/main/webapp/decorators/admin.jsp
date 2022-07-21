@@ -86,6 +86,5 @@
 	<script src="<c:url value='/assets/admin/js/demo/chart-area-demo.js'/>"
 		type="text/javascript"></script>
 
-
 </body>
 </html>

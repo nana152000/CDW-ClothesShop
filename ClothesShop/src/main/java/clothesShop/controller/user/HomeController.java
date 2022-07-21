@@ -54,4 +54,5 @@ public class HomeController {
 		ModelAndView mav = new ModelAndView("user/wishlist/wishlist");
 		return mav;
 	}
+	
 }

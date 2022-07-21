@@ -126,15 +126,26 @@ table tr td:first-child::before {
 							</table>
 						</div>
 						<div class="row">
+							<div class="col-md-7 ml-auto">
+								<div class="coupon-all">
+									<p style="font-size: 18px;">
+										Vui lòng chọn sản phẩm. Tiếp tục mua hàng <a
+											href="<c:url value="/san-pham"></c:url>"
+											style="font-weight: bold; font-size: 18px;">Tại đây</a>
+									</p>
+								</div>
+							</div>
 							<div class="col-md-5 ml-auto">
 								<div class="cart-page-total">
-									<h2>Tổng</h2>
-									<ul>
-										<li>Tổng thanh toán:<span><fmt:formatNumber
-													type="number" groupingUsed="true"
-													value="${ TotalPriceCart }" /> ₫</span></li>
-									</ul>
-									<a href="<c:url value="/thanh-toan"/>">Mua hàng</a>
+									<c:if test="${ Cart.size()>0}">
+										<h2>Tổng</h2>
+										<ul>
+											<li>Tổng thanh toán:<span><fmt:formatNumber
+														type="number" groupingUsed="true"
+														value="${ TotalPriceCart }" /> ₫</span></li>
+										</ul>
+										<a href="<c:url value="/thanh-toan"/>">Mua hàng</a>
+									</c:if>
 								</div>
 							</div>
 						</div>
