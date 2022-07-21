@@ -122,7 +122,7 @@
 								<div class="col-md-12 ml-auto">
 									<div class="cart-page-total" style="padding-top: 0">
 										<ul>
-											<li style="font-size: 29px">Tổng thanh toán: <span
+											<li style="font-size: 29px">Tổng đã thanh toán: <span
 												style="font-weight: normal;"><fmt:formatNumber
 														type="number" groupingUsed="true" value="${ totalOrder }" />
 													₫</span></li>
