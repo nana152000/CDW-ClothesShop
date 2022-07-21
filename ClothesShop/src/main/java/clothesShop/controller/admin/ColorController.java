@@ -1,7 +1,12 @@
 package clothesShop.controller.admin;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import clothesShop.entity.Color;
@@ -21,7 +27,7 @@ public class ColorController {
 	private IColorService colorService;
 	@Autowired
 	private IProductService productService;
-	
+
 	@RequestMapping("/quan-tri/mau-sac-sp")
 	public ModelAndView color() {
 		List<Color> colors = colorService.listAll();
@@ -31,7 +37,7 @@ public class ColorController {
 		mav.addObject("color", color);
 		return mav;
 	}
-	
+
 	@RequestMapping("/quan-tri/mau-sac-sp/new")
 	public ModelAndView newColorForm(Map<String, Object> model) {
 		ModelAndView mav = new ModelAndView("admin/actionColors/newColor");
@@ -42,8 +48,29 @@ public class ColorController {
 	}
 
 	@RequestMapping(value = "/quan-tri/mau-sac-sp/save", method = RequestMethod.POST)
-	public String saveColor(@ModelAttribute("color") Color color) {
+	public String saveColor(HttpServletRequest servletRequest, @ModelAttribute("color") Color color)
+			throws IOException {
+		String imageProduct = "";
+		List<MultipartFile> files = color.getImages();
+		List<String> fileNames = new ArrayList<String>();
+		if (files != null && files.size() > 0) {
+			for (MultipartFile multipartFile : files) {
+				String fileName = multipartFile.getOriginalFilename();
+				fileNames.add(fileName);
+
+				imageProduct += fileName + ",";
+				imageProduct = imageProduct.replaceAll(",$", "");
+				color.setImage(imageProduct);
+
+				File imageFile = new File(servletRequest.getServletContext()
+						.getRealPath("/assets/user/img/product/" + color.getProduct().getId()), fileName);
+				System.out.println("image được lưu: " + imageFile);
+				multipartFile.transferTo(imageFile);
+			}
+		}
+
 		colorService.save(color);
+
 		return "redirect:/quan-tri/mau-sac-sp";
 	}
 

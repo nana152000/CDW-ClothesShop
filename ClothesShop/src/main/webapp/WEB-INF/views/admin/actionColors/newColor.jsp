@@ -11,7 +11,8 @@
 <body>
 	<div style="padding: 0px 300px;">
 		<h2>Thêm màu sắc</h2>
-		<form:form action="save" method="post" modelAttribute="color">
+		<form:form action="save" method="post" modelAttribute="color"
+			enctype="multipart/form-data">
 			<div class="mb-3 row">
 				<label for="inputPassword" class="col-sm-3 col-form-label">Loại
 					sản phẩm</label>
@@ -39,10 +40,11 @@
 				<label for="inputPassword" class="col-sm-3 col-form-label">Hình
 					ảnh</label>
 				<div class="col-sm-9">
-					<form:input path="image" class="form-control" />
+					<form:input type="file" class="filestyle" path="images" id="images"
+						placeholder="Upload Photo" required="required" multiple="multiple" />
 				</div>
 			</div>
-				<input class="btn btn-secondary" type="submit" value="Lưu">
+			<input class="btn btn-secondary" type="submit" value="Lưu">
 		</form:form>
 	</div>
 </body>

@@ -23,5 +23,14 @@
 	<mvc:annotation-driven></mvc:annotation-driven>
 	<mvc:resources mapping="/assets/**" location="/assets/"></mvc:resources>
 
+	<!-- org.springframework.web.multipart.commons.CommonsMultipartResolver 
+		thực hiện cài đặt lại Apache Common Upload thuộc tính maxUploadSize chỉ dẫn 
+		kích thước tối đa mà file được upload. (lưu ý một số trường hợp bạn cần phải 
+		thay đổi kích thước file cho phép upload trên server, ví dụ server tomcat 
+		mặc định kích thước file được upload lớn nhất khoảng mấy chục Mb gì đó) -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="20848820" />
+	</bean>
 
 </beans>

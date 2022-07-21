@@ -1,5 +1,7 @@
 package clothesShop.entity;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -8,6 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import org.springframework.web.multipart.MultipartFile;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -24,8 +29,24 @@ public class Color {
 	private String name_color;
 	private String color_code;
 	private String image;
-	
+	@Transient
+	private List<MultipartFile> images;
+
 	@ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="id_product", nullable=false) 
-    private Product product;
+	@JoinColumn(name = "id_product", nullable = false)
+	private Product product;
+
+	public Color() {
+		super();
+	}
+
+	public Color(Long id, String name_color, String color_code, String image, Product product) {
+		super();
+		this.id = id;
+		this.name_color = name_color;
+		this.color_code = color_code;
+		this.image = image;
+		this.product = product;
+	}
+
 }

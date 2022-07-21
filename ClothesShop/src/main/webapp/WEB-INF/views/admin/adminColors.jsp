@@ -36,7 +36,12 @@
 									<td>${item.product.name}</td>
 									<td>${item.name_color}</td>
 									<td>${item.color_code}</td>
-									<td>${item.	image}</td>
+									<td><c:forEach var="img" items="${ item.image }">
+											<a href="#"> <img style="width: 50px;"
+												src="<c:url value="/assets/user/img/product/${item.product.id}/${img}"/>"
+												alt="">
+											</a>
+										</c:forEach></td>
 									<td><a
 										href="<c:url value="/quan-tri/mau-sac-sp/edit?id=${item.id}" />"><i
 											class="fa-solid fa-pen-to-square"></i></a></td>

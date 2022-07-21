@@ -1,5 +1,6 @@
 eclipse.preferences.version=1
 encoding//Database/db.txt=UTF-8
+encoding//src/main/java/clothesShop/controller/admin/ColorController.java=UTF-8
 encoding//src/main/java/clothesShop/controller/admin/HomeController.java=UTF-8
 encoding//src/main/java/clothesShop/controller/user/AccountController.java=UTF-8
 encoding//src/main/java/clothesShop/controller/user/CheckouController.java=UTF-8
@@ -10,4 +11,3 @@ encoding//src/main/java/clothesShop/entity/Product.java=UTF-8
 encoding//src/main/java/clothesShop/service/Implement/UserServiceImpl.java=UTF-8
 encoding//src/main/webapp/assets/user/css/style-css.css=UTF-8
 encoding//src/main/webapp/assets/user/css/style.css=UTF-8
-encoding/<project>=UTF-8
