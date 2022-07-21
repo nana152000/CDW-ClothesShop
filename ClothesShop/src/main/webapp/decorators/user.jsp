@@ -74,6 +74,13 @@
 			return true;
 		}
 	}
+	const select = document.querySelector("select")
+	select.onchange = () => {
+	  if (select.selectedIndex !== 0) {
+		  alert("hi");
+	    window.location.href = select.value;
+	  }
+	};
 </script>
 </head>
 <body>
@@ -238,6 +245,24 @@
 			});
 		}
 		google.maps.event.addDomListener(window, 'load', init);
+	</script>
+	<script type="text/javascript">
+	const $select = $('select[name="ap"]');
+	const opts = [
+		{ 'value': '<c:url value="/vn/dang-nhap"></c:url>', 'text': 'Việt Nam' },
+		{ 'value': '<c:url value="/en/dang-nhap"></c:url>', 'text': 'Anh' }
+	];
+
+	opts.forEach(function(obj) {
+		$("<option />", {
+			value: obj.value,
+			text: obj.text
+		}).appendTo($select)
+	});
+
+	$select.on("change", function() {
+		window.location = this.value;
+	});
 	</script>
 	<script src="<c:url value='/assets/user/js/main.js'/>"
 		type="text/javascript"></script>

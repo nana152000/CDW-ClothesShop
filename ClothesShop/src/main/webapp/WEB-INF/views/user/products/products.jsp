@@ -4,7 +4,8 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<title>Shop quần áo - Sản phẩm</title>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<title><spring:message code="label.titleHome1" /></title>
 <body>
 	<div style="height: 105px"></div>
 	<div
@@ -12,12 +13,14 @@
 		style="background-image: url(<c:url value='/assets/user/img/bg/bgr.jpg'></c:url>);">
 		<div class="container-fluid">
 			<div class="breadcrumb-content text-center">
-				<h2 style="color: black;">Shop quần áo</h2>
+				<h2 style="color: black;">
+					<spring:message code="label.shopquanao" />
+				</h2>
 				<ul>
 					<li><a href="<c:url value='/trang-chu'/>"
-						style="color: black;">Trang chủ</a></li>
+						style="color: black;"><spring:message code="label.trangchu" /></a></li>
 					<li style="color: black;">/</li>
-					<li style="color: black;">Sản phẩm</li>
+					<li style="color: black;"><spring:message code="label.sanpham" /></li>
 				</ul>
 			</div>
 		</div>
@@ -28,7 +31,9 @@
 				<div class="col-lg-3">
 					<div class="shop-sidebar mr-50">
 						<div class="sidebar-widget mb-50">
-							<h3 class="sidebar-title">Tìm kiếm sản phẩm</h3>
+							<h3 class="sidebar-title">
+								<spring:message code="label.timkiem" />
+							</h3>
 							<div class="sidebar-search">
 								<form action="<c:url value="/san-pham"/>">
 									<input class="form-control" placeholder="Tìm kiếm..."
@@ -40,7 +45,9 @@
 							</div>
 						</div>
 						<div class="sidebar-widget mb-45">
-							<h3 class="sidebar-title">Loại sản phẩm</h3>
+							<h3 class="sidebar-title">
+								<spring:message code="label.loaisp" />
+							</h3>
 							<div class="sidebar-categories">
 								<ul>
 									<li><a href="#">${listCategory[0].name} <span>${totalItemsCategory1}</span>
@@ -56,7 +63,9 @@
 							</div>
 						</div>
 						<div class="sidebar-widget mb-50">
-							<h3 class="sidebar-title">Sản phẩm Giảm giá</h3>
+							<h3 class="sidebar-title">
+								<spring:message code="label.spgiamgia" />
+							</h3>
 							<div class="sidebar-top-rated-all">
 								<c:forEach var="product" items="${ listAllSaleProduct }"
 									varStatus="loop">
@@ -111,7 +120,9 @@
 								<div class="shop-found-selector">
 									<div class="shop-found">
 										<p>
-											<span>${totalItems}</span> sản phẩm trong tổng <span>${listProduct.size()}</span>
+											<span>${totalItems}</span>
+											<spring:message code="label.sptrongtong" />
+											<span>${listProduct.size()}</span>
 										</p>
 									</div>
 
@@ -121,7 +132,8 @@
 											<c:if test="${fn:contains(sortDir, 'no')}">
 												<a href="<c:url value="/san-pham"/>"
 													class="btn btn-light active" aria-current="page"
-													style="border-radius: 15px 50px 30px;">Mặc định</a>
+													style="border-radius: 15px 50px 30px;"><spring:message
+														code="label.macdinh" /></a>
 												<a
 													href="<c:url value="/san-pham/keyword=${keyword}/page=${currentPage}?sortField=name&sortDir=${reverseSortDirAsc}"/>"
 													class="btn btn-light"
@@ -133,7 +145,8 @@
 											</c:if>
 											<c:if test="${fn:contains(sortDir, 'asc')}">
 												<a href="<c:url value="/san-pham"/>" class="btn btn-light"
-													style="border-radius: 15px 50px 30px;">Mặc định</a>
+													style="border-radius: 15px 50px 30px;"><spring:message
+														code="label.macdinh" /></a>
 												<a
 													href="<c:url value="/san-pham/keyword=${keyword}/page=${currentPage}?sortField=name&sortDir=${reverseSortDirAsc}"/>"
 													class="btn btn-light active"
@@ -145,7 +158,8 @@
 											</c:if>
 											<c:if test="${fn:contains(sortDir, 'desc')}">
 												<a href="<c:url value="/san-pham"/>" class="btn btn-light"
-													style="border-radius: 15px 50px 30px;">Mặc định</a>
+													style="border-radius: 15px 50px 30px;"><spring:message
+														code="label.macdinh" /></a>
 												<a
 													href="<c:url value="/san-pham/keyword=${keyword}/page=${currentPage}?sortField=name&sortDir=${reverseSortDirAsc}"/>"
 													class="btn btn-light"
@@ -265,8 +279,9 @@
 															</div>
 															<div class="product-list-cart-wishlist">
 																<div class="product-list-cart">
-																	<a class="btn-hover list-btn-style" href="#">add to
-																		cart</a>
+																	<a class="btn-hover list-btn-style"
+																		href="<c:url value='/chi-tiet-san-pham/${productPaginate.id}'></c:url>"><spring:message
+																			code="label.addtocart" /></a>
 																</div>
 																<div class="product-list-wishlist">
 																	<a class="btn-hover list-btn-wishlist" href="#"> <i

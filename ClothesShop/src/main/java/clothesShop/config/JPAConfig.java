@@ -5,8 +5,10 @@ import java.util.Properties;
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -16,6 +18,8 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
+import org.springframework.web.servlet.LocaleResolver;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 
 @Configuration
 @EnableJpaRepositories(basePackages = { "clothesShop.repository" })
@@ -69,4 +73,31 @@ public class JPAConfig {
 		return multipartResolver;
 	}
 
+	@Bean(name = "messageSource")
+	public MessageSource getMessageResource() {
+		ReloadableResourceBundleMessageSource messageResource = new ReloadableResourceBundleMessageSource();
+
+		// Đọc vào file i18n/messages_xxx.properties
+		// Ví dụ: i18n/message_en.properties
+		messageResource.setBasename("classpath:i18n/messages");
+		messageResource.setDefaultEncoding("UTF-8");
+		return messageResource;
+	}
+
+	// To solver URL like:
+	// /SpringMVCInternationalization/en/login2
+	// /SpringMVCInternationalization/vi/login2
+	// /SpringMVCInternationalization/fr/login2
+	@Bean(name = "localeResolver")
+	public LocaleResolver getLocaleResolver() {
+		LocaleResolver resolver = new UrlLocaleResolver();
+		return resolver;
+	}
+
+	public void addInterceptors(InterceptorRegistry registry) {
+
+		UrlLocaleInterceptor localeInterceptor = new UrlLocaleInterceptor();
+
+		registry.addInterceptor(localeInterceptor).addPathPatterns("/en/*", "/vi/*");
+	}
 }

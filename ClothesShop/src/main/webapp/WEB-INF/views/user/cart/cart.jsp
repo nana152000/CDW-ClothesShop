@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Shop quần áo - Giỏ hàng</title>
+<title><spring:message code="label.giohang" /></title>
 </head>
 <body>
 	<style type="text/css">
@@ -30,11 +30,15 @@ table tr td:first-child::before {
 		style="background-image: url(<c:url value="/assets/user/img/bg/bgr.jpg"></c:url>)">
 		<div class="container">
 			<div class="breadcrumb-content text-center">
-				<h2 style="color: black;">Giỏ hàng</h2>
+				<h2 style="color: black;">
+					<spring:message code="label.giohang1" />
+				</h2>
 				<ul>
-					<li><a href="index.html" style="color: black;">Trang chủ</a></li>
+					<li><a href="index.html" style="color: black;"><spring:message
+								code="label.trangchu" /></a></li>
 					<li style="color: black;">/</li>
-					<li style="color: black;">Giỏ hàng</li>
+					<li style="color: black;"><spring:message
+							code="label.giohang1" /></li>
 				</ul>
 			</div>
 		</div>
@@ -44,20 +48,22 @@ table tr td:first-child::before {
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-					<h1 class="cart-heading">Giỏ hàng</h1>
+					<h1 class="cart-heading">
+						<spring:message code="label.giohang1" />
+					</h1>
 					<form action="#">
 						<div class="table-content table-responsive">
 							<table>
 								<thead>
 									<tr>
-										<th>Stt</th>
-										<th>Hình ảnh</th>
-										<th>Sản phẩm</th>
-										<th>Size</th>
-										<th>Màu</th>
-										<th>Giá</th>
-										<th>Số lượng</th>
-										<th>Tổng tiền</th>
+										<th><spring:message code="label.stt" /></th>
+										<th><spring:message code="label.ha" /></th>
+										<th><spring:message code="label.sanpham" /></th>
+										<th><spring:message code="label.size" /></th>
+										<th><spring:message code="label.mau" /></th>
+										<th><spring:message code="label.gia" /></th>
+										<th><spring:message code="label.soluong" /></th>
+										<th><spring:message code="label.tongtien" /></th>
 										<th></th>
 									</tr>
 								</thead>
@@ -129,22 +135,22 @@ table tr td:first-child::before {
 							<div class="col-md-7 ml-auto">
 								<div class="coupon-all">
 									<p style="font-size: 18px;">
-										Vui lòng chọn sản phẩm. Tiếp tục mua hàng <a
+										<spring:message code="label.t1" /> <a
 											href="<c:url value="/san-pham"></c:url>"
-											style="font-weight: bold; font-size: 18px;">Tại đây</a>
+											style="font-weight: bold; font-size: 18px;"><spring:message code="label.t2" /></a>
 									</p>
 								</div>
 							</div>
 							<div class="col-md-5 ml-auto">
 								<div class="cart-page-total">
 									<c:if test="${ Cart.size()>0}">
-										<h2>Tổng</h2>
+										<h2><spring:message code="label.tong" /></h2>
 										<ul>
-											<li>Tổng thanh toán:<span><fmt:formatNumber
+											<li><spring:message code="label.tongtt" />:<span><fmt:formatNumber
 														type="number" groupingUsed="true"
 														value="${ TotalPriceCart }" /> ₫</span></li>
 										</ul>
-										<a href="<c:url value="/thanh-toan"/>">Mua hàng</a>
+										<a href="<c:url value="/thanh-toan"/>"><spring:message code="label.muahang" /></a>
 									</c:if>
 								</div>
 							</div>

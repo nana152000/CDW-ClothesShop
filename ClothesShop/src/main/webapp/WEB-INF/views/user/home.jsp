@@ -3,7 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<title>Shop quần áo - Trang chủ</title>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<title><spring:message code="label.titleHome" /></title>
 <body>
 	<div style="height: 105px"></div>
 	<!-- slide -->
@@ -14,12 +15,16 @@
 				<div class="container">
 					<div class="slider-animation slider-content-book fadeinup-animated">
 						<h1 class="animated">
-							<span>Knowledge</span> is
+							<span><spring:message code="label.tieude1" /></span>
 						</h1>
-						<h2 class="animated">Power.</h2>
-						<p class="animated">Lorem Ipsum is simply dummy text of the
-							printing and typesetting industry.</p>
-						<a href="shop.html">More Books</a>
+						<h2 class="animated">
+							<spring:message code="label.tieude2" />
+						</h2>
+						<p class="animated">
+							<spring:message code="label.tieude3" />
+						</p>
+						<a href="<c:url value='/san-pham'></c:url>"><spring:message
+								code="label.muangay" /></a>
 					</div>
 				</div>
 			</div>
@@ -28,12 +33,16 @@
 				<div class="container">
 					<div class="slider-animation slider-content-book fadeinup-animated">
 						<h1 class="animated">
-							<span>Knowledge</span> is
+							<span><spring:message code="label.tieude1" /></span>
 						</h1>
-						<h2 class="animated">Power.</h2>
-						<p class="animated">Lorem Ipsum is simply dummy text of the
-							printing and typesetting industry.</p>
-						<a href="shop.html">More Books</a>
+						<h2 class="animated">
+							<spring:message code="label.tieude2" />
+						</h2>
+						<p class="animated">
+							<spring:message code="label.tieude3" />
+						</p>
+						<a href="<c:url value='/san-pham'></c:url>"><spring:message
+								code="label.muangay" /></a>
 					</div>
 				</div>
 			</div>
@@ -45,7 +54,9 @@
 		<div class="pl-100 pr-100">
 			<div class="container-fluid">
 				<div class="section-title-3 text-center mb-40">
-					<h2>Sản phẩm nổi bật</h2>
+					<h2>
+						<spring:message code="label.spnoibat" />
+					</h2>
 				</div>
 				<div class="best-product-style">
 					<div
@@ -96,8 +107,8 @@
 															<div class="product-action-2">
 																<a class="animate-left add-style-2"
 																	title="Chi tiết sản phẩm"
-																	href="<c:url value="chi-tiet-san-pham/${product.id}"/>">Chi
-																	tiết sản phẩm <i class="ti-shopping-cart"></i>
+																	href="<c:url value="chi-tiet-san-pham/${product.id}"/>"><spring:message
+																		code="label.chitietsp" /><i class="ti-shopping-cart"></i>
 																</a> <a class="animate-right wishlist-style-2"
 																	title="wishlist" href="<c:url value="yeu-thich"/>">
 																	<i class="ti-heart"></i>
@@ -150,8 +161,8 @@
 															<div class="product-action-2">
 																<a class="animate-left add-style-2"
 																	title="Chi tiết sản phẩm"
-																	href="<c:url value="chi-tiet-san-pham/${product.id}"/>">Chi
-																	tiết sản phẩm <i class="ti-shopping-cart"></i>
+																	href="<c:url value="chi-tiet-san-pham/${product.id}"/>"><spring:message
+																		code="label.chitietsp" /><i class="ti-shopping-cart"></i>
 																</a> <a class="animate-right wishlist-style-2"
 																	title="wishlist" href="<c:url value="yeu-thich"/>">
 																	<i class="ti-heart"></i>
@@ -190,14 +201,19 @@
 				<img class="tilter"
 					src="<c:url value="/assets/user/img/product/newProduct.jpg"/>"
 					alt="">
-				<h4 style="padding-top: 30px">Giảm giá 50%</h4>
-				<a href="<c:url value="san-pham"/>">Mua ngay</a>
+				<h4 style="padding-top: 30px">
+					<spring:message code="label.giamgia" />
+				</h4>
+				<a href="<c:url value="san-pham"/>"><spring:message
+						code="label.muangay" /></a>
 			</div>
 			<div class="discount-right gray-bg-4">
 				<div class="row no-gutters">
 					<div class="col-lg-6 col-xl-6 col-md-12">
 						<div class="new-top mr-15">
-							<h3 class="new-top-title">Sản phẩm</h3>
+							<h3 class="new-top-title">
+								<spring:message code="label.sanpham" />
+							</h3>
 							<div class="new-top-product">
 								<c:forEach var="product" items="${ listNewProduct }"
 									varStatus="loop">
@@ -231,10 +247,6 @@
 													<a href="<c:url value="chi-tiet-san-pham/${product.id}"/>">${product.name}</a>
 												</h4>
 												<div class="product-price">
-													<%-- <div class="old-price">
-														<span><fmt:formatNumber type="number"
-																groupingUsed="true" value="${ product.price }" /> ₫</span>
-													</div> --%>
 													<div class="new-price">
 														<span><fmt:formatNumber type="number"
 																groupingUsed="true" value="${ product.price }" /> ₫</span>
@@ -254,7 +266,9 @@
 					</div>
 					<div class="col-lg-6 col-xl-6 col-md-12">
 						<div class="new-top ml-15">
-							<h3 class="new-top-title">Mới nhất</h3>
+							<h3 class="new-top-title">
+								<spring:message code="label.moinhat" />
+							</h3>
 							<div class="new-top-product">
 								<c:set var="num_product" value="${fn:length(listNewProduct)}" />
 								<c:forEach var="i" begin="1" end="3" step="1" varStatus="loop">
@@ -289,12 +303,6 @@
 													<a href="product-details.html">${product.name}</a>
 												</h4>
 												<div class="product-price" style="display: block">
-													<%-- <div class="old-price" style="padding-bottom: 15px">
-															<span style="font-size: 15px;"><fmt:formatNumber
-																	type="number" groupingUsed="true"
-																	value="${ product.price }" /> ₫</span>
-														</div> --%>
-
 													<div class="new-price">
 														<span><fmt:formatNumber type="number"
 																groupingUsed="true" value="${ product.price}" /> ₫</span>
@@ -316,60 +324,4 @@
 			</div>
 		</div>
 	</div>
-	<!-- discount area end -->
-	<!-- blog area start -->
-	<div class="blog-area pt-120 pb-80">
-		<div class="container">
-			<div class="section-title-3 text-center mb-50">
-				<h2>From Our Blog</h2>
-			</div>
-			<div class="row">
-				<div class="col-md-4">
-					<div class="blog-wrapper mb-40">
-						<div class="blog-img blog-hover">
-							<a href="blog-details-sidebar.html"><img
-								src="assets/user/img/blog/1.jpg" alt=""></a>
-						</div>
-						<div class="blog-info">
-							<h4>
-								<a href="blog-details-sidebar.html">Bangla Academy Book
-									fair.</a>
-							</h4>
-							<span>February 13, 2017</span>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="blog-wrapper mb-40">
-						<div class="blog-img blog-hover">
-							<a href="blog-details-sidebar.html"><img
-								src="assets/user/img/blog/2.jpg" alt=""></a>
-						</div>
-						<div class="blog-info">
-							<h4>
-								<a href="blog-details-sidebar.html">Bangla New Book Shop.</a>
-							</h4>
-							<span>February 13, 2017</span>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="blog-wrapper mb-40">
-						<div class="blog-img blog-hover">
-							<a href="blog-details-sidebar.html"><img
-								src="assets/user/img/blog/3.jpg" alt=""></a>
-						</div>
-						<div class="blog-info">
-							<h4>
-								<a href="blog-details-sidebar.html">Latest Book Collection
-									2018.</a>
-							</h4>
-							<span>February 13, 2017</span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- blog area end -->
 </body>

@@ -18,10 +18,9 @@ public class HomeController {
 	private ICategorieService categorieService;
 	@Autowired
 	private IColorService colorService;
-	
-	
-	
-	@RequestMapping(value = { "/trang-chu" }, method = RequestMethod.GET)
+
+	@RequestMapping(value = { "/{locale:en|vi}/trang-chu", "/{locale:en|vi}",
+			"/trang-chu" }, method = RequestMethod.GET)
 	public ModelAndView Index() {
 		ModelAndView mav = new ModelAndView("user/home");
 		mav.addObject("listCategory", categorieService.listAll());
@@ -30,6 +29,7 @@ public class HomeController {
 		mav.addObject("listColor", colorService.listAll());
 		return mav;
 	}
+
 	@RequestMapping(value = "/gioi-thieu", method = RequestMethod.GET)
 	public ModelAndView introPage() {
 		ModelAndView mav = new ModelAndView("user/introduces/introduce");
@@ -48,11 +48,10 @@ public class HomeController {
 		return mav;
 	}
 
-
 	@RequestMapping(value = "/yeu-thich", method = RequestMethod.GET)
 	public ModelAndView wishlistPage() {
 		ModelAndView mav = new ModelAndView("user/wishlist/wishlist");
 		return mav;
 	}
-	
+
 }

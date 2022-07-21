@@ -3,11 +3,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Shop quần áo - Chi tiết sản phẩm</title>
+<title><spring:message code="label.titleHome2" /></title>
 </head>
 <body>
 	<!-- banner  -->
@@ -15,14 +16,17 @@
 		style="background-image: url(<c:url value='/assets/user/img/bg/bgr.jpg'></c:url>)">
 		<div class="container">
 			<div class="breadcrumb-content text-center">
-				<h2 style="color: black;">Chi tiết sản phẩm</h2>
+				<h2 style="color: black;">
+					<spring:message code="label.chitietsp" />
+				</h2>
 				<ul>
 					<li><a href="<c:url value='/trang-chu'/>"
-						style="color: black;">Trang chủ</a></li>
+						style="color: black;"><spring:message code="label.trangchu" /></a></li>
 					<li style="color: black;">/</li>
-					<li style="color: black;">Sản phẩm</li>
+					<li style="color: black;"><spring:message code="label.sanpham" /></li>
 					<li style="color: black;">/</li>
-					<li style="color: black;">Chi tiết sản phẩm</li>
+					<li style="color: black;"><spring:message
+							code="label.chitietsp" /></li>
 				</ul>
 			</div>
 		</div>
@@ -98,7 +102,8 @@
 									class="pe-7s-star"></i> <i class="pe-7s-star"></i>
 							</div>
 							<div class="quick-view-number">
-								<span>2 Ratting (S)</span>
+								<span>2 <spring:message code="label.ratting" /> (S)
+								</span>
 							</div>
 						</div>
 						<div class="details-price">
@@ -122,16 +127,18 @@
 							name="myForm">
 							<div class="quick-view-select">
 								<div class="select-option-part">
-									<label>Kích thước*</label>
+									<label><spring:message code="label.kichthuoc" />*</label>
 									<form:select class="size" name="size" id="size" path="size">
-										<form:option value="">- Vui lòng chọn kích thước -</form:option>
+										<form:option value="">- <spring:message
+												code="label.chonkt" /> -</form:option>
 										<form:options items="${sizes}"></form:options>
 									</form:select>
 								</div>
 								<div class="select-option-part">
-									<label>Màu*</label>
+									<label><spring:message code="label.mau" />*</label>
 									<form:select class="color" name="color" id="color" path="color">
-										<form:option value="">- Vui lòng chọn màu -</form:option>
+										<form:option value="">- <spring:message
+												code="label.chonm" /> -</form:option>
 										<form:options items="${colors}"></form:options>
 									</form:select>
 								</div>
@@ -145,8 +152,7 @@
 									<input type="submit"
 										class="btn btn-outline-dark btn-lg font-weight-bold"
 										value="THÊM VÀO GIỎ HÀNG"
-										style="height: 48px; font-size: 18px;"
-										id="togglee">
+										style="height: 48px; font-size: 18px;" id="togglee">
 								</div>
 								<div class="quickview-btn-wishlist">
 									<a class="btn-hover" href="#"><i class="pe-7s-like"></i></a>
@@ -156,7 +162,8 @@
 						</br>
 						<div class="product-share">
 							<ul>
-								<li class="categories-title">Share :</li>
+								<li class="categories-title"><spring:message
+										code="label.chiase" /> :</li>
 								<li><a href="#"> <i
 										class="icofont icofont-social-facebook"></i>
 								</a></li>
@@ -182,55 +189,22 @@
 			<div class="product-description-review text-center">
 				<div class="description-review-title nav" role=tablist>
 					<a class="active" href="#pro-dec" data-toggle="tab" role="tab"
-						aria-selected="true"> Mô tả </a> <a href="#pro-review"
-						data-toggle="tab" role="tab" aria-selected="false"> Nhận xét
-						(0) </a>
+						aria-selected="true"> <spring:message code="label.mota" />
+					</a> <a href="#pro-review" data-toggle="tab" role="tab"
+						aria-selected="false"> <spring:message code="label.nhanxet" />
+						(0)
+					</a>
 				</div>
 				<div class="description-review-text tab-content">
 					<div class="tab-pane active show fade" id="pro-dec" role="tabpanel">
 						<p>${productDetail.decriptions}</p>
 					</div>
 					<div class="tab-pane fade" id="pro-review" role="tabpanel">
-						<a href="#">Hãy là người đầu tiên viết đánh giá của bạn!</a>
+						<a href="#"><spring:message code="label.nhanxet1" /></a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- Related Products -->
-	<div class="product-area pb-95">
-		<div class="container">
-			<div class="section-title-3 text-center mb-50">
-				<h2>Sản phẩm liên quan</h2>
-			</div>
-			<div class="product-style">
-				<div class="related-product-active owl-carousel">
-					<div class="product-wrapper">
-						<div class="product-img">
-							<a href="#"> <img
-								src="assets/img/product/fashion-colorful/1.jpg" alt="">
-							</a> <span>hot</span>
-							<div class="product-action">
-								<a class="animate-left" title="Wishlist" href="#"> <i
-									class="pe-7s-like"></i>
-								</a> <a class="animate-top" title="Add To Cart" href="#"> <i
-									class="pe-7s-cart"></i>
-								</a> <a class="animate-right" title="Quick View" data-toggle="modal"
-									data-target="#exampleModal" href="#"> <i class="pe-7s-look"></i>
-								</a>
-							</div>
-						</div>
-						<div class="product-content">
-							<h4>
-								<a href="#">Arifo Stylas Dress</a>
-							</h4>
-							<span>$115.00</span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
 </body>
 </html>

@@ -3,21 +3,25 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Shop quần áo - Tài khoản</title>
+<title><spring:message code="label.tk" /></title>
 </head>
 <body>
 	<div class="breadcrumb-area pt-205 pb-210"
 		style="background-image: url(<c:url value="/assets/user/img/bg/bgr.jpg"></c:url>)">
 		<div class="container">
 			<div class="breadcrumb-content text-center">
-				<h2 style="color: black;">Tài khoản của bạn</h2>
+				<h2 style="color: black;">
+					<spring:message code="label.tkb" />
+				</h2>
 				<ul>
-					<li><a href="index.html" style="color: black;">Trang chủ</a></li>
-					<li style="color: black;">Yêu thích</li>
+					<li><a href="<c:url value="/trang-chu"></c:url>"
+						style="color: black;"><spring:message code="label.trangchu" /></a></li>
+					<li style="color: black;"><spring:message code="label.tkb" /></li>
 				</ul>
 			</div>
 		</div>
@@ -29,7 +33,9 @@
 				<form:form action="save" method="POST" modelAttribute="user">
 					<div class="col-lg-6 col-md-12 col-12" style="float: left;">
 						<div class="checkbox-form">
-							<h3>Tài khoản của bạn</h3>
+							<h3>
+								<spring:message code="label.tkb" />
+							</h3>
 							<div class="row">
 								<div class="col-md-12" style="display: none">
 									<div class="checkout-form-list">
@@ -41,13 +47,15 @@
 								</div>
 								<div class="col-md-12">
 									<div class="checkout-form-list">
-										<label>Họ và tên <span class="required">*</span></label>
+										<label><spring:message code="label.hoten" /> <span
+											class="required">*</span></label>
 										<form:input type="text" placeholder="" path="display_name" />
 									</div>
 								</div>
 								<div class="col-md-12">
 									<div class="checkout-form-list" style="display: none">
-										<label>Pass <span class="required">*</span></label>
+										<label><spring:message code="label.mk" /> <span
+											class="required">*</span></label>
 										<form:input type="text" placeholder="" path="password"
 											name="pass" id="pass" />
 									</div>
@@ -60,13 +68,15 @@
 								</div>
 								<div class="col-md-6">
 									<div class="checkout-form-list">
-										<label>Số điện thoại <span class="required">*</span></label>
+										<label><spring:message code="label.sdt" /><span
+											class="required">*</span></label>
 										<form:input type="text" path="phone" />
 									</div>
 								</div>
 								<div class="col-md-12">
 									<div class="checkout-form-list">
-										<label>Địa chỉ <span class="required">*</span></label>
+										<label><spring:message code="label.diachi" /><span
+											class="required">*</span></label>
 										<form:input type="text" placeholder="Địa chỉ" path="address" />
 									</div>
 								</div>
@@ -83,9 +93,10 @@
 								<div class="col-md-12">
 									<div class="coupon-accordion">
 										<h3 style="font-size: 15px; font-weight: bold;">
-											<span>Lịch sử mua hàng.</span> <span id="showlogin"
-												style="font-weight: normal; text-transform: none;">Nhấp
-												vào để xem</span>
+											<span><spring:message code="label.ls" /></span> <span
+												id="showlogin"
+												style="font-weight: normal; text-transform: none;"><spring:message
+													code="label.td1" /></span>
 										</h3>
 										<div id="checkout-login" class="coupon-content">
 											<div class="coupon-info">
@@ -93,8 +104,10 @@
 													<table>
 														<thead>
 															<tr>
-																<th class="product-name">Sản phẩm</th>
-																<th class="product-total">Giá</th>
+																<th class="product-name"><spring:message
+																		code="label.sanpham" /></th>
+																<th class="product-total"><spring:message
+																		code="label.gia" /></th>
 															</tr>
 														</thead>
 														<tbody>
@@ -122,7 +135,8 @@
 								<div class="col-md-12 ml-auto">
 									<div class="cart-page-total" style="padding-top: 0">
 										<ul>
-											<li style="font-size: 29px">Tổng đã thanh toán: <span
+											<li style="font-size: 29px"><spring:message
+													code="label.tongdatt" />: <span
 												style="font-weight: normal;"><fmt:formatNumber
 														type="number" groupingUsed="true" value="${ totalOrder }" />
 													₫</span></li>
