@@ -34,7 +34,10 @@
 								<tr>
 									<td>${loop.index+1}</td>
 									<td>${item.product.name}</td>
-									<td>${item.name_color}</td>
+									<td>
+										<div
+											style="width: 30px; height: 30px;border: 2px solid black; background: ${ item.color_code }; -moz-border-radius: 60px; -webkit-border-radius: 60px; border-radius: 60px;margin-left: 15px;"></div>
+									</td>
 									<td>${item.color_code}</td>
 									<td><c:forEach var="img" items="${ item.image }">
 											<a href="#"> <img style="width: 50px;"

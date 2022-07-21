@@ -50,7 +50,7 @@ public class ColorController {
 	@RequestMapping(value = "/quan-tri/mau-sac-sp/save", method = RequestMethod.POST)
 	public String saveColor(HttpServletRequest servletRequest, @ModelAttribute("color") Color color)
 			throws IOException {
-		String imageProduct = "";
+		String imageProduct = "", imagePro;
 		List<MultipartFile> files = color.getImages();
 		List<String> fileNames = new ArrayList<String>();
 		if (files != null && files.size() > 0) {
@@ -59,11 +59,15 @@ public class ColorController {
 				fileNames.add(fileName);
 
 				imageProduct += fileName + ",";
-				imageProduct = imageProduct.replaceAll(",$", "");
-				color.setImage(imageProduct);
+				imagePro = imageProduct.substring(0, imageProduct.lastIndexOf(","));
+				color.setImage(imagePro);
 
-				File imageFile = new File(servletRequest.getServletContext()
-						.getRealPath("/assets/user/img/product/" + color.getProduct().getId()), fileName);
+				String path = servletRequest.getServletContext()
+						.getRealPath("/assets/user/img/product/" + color.getProduct().getId());
+				File imageFile = new File(path, fileName);
+				if (!imageFile.exists()) {
+					imageFile.mkdir();
+				}
 				System.out.println("image được lưu: " + imageFile);
 				multipartFile.transferTo(imageFile);
 			}

@@ -46,7 +46,7 @@
 					ảnh</label>
 				<div class="col-sm-9">
 					<form:input type="file" class="filestyle" path="images" id="images"
-						placeholder="Upload Photo" required="required" multiple="multiple" />
+						placeholder="Upload Photo" required="required" multiple="multiple" value="h" />
 				</div>
 			</div>
 			<input class="btn btn-secondary" type="submit" value="Lưu">
