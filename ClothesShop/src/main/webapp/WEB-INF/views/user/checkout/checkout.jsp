@@ -34,34 +34,43 @@
 							<h3>Thanh toán đơn hàng</h3>
 							<div class="row">
 								<div class="col-md-12">
+									<div class="checkout-form-list" style="display: none">
+										<label>Họ và tên <span class="required">*</span></label>
+										<form:input type="text" placeholder=""
+											path="user.id" />
+									</div>
+								</div>
+								<div class="col-md-12">
 									<div class="checkout-form-list">
 										<label>Họ và tên <span class="required">*</span></label>
-										<form:input type="text" placeholder="" path="display_name" />
+										<form:input type="text" placeholder=""
+											path="user.display_name" />
 									</div>
 								</div>
 								<div class="col-md-12">
 									<div class="checkout-form-list" style="display: none">
 										<label>Pass <span class="required">*</span></label>
-										<form:input type="text" placeholder="" path="password"
+										<form:input type="text" placeholder="" path="user.password"
 											name="pass" id="pass" />
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="checkout-form-list">
 										<label>Email <span class="required">*</span></label>
-										<form:input type="email" path="email" />
+										<form:input type="email" path="user.email" />
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="checkout-form-list">
 										<label>Số điện thoại <span class="required">*</span></label>
-										<form:input type="text" path="phone" />
+										<form:input type="text" path="user.phone" />
 									</div>
 								</div>
 								<div class="col-md-12">
 									<div class="checkout-form-list">
 										<label>Địa chỉ <span class="required">*</span></label>
-										<form:input type="text" placeholder="Địa chỉ" path="address" />
+										<form:input type="text" placeholder="Địa chỉ"
+											path="user.address" />
 									</div>
 								</div>
 							</div>

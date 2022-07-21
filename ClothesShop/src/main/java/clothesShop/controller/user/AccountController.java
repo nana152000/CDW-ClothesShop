@@ -81,7 +81,7 @@ public class AccountController {
 		double totalOrder = 0;
 		List<OrderDetail> listOrderDetailUser = new ArrayList<>();
 		for (Order order : orders) {
-			if (order.getEmail().equals(user.getEmail())) {
+			if (order.getUser().getEmail().equals(user.getEmail())) {
 				totalOrder += order.getTotal();
 				for (OrderDetail orderDetail : orderDetails) {
 					if (order.getId() == orderDetail.getOrder().getId()) {

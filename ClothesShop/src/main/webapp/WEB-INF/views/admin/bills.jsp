@@ -31,10 +31,10 @@
 							<c:forEach var="item" items="${listOrders}" varStatus="loop">
 								<tr>
 									<td style="text-align: center;">${loop.index+1}</td>
-									<td style="text-align: center;">${item.display_name}</td>
-									<td style="text-align: center;">${item.email}</td>
-									<td style="text-align: center;">${item.address}</td>
-									<td style="text-align: center;">${item.phone}</td>
+									<td style="text-align: center;">${item.user.display_name}</td>
+									<td style="text-align: center;">${item.user.email}</td>
+									<td style="text-align: center;">${item.user.address}</td>
+									<td style="text-align: center;">${item.user.phone}</td>
 									<td style="text-align: center;">${item.quantity}</td>
 									<td style="text-align: center;">${item.total}</td>
 									<td style="text-align: center;">${item.note}</td>

@@ -39,8 +39,7 @@ public class OrderServiceImpl implements IOrderService {
 		Order o = new Order();
 		for (Order order : listOrder) {
 			if (order.getId() == idOrder) {
-				o = new Order(idOrder, o.getEmail(), o.getPassword(), o.getDisplay_name(), o.getAddress(), o.getPhone(),
-						o.getTotal(), o.getQuantity(), o.getNote());
+				o = new Order(idOrder, o.getUser(), o.getTotal(), o.getQuantity(), o.getNote());
 			}
 		}
 		for (Map.Entry<Long, CartDto> itemCart : carts.entrySet()) {
@@ -56,15 +55,17 @@ public class OrderServiceImpl implements IOrderService {
 			System.out.println("order detail: " + orderDetail);
 		}
 	}
-	
+
 	@Override
 	public List<Order> listAll() {
 		return (List<Order>) orderRepository.findAll();
 	}
+
 	@Override
 	public List<OrderDetail> listAllOrderDetail() {
 		return (List<OrderDetail>) orderDetailRepository.findAll();
 	}
+
 	@Override
 	public void delete(Long id) {
 		orderRepository.deleteById(id);

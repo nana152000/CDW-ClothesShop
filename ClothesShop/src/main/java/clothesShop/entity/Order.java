@@ -21,38 +21,30 @@ public class Order {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private String email;
-	private String password;
-	private String display_name;
-	private String address;
-	private String phone;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "id_user")
+	private User user;
+
 	private double total;
 	private int quantity;
 	private String note;
-
-	@Override
-	public String toString() {
-		return "Order [id=" + id + ", email=" + email + ", password=" + password + ", display_name=" + display_name
-				+ ", address=" + address + ", phone=" + phone + ", total=" + total + ", quantity=" + quantity
-				+ ", note=" + note + "]";
-	}
 
 	public Order() {
 		super();
 	}
 
-	public Order(Long id, String email, String password, String display_name, String address, String phone, double total,
-			int quantity, String note) {
+	@Override
+	public String toString() {
+		return "Order [id=" + id + ", user=" + user + ", total=" + total + ", quantity=" + quantity + ", note=" + note
+				+ "]";
+	}
+
+	public Order(Long id, User user, double total, int quantity, String note) {
 		super();
 		this.id = id;
-		this.email = email;
-		this.password = password;
-		this.display_name = display_name;
-		this.address = address;
-		this.phone = phone;
+		this.user = user;
 		this.total = total;
 		this.quantity = quantity;
 		this.note = note;
 	}
-
 }

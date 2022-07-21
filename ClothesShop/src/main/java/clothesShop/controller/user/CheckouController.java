@@ -32,11 +32,8 @@ public class CheckouController {
 		Order order = new Order();
 		User loginInf = (User) session.getAttribute("loginUser");
 		if (loginInf != null) {
-			order.setEmail(loginInf.getEmail());
-			order.setPassword(loginInf.getPassword());
-			order.setDisplay_name(loginInf.getDisplay_name());
-			order.setPhone(loginInf.getPhone());
-			order.setAddress(loginInf.getAddress());
+			order.setUser(new User(loginInf.getId(), loginInf.getEmail(), loginInf.getPassword(),
+					loginInf.getDisplay_name(), loginInf.getAddress(), loginInf.getPhone()));
 		}
 
 		mav.addObject("orders", order);
