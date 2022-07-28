@@ -65,7 +65,7 @@ public class AccountController {
 	@RequestMapping(value = "/dang-xuat", method = RequestMethod.GET)
 	public String logoutPage(HttpSession session, HttpServletRequest request) {
 		session.removeAttribute("loginUser");
-		return "redirect:" + request.getHeader("Referer");
+		return "redirect:/";
 	}
 
 //	TAI KHOAN
@@ -73,7 +73,11 @@ public class AccountController {
 	public ModelAndView accountPage(HttpSession session) {
 		ModelAndView mav = new ModelAndView("user/account/account");
 		User loginInf = (User) session.getAttribute("loginUser");
-		User user = userService.get(loginInf.getId());
+		User user = new User();
+		if (loginInf != null) {
+			user = userService.get(loginInf.getId());
+		}
+
 		mav.addObject("user", user);
 		List<OrderDetail> orderDetails = orderService.listAllOrderDetail();
 

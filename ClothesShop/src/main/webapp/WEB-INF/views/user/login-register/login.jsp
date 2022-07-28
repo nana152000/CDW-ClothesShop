@@ -13,12 +13,13 @@
 <body>
 
 	<div class="breadcrumb-area pt-205 pb-210"
-		style="background-image: url(<c:url value="/assets/user/img/bg/breadcrumb.jpg"></c:url>)">
+		style="background-image: url(<c:url value="/assets/user/img/bg/bgr.jpg"></c:url>)">
 		<div class="container">
 			<div class="breadcrumb-content text-center">
 				<h2>Đăng nhập</h2>
 				<ul>
 					<li><a href="index.html">Trang chủ</a></li>
+					<li>/</li>
 					<li>Đăng nhập</li>
 				</ul>
 			</div>
@@ -34,16 +35,13 @@
 							<div class="login-form">
 								<form:form action="dang-nhap" method="POST"
 									modelAttribute="user">
-									<spring:message code="label.userName" />
 									<form:input type="email" path="email" placeholder="Email" />
-									<spring:message code="label.password" />
 									<form:input type="password" path="password"
 										placeholder="Mật khẩu" />
 									<div class="button-box">
 										<div class="login-toggle-btn">
-											<input type="checkbox"> <label>Remember me</label> <a
-												href="<c:url value="/quen-mat-khau"></c:url>">Forgot
-												Password?</a>
+											<a href="<c:url value="/quen-mat-khau"></c:url>"><spring:message
+													code="label.quenmk" />?</a>
 										</div>
 										<spring:message code="label.submit" var="labelSubmit"></spring:message>
 										<button type="submit" class="default-btn floatright">${labelSubmit}</button>
