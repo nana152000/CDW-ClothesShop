@@ -33,27 +33,19 @@
 					<div class="login">
 						<div class="login-form-container">
 							<div class="login-form">
-								<form:form action="quen-mat-khau" id="forgetForm" method="POST"
+								<form:form action="forgotPass" id="forgetForm" method="POST"
 									modelAttribute="user">
 									<div class="form-group col-md-12">
 										<form:input type="email" path="email" placeholder="Email"
 											class="form-control" />
 										<span class="form-message"></span>
 									</div>
-									<%-- <div class="form-group col-md-12">
-										<form:input type="text" path="display_name"
-											placeholder="Họ và tên" class="form-control" />
-										<span class="form-message"></span>
-									</div> --%>
 									<div class="button-box">
-										<div class="login-toggle-btn">
-											<a href="<c:url value="/dang-ky"></c:url>">Đăng ký</a> <a
-												href="<c:url value="/dang-nhap"></c:url>">Đăng nhập</a>
-										</div>
 										<button type="submit" class="default-btn floatright">Lấy
 											lại mật khẩu</button>
 									</div>
-									<h1>${statusForgotPass}</h1>
+									</br>
+									<h1 style="font-size: 20px; color: red;">${statusForgotPass}</h1>
 								</form:form>
 							</div>
 						</div>

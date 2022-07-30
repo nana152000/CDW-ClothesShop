@@ -67,4 +67,32 @@ public class UserServiceImpl implements IUserService {
 		return userDetail;
 	}
 
+	@Override
+	public User checkAccount(User user) {
+		String pass = user.getPassword();
+		user = findByUser(user.getEmail());
+		System.out.println("user: " + user.toString());
+		if (user != null) {
+			if (BCrypt.checkpw(pass, user.getPassword())) {
+				return user;
+			} else {
+				return null;
+			}
+		}
+		return null;
+
+	}
+
+	@Override
+	public void saveNewPassword(User user) {
+		user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(12)));
+		userRepository.save(user);
+
+	}
+
+	@Override
+	public boolean existsByEmail(String email) {
+		return userRepository.existsByEmail(email);
+	}
+
 }

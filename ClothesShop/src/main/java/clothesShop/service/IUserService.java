@@ -11,6 +11,8 @@ public interface IUserService {
 
 	void save(User user);
 
+	User checkAccount(User user);
+
 	void saveInf(User user);
 
 	User findByUser(String userName);
@@ -20,4 +22,8 @@ public interface IUserService {
 	User get(Long id);
 
 	User getName(String name);
+
+	void saveNewPassword(User user);
+
+	public boolean existsByEmail(String email);
 }

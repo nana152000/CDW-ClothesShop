@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import clothesShop.entity.Order;
 import clothesShop.entity.OrderDetail;
 import clothesShop.entity.User;
+import clothesShop.repository.EmailUtils;
 import clothesShop.service.IOrderService;
 import clothesShop.service.IUserService;
 
