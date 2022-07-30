@@ -5,7 +5,7 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <header class="res-header-sm"
-	style="position: fixed; width: 100%; box-sizing: border-box; background: white; z-index: 6;">
+	style="position: fixed; width: 100%; box-sizing: border-box; background: white; z-index: 100;">
 	<div class="header-bottom clearfix" style="height: 100px;">
 		<div class="container">
 			<div class="header-bottom-wrapper" style="height: 100px">

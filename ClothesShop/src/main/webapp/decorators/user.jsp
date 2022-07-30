@@ -44,6 +44,8 @@
 	rel="stylesheet" type="text/css">
 <link href="<c:url value='/assets/user/css/style-css.css'/>"
 	rel="stylesheet" type="text/css">
+<link href="<c:url value='/assets/user/css/validator.css'/>"
+	rel="stylesheet" type="text/css">
 <script src="https://kit.fontawesome.com/e1bf9f91fa.js"></script>
 <script
 	src="<c:url value='/assets/user/js/vendor/modernizr-2.8.3.min.js'/>"
@@ -267,6 +269,8 @@
 	<script src="<c:url value='/assets/user/js/main.js'/>"
 		type="text/javascript"></script>
 	<script src="<c:url value='/assets/user/js/cart.js'/>"
+		type="text/javascript"></script>
+	<script src="<c:url value='/assets/user/js/validator.js'/>"
 		type="text/javascript"></script>
 
 

@@ -1,26 +1,30 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Shop quần áo - Liên hệ</title>
-</head>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<title><spring:message code="label.titleHome4" /></title>
 <body>
-	<div class="breadcrumb-area pt-205 pb-210"
-		style="background-image: url(<c:url value="/assets/user/img/bg/breadcrumb.jpg"></c:url>)">
-		<div class="container">
+	<div style="height: 105px"></div>
+	<div
+		class="breadcrumb-area pt-205 breadcrumb-padding pb-210 background-banner"
+		style="background-image: url(<c:url value='/assets/user/img/bg/bgr.jpg'></c:url>);">
+		<div class="container-fluid">
 			<div class="breadcrumb-content text-center">
-				<h2>Liên hệ</h2>
+				<h2 style="color: black;">
+					<spring:message code="label.shopquanao" />
+				</h2>
 				<ul>
-					<li><a href="index.html">Trang chủ</a></li>
-					<li>Liên hệ</li>
+					<li><a href="<c:url value='/trang-chu'/>"
+						style="color: black;"><spring:message code="label.trangchu" /></a></li>
+					<li style="color: black;">/</li>
+					<li style="color: black;"><spring:message code="label.lienhe" /></li>
 				</ul>
 			</div>
 		</div>
 	</div>
-	<!-- shopping-cart-area start -->
 	<div class="contact-area ptb-100">
 		<div class="container">
 			<div class="row">
@@ -31,14 +35,14 @@
 						</div>
 						<div class="contact-message">
 							<div class="contact-title">
-								<h4>Contact Information</h4>
+								<h4>Thông tin liên lạc</h4>
 							</div>
 							<form id="contact-form" class="contact-form"
 								action="assets/mail.php" method="post">
 								<div class="row">
 									<div class="col-md-6">
 										<div class="contact-input-style mb-30">
-											<label>Name*</label> <input name="name" required=""
+											<label>Tên*</label> <input name="name" required=""
 												type="text">
 										</div>
 									</div>
@@ -50,23 +54,23 @@
 									</div>
 									<div class="col-md-6">
 										<div class="contact-input-style mb-30">
-											<label>Telephone</label> <input name="telephone" required=""
-												type="text">
+											<label>Số điện thoại</label> <input name="telephone"
+												required="" type="text">
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="contact-input-style mb-30">
-											<label>subject</label> <input name="subject" required=""
+											<label>Địa chỉ</label> <input name="subject" required=""
 												type="text">
 										</div>
 									</div>
 									<div class="col-md-12">
 										<div class="contact-textarea-style mb-30">
-											<label>Comment*</label>
+											<label>Đánh giá*</label>
 											<textarea class="form-control2" name="message" required=""></textarea>
 										</div>
 										<button class="submit contact-btn btn-hover" type="submit">
-											Send Message</button>
+											Gửi</button>
 									</div>
 								</div>
 							</form>
@@ -77,7 +81,7 @@
 				<div class="col-lg-4">
 					<div class="contact-info-wrapper">
 						<div class="contact-title">
-							<h4>Location & Details</h4>
+							<h4>Vị trí & Chi tiết</h4>
 						</div>
 						<div class="contact-info">
 							<div class="single-contact-info">
@@ -86,8 +90,8 @@
 								</div>
 								<div class="contact-info-text">
 									<p>
-										<span>Address:</span> 1234 - Bandit Tringi lAliquam <br>
-										Vitae. New York
+										<span>Địa chỉ:&nbsp</span> khu phố 6 - Linh Trung <br>
+										Thủ Đức. Thành phố Hồ Chí Minh
 									</p>
 								</div>
 							</div>
@@ -97,7 +101,7 @@
 								</div>
 								<div class="contact-info-text">
 									<p>
-										<span>Email: </span> Support@plazathemes.com
+										<span>Email: &nbsp</span> NaGiang@gmail.com
 									</p>
 								</div>
 							</div>
@@ -107,7 +111,7 @@
 								</div>
 								<div class="contact-info-text">
 									<p>
-										<span>Phone: </span> (800) 0123 456 789
+										<span>Điện thoại: &nbsp</span> (800) 0123 456 789
 									</p>
 								</div>
 							</div>
@@ -118,4 +122,3 @@
 		</div>
 	</div>
 </body>
-</html>

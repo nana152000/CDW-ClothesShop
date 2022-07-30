@@ -48,6 +48,30 @@ public class AccountController {
 	@RequestMapping(value = "/dang-nhap")
 	public ModelAndView loginPage(@ModelAttribute("user") User user) {
 		ModelAndView mav = new ModelAndView("user/login-register/login");
+		mav.addObject("user", new User());
+		return mav;
+	}
+
+	@RequestMapping(value = "/quen-mat-khau")
+	public ModelAndView forgotPage() {
+		ModelAndView mav = new ModelAndView("user/login-register/forgot-password");
+		mav.addObject("user", new User());
+		return mav;
+	}
+
+	@RequestMapping(value = "/forgotPass", method = RequestMethod.POST)
+	public ModelAndView forgotPageInf(HttpSession session, @ModelAttribute("user") User user) {
+		ModelAndView mav = new ModelAndView("user/login-register/forgot-password");
+		if (userService.existsByEmail(user.getEmail())) {
+			user = userService.findByUser(user.getEmail());
+			String newPass = hashCode() + "";
+			user.setPassword(newPass);
+			userService.saveNewPassword(user);
+			EmailUtils.sendEmail(user.getEmail(), "Lay lai mat khau", "Mat khau moi cua ban la: " + newPass);
+			mav.addObject("statusForgotPass", "Đã gửi mật khẩu mới về email, vui lòng kiểm tra email!");
+		} else {
+			mav.addObject("statusForgotPass", "Email không tồn tại");
+		}
 		return mav;
 	}
 

@@ -42,12 +42,7 @@ public class HomeController {
 		return mav;
 	}
 
-	@RequestMapping(value = "/quen-mat-khau", method = RequestMethod.GET)
-	public ModelAndView forgotPage() {
-		ModelAndView mav = new ModelAndView("user/login-register/forgot-password");
-		return mav;
-	}
-
+	
 	@RequestMapping(value = "/yeu-thich", method = RequestMethod.GET)
 	public ModelAndView wishlistPage() {
 		ModelAndView mav = new ModelAndView("user/wishlist/wishlist");
