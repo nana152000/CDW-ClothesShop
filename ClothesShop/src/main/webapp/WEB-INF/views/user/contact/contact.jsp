@@ -37,25 +37,28 @@
 							<div class="contact-title">
 								<h4>Thông tin liên lạc</h4>
 							</div>
-							<form id="contact-form" class="contact-form"
-								action="assets/mail.php" method="post">
-								<div class="row">
-									<div class="col-md-6">
+							<form:form id="contactForm" class="contact-form" action="save"
+								method="POST" modelAttribute="user">
+								<div class="form-row">
+									<div class="form-group col-md-6">
 										<div class="contact-input-style mb-30">
-											<label>Tên*</label> <input name="name" required=""
-												type="text">
+											<label>Tên*</label> <input type="text" id="display_name"
+												placeholder="Họ và tên" class="form-control" /> <span
+												class="form-message"></span>
 										</div>
 									</div>
-									<div class="col-md-6">
+									<div class="form-group col-md-6">
 										<div class="contact-input-style mb-30">
-											<label>Email*</label> <input name="email" required=""
-												type="email">
+											<label>Email*</label> <input type="text" id="email"
+												placeholder="Email" class="form-control" /> <span
+												class="form-message"></span>
 										</div>
 									</div>
-									<div class="col-md-6">
+									<div class="form-group col-md-6">
 										<div class="contact-input-style mb-30">
-											<label>Số điện thoại</label> <input name="telephone"
-												required="" type="text">
+											<label>Số điện thoại*</label> <input type="text" id="phone"
+												placeholder="Số điện thoại" class="form-control" /> <span
+												class="form-message"></span>
 										</div>
 									</div>
 									<div class="col-md-6">
@@ -73,7 +76,7 @@
 											Gửi</button>
 									</div>
 								</div>
-							</form>
+							</form:form>
 							<p class="form-messege"></p>
 						</div>
 					</div>
@@ -121,4 +124,28 @@
 			</div>
 		</div>
 	</div>
+	<script>
+		document
+				.addEventListener(
+						'DOMContentLoaded',
+						function() {
+							Validator({
+								form : '#contactForm',
+								formGroupSelector : '.form-group',
+								errorSelector : '.form-message',
+								rules : [
+										Validator.isRequired('#email'),
+										Validator.isEmail('#email',
+												'Vui lòng nhập đúng mail!'),
+										Validator.isRequired('#display_name'),
+										Validator
+												.isName('#display_name',
+														'Nhập tên người dùng không được nhập số'),
+										Validator.isRequired('#address'),
+										Validator.isRequired('#phone'),
+										Validator.isNumber('#phone', '') ]
+							});
+
+						});
+	</script>
 </body>

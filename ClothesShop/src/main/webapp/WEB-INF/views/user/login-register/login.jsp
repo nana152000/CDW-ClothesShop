@@ -50,7 +50,11 @@
 											<span class="form-message"></span>
 										</div>
 										<div class="button-box">
-											<div class="login-toggle-btn">
+											<%-- <c:if test="${pageContext.request.userPrincipal.name == null}">
+												<span style="color: red;">Tài khoản không tồn tại</span>
+												<div style="height: 10px"></div>
+											</c:if> --%>
+											<div class="">
 												<a href="<c:url value="/quen-mat-khau"></c:url>"><spring:message
 														code="label.quenmk" />?</a>
 											</div>
