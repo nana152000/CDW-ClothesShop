@@ -30,6 +30,6 @@ public interface IProductService {
 	
 	List<Product> listAllSaleProduct();
 
-	Page<Product> findAllByCategory1(int pageNum, String sortField, String sortDir);
+//	Page<Product> findAllByCategory1(int pageNum, String sortField, String sortDir);
 
 }

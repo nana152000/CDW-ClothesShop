@@ -26,10 +26,4 @@ public class CartDto {
 		this.product = product;
 	}
 
-//	public CartDto(int quanty, double totalPrice, Product product) {
-//		this.quanty = quanty;
-//		this.totalPrice = totalPrice;
-//		this.product = product;
-//	}
-
 }

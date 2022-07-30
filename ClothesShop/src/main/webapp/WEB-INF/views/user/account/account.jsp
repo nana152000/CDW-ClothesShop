@@ -30,7 +30,7 @@
 	<div class="checkout-area ptb-100">
 		<div class="container">
 			<div class="row">
-				<form:form action="save" method="POST" modelAttribute="user">
+				<form:form action="tai-khoan/save" method="POST" modelAttribute="user">
 					<div class="col-lg-6 col-md-12 col-12" style="float: left;">
 						<div class="checkbox-form">
 							<h3>
@@ -80,6 +80,16 @@
 										<form:input type="text" placeholder="Địa chỉ" path="address" />
 									</div>
 								</div>
+								<div class="mb-3 row" style="display: none">										
+										<div class="col-sm-9">
+											<form:input path="active" class="form-control" />
+										</div>
+									</div>
+									<div class="mb-3 row" style="display: none">									
+										<div class="col-sm-9">
+											<form:input path="userRole" class="form-control" />
+										</div>
+									</div>
 								<div class="order-button-payment">
 									<input type="submit" value="Sửa thông tin"
 										style="width: 200px;" />

@@ -33,7 +33,7 @@
 					<div class="login">
 						<div class="login-form-container">
 							<div class="login-form">
-								<form:form action="dang-nhap" method="POST"
+								<form:form action="${pageContext.request.contextPath}/j_spring_security_check" method="POST"
 									modelAttribute="user">
 									<form:input type="email" path="email" placeholder="Email" />
 									<form:input type="password" path="password"

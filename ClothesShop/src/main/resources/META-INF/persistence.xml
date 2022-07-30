@@ -7,9 +7,10 @@
 		<class>clothesShop.entity.Product</class>
 		<class>clothesShop.entity.Color</class>
 		<class>clothesShop.entity.Category</class>
-
+		<class>clothesShop.entity.Order</class>
+		<class>clothesShop.entity.OrderDetail</class>
+		<class>clothesShop.entity.User</class>
 	</persistence-unit>
-
 </persistence>
 
 

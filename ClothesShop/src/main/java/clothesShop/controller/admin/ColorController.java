@@ -53,6 +53,7 @@ public class ColorController {
 		String imageProduct = "", imagePro;
 		List<MultipartFile> files = color.getImages();
 		List<String> fileNames = new ArrayList<String>();
+//		Lưu hình ảnh
 		if (files != null && files.size() > 0) {
 			for (MultipartFile multipartFile : files) {
 				String fileName = multipartFile.getOriginalFilename();
@@ -68,7 +69,7 @@ public class ColorController {
 				if (!imageFile.exists()) {
 					imageFile.mkdir();
 				}
-				System.out.println("image được lưu: " + imageFile);
+				System.out.println("image saved: " + imageFile);
 				multipartFile.transferTo(imageFile);
 			}
 		}

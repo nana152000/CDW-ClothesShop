@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <title>Admin - Tài khoản khách hàng</title>
 <body>
 	<div class="container-fluid">
@@ -24,13 +25,15 @@
 						</thead>
 						<tbody>
 							<c:forEach var="item" items="${listUser}" varStatus="loop">
-								<tr>
-									<td style="text-align: center;">${loop.index+1}</td>
-									<td style="text-align: center;">${item.email}</td>
-									<td style="text-align: center;">${item.display_name}</td>
-									<td style="text-align: center;">${item.address}</td>
-									<td style="text-align: center;">${item.phone}</td>
-								</tr>
+								<c:if test="${fn:contains(item.userRole, 'USER')}">
+									<tr>
+										<td style="text-align: center;">${loop.index+1}</td>
+										<td style="text-align: center;">${item.email}</td>
+										<td style="text-align: center;">${item.display_name}</td>
+										<td style="text-align: center;">${item.address}</td>
+										<td style="text-align: center;">${item.phone}</td>
+									</tr>
+								</c:if>
 							</c:forEach>
 						</tbody>
 					</table>

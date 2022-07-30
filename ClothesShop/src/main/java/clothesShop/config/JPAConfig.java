@@ -49,6 +49,7 @@ public class JPAConfig {
 		return new PersistenceExceptionTranslationPostProcessor();
 	}
 
+//CSDL
 	@Bean
 	public DataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -63,9 +64,11 @@ public class JPAConfig {
 		Properties properties = new Properties();
 //		properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
 		properties.setProperty("hibernate.hbm2ddl.auto", "none");
+		properties.setProperty("hibernate.enable_lazy_load_no_trans", "true");
 		return properties;
 	}
 
+//Hình ảnh
 	@Bean(name = "multipartResolver")
 	public CommonsMultipartResolver multipartResolver() {
 		CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
@@ -73,6 +76,7 @@ public class JPAConfig {
 		return multipartResolver;
 	}
 
+//Đa ngôn ngữ
 	@Bean(name = "messageSource")
 	public MessageSource getMessageResource() {
 		ReloadableResourceBundleMessageSource messageResource = new ReloadableResourceBundleMessageSource();
@@ -85,9 +89,8 @@ public class JPAConfig {
 	}
 
 	// To solver URL like:
-	// /SpringMVCInternationalization/en/login2
-	// /SpringMVCInternationalization/vi/login2
-	// /SpringMVCInternationalization/fr/login2
+	// /ClothesShop/en/trang-chu
+	// /ClothesShop/vi/trang-chu
 	@Bean(name = "localeResolver")
 	public LocaleResolver getLocaleResolver() {
 		LocaleResolver resolver = new UrlLocaleResolver();

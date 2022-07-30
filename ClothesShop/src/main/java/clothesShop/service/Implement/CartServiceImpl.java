@@ -55,7 +55,6 @@ public class CartServiceImpl implements ICartService {
 			} else {
 				itemCart.setTotalPrice(product.getPrice() * quanty);
 			}
-			System.out.println("ok");
 		} else {
 			itemCart.setSize(size);
 			itemCart.setColor(color);

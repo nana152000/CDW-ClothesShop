@@ -11,11 +11,13 @@ public interface IUserService {
 
 	void save(User user);
 
-	User checkAccount(User user);
+	void saveInf(User user);
 
 	User findByUser(String userName);
 
 	List<User> listAll();
 
 	User get(Long id);
+
+	User getName(String name);
 }

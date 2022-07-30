@@ -36,7 +36,6 @@ public class UserProductController {
 		ModelAndView mav = new ModelAndView("user/products/products");
 
 		Page<Product> page = productService.listAll(pageNum, sortField, sortDir, keyword);
-//		Page<Product> pageCategory1 = productService.findAllByCategory1(pageNum, sortField, sortDir);
 
 		List<Product> listProducts = page.getContent();
 

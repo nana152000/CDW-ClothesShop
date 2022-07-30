@@ -25,11 +25,11 @@ public class OrderDetail {
 	private int quantity;
 	private double total;
 
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_order")
 	private Order order;
 
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_product")
 	private Product product;
 

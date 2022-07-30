@@ -87,20 +87,20 @@ public class ProductServiceImpl implements IProductService {
 
 	}
 
-	@Override
-	public Page<Product> findAllByCategory1(int pageNum, String sortField, String sortDir) {
-		int pageSize = 8;
-		Sort sort = null;
-		if (sortDir.equals("asc")) {
-			sort = Sort.by(sortField).ascending();
-		} else if (sortDir.equals("desc")) {
-			sort = Sort.by(sortField).descending();
-		} else if (sortDir.equals("no")) {
-			sort = Sort.unsorted();
-		}
-
-		Pageable pageable = PageRequest.of(pageNum - 1, pageSize, sort);
-		return productRepository.findAllByCategory1(pageable);
-	}
+//	@Override
+//	public Page<Product> findAllByCategory1(int pageNum, String sortField, String sortDir) {
+//		int pageSize = 8;
+//		Sort sort = null;
+//		if (sortDir.equals("asc")) {
+//			sort = Sort.by(sortField).ascending();
+//		} else if (sortDir.equals("desc")) {
+//			sort = Sort.by(sortField).descending();
+//		} else if (sortDir.equals("no")) {
+//			sort = Sort.unsorted();
+//		}
+//
+//		Pageable pageable = PageRequest.of(pageNum - 1, pageSize, sort);
+//		return productRepository.findAllByCategory1(pageable);
+//	}
 
 }

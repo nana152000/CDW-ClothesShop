@@ -32,7 +32,7 @@ public class Color {
 	@Transient
 	private List<MultipartFile> images;
 
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_product", nullable = false)
 	private Product product;
 

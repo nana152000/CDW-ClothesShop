@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <header class="res-header-sm"
 	style="position: fixed; width: 100%; box-sizing: border-box; background: white; z-index: 6;">
 	<div class="header-bottom clearfix" style="height: 100px;">
@@ -46,7 +47,7 @@
 				</div>
 				<div class="furits-login-cart">
 					<div class="furits-login" style="padding: 40px 0 10px;">
-						<c:if test="${empty loginUser }">
+						<c:if test="${pageContext.request.userPrincipal.name == null}">
 							<ul>
 								<li><a href="<c:url value="/dang-nhap"></c:url>"><spring:message
 											code="label.dangnhap" /></a></li>
@@ -54,10 +55,11 @@
 											code="label.dangky" /></a></li>
 							</ul>
 						</c:if>
-						<c:if test="${not empty loginUser }">
+						<c:if test="${pageContext.request.userPrincipal.name != null}">
 							<ul>
 								<li><a href="<c:url value="/tai-khoan"></c:url>">${loginUser.display_name}</a></li>
-								<li><a href="<c:url value="/dang-xuat"></c:url>"><spring:message code="label.dangxuat" /></a></li>
+								<li><a href="<c:url value="/dang-xuat"></c:url>"><spring:message
+											code="label.dangxuat" /></a></li>
 							</ul>
 						</c:if>
 					</div>
@@ -105,10 +107,13 @@
 									</c:if>
 								</c:forEach>
 								<li class="cart-btn-wrapper"><a class="cart-btn btn-hover"
-									href="<c:url value="/gio-hang"></c:url>"><spring:message code="label.xemthem" /></a></li>
+									href="<c:url value="/gio-hang"></c:url>"><spring:message
+											code="label.xemthem" /></a></li>
 								<li class="cart-space" style="padding-top: 30px;">
 									<div class="cart-sub">
-										<h4><spring:message code="label.tong" /></h4>
+										<h4>
+											<spring:message code="label.tong" />
+										</h4>
 									</div>
 									<div class="cart-price">
 										<h4>

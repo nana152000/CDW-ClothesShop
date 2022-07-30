@@ -4,6 +4,10 @@
 		<servlet-name>clothers-config</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet
 		</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocaltion</param-name>
+			<param-value>WEB-INF/clothers-config-servlet.xml</param-value>
+		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 
@@ -16,10 +20,6 @@
 		<filter-name>sitemesh</filter-name>
 		<filter-class>com.opensymphony.sitemesh.webapp.SiteMeshFilter
 		</filter-class>
-		<init-param>
-			<param-name>contextConfigLocaltion</param-name>
-			<param-value>WEB-INF/clothers-config-servlet.xml</param-value>
-		</init-param>
 	</filter>
 	<filter-mapping>
 		<filter-name>sitemesh</filter-name>
@@ -43,7 +43,6 @@
 		<filter-name>encoding-filter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-
 	<!-- bỏ session id trên link hình -->
 	<session-config>
 		<tracking-mode>COOKIE</tracking-mode>

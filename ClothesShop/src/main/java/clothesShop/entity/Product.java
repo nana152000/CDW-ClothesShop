@@ -37,10 +37,10 @@ public class Product {
 	private boolean new_product;
 	private String decriptions;
 
-	@OneToMany(mappedBy = "product", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Color> colors;
 
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_category", nullable = false, foreignKey = @ForeignKey(name = "idCategory"))
 	private Category category;
 
