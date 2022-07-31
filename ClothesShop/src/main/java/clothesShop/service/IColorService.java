@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import clothesShop.entity.Color;
+
 @Service
 public interface IColorService {
 
@@ -17,5 +18,7 @@ public interface IColorService {
 	void save(Color color);
 
 	List<String> listImageById(Long id);
+
+	String getImageById(Long id);
 
 }

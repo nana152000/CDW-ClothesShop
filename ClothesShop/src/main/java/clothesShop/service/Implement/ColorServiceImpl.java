@@ -55,4 +55,9 @@ public class ColorServiceImpl implements IColorService {
 		return listImageById;
 
 	}
+
+	@Override
+	public String getImageById(Long id) {
+		return colorRepository.findImageById(id);
+	}
 }

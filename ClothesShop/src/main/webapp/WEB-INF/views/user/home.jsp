@@ -110,7 +110,7 @@
 																	href="<c:url value="chi-tiet-san-pham/${product.id}"/>"><spring:message
 																		code="label.chitietsp" /><i class="ti-shopping-cart"></i>
 																</a> <a class="animate-right wishlist-style-2"
-																	title="wishlist" href="<c:url value="yeu-thich"/>">
+																	title="wishlist" href="<c:url value="/yeu-thich/${product.id}"/>">
 																	<i class="ti-heart"></i>
 																</a>
 															</div>
@@ -164,8 +164,9 @@
 																	href="<c:url value="chi-tiet-san-pham/${product.id}"/>"><spring:message
 																		code="label.chitietsp" /><i class="ti-shopping-cart"></i>
 																</a> <a class="animate-right wishlist-style-2"
-																	title="wishlist" href="<c:url value="yeu-thich"/>">
-																	<i class="ti-heart"></i>
+																	title="wishlist"
+																	href="<c:url value="/yeu-thich/${product.id}"/>"> <i
+																	class="ti-heart"></i>
 																</a>
 															</div>
 														</div>

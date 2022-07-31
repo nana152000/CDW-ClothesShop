@@ -41,12 +41,4 @@ public class HomeController {
 		ModelAndView mav = new ModelAndView("user/contact/contact");
 		return mav;
 	}
-
-	
-	@RequestMapping(value = "/yeu-thich", method = RequestMethod.GET)
-	public ModelAndView wishlistPage() {
-		ModelAndView mav = new ModelAndView("user/wishlist/wishlist");
-		return mav;
-	}
-
 }
