@@ -11,7 +11,7 @@
 	<div class="slider-area">
 		<div class="slider-active owl-carousel">
 			<div class="single-slider single-slider-book1 bg-img"
-				style="background-image: url(<c:url value="/assets/user/img/slider/slide1.jpg"></c:url>)">
+				style="background-image: url(<c:url value="/assets/user/img/slider/slide4.jpg"></c:url>)">
 				<div class="container">
 					<div class="slider-animation slider-content-book fadeinup-animated">
 						<h1 class="animated">
@@ -29,7 +29,7 @@
 				</div>
 			</div>
 			<div class="single-slider single-slider-book1 bg-img"
-				style="background-image: url(<c:url value="/assets/user/img/slider/slide2.jpg"></c:url>)">
+				style="background-image: url(<c:url value="/assets/user/img/slider/slide5.jpg"></c:url>)">
 				<div class="container">
 					<div class="slider-animation slider-content-book fadeinup-animated">
 						<h1 class="animated">

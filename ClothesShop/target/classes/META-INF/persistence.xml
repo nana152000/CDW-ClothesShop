@@ -10,6 +10,7 @@
 		<class>clothesShop.entity.Order</class>
 		<class>clothesShop.entity.OrderDetail</class>
 		<class>clothesShop.entity.User</class>
+		<class>clothesShop.entity.FavorateProduct</class>
 	</persistence-unit>
 </persistence>
 

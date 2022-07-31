@@ -7,7 +7,7 @@
 				<div class="col-lg-12 col-md-12">
 					<div class="copyright-2" style="padding-left: 500px">
 						<p>
-							Copyright © <a href="#">Na-Giang</a> 2022
+							Project Chuyên đề web © <a href="#">Na-Giang</a> 2022
 						</p>
 					</div>
 				</div>
